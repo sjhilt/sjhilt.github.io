@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>~/scholar-box</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Fira Code', monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #60a5fa;
+    }
+
+    p {
+      margin: 4px 0 16px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .stats {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .stats li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #334155;
+    }
+
+    .stats li:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      color: #cbd5e1;
+    }
+
+    .value {
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .footer-link {
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .footer-link a {
+      color: #22c55e;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="scholarBox">Loading scholar stats...</div>
+
+  <script>
+    fetch("scholar-stats.json")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("scholarBox").innerHTML = `
+          <h2>${data.name}</h2>
+          <p>${data.affiliation}</p>
+          <ul class="stats">
+            <li><span class="label">Total Citations:</span><span class="value">${data.citations_all}</span></li>
+            <li><span class="label">Recent Citations:</span><span class="value">${data.citations_recent}</span></li>
+            <li><span class="label">Research Impact Score:</span><span class="value">${data.h_index_all}</span></li>
+            <li><span class="label">Impact Score (recent):</span><span class="value">${data.h_index_recent}</span></li>
+          </ul>
+          <div class="footer-link">
+            <a href="https://scholar.google.com/citations?user=W0iV6qYAAAAJ" target="_blank">
+              View Google Scholar Page
+            </a>
+          </div>
+        `;
+      })
+      .catch(err => {
+        document.getElementById("scholarBox").innerHTML = "<p style='color:red;'>Failed to load scholar stats.</p>";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

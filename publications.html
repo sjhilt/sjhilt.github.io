@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>~/publications - Stephen J. Hilt</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Fira Code', monospace;
+    }
+    a {
+      color: #60a5fa;
+    }
+    a:hover {
+      color: #3b82f6;
+      text-decoration: underline;
+    }
+    .terminal {
+      background: #1e293b;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <header class="text-center py-10 border-b border-slate-700">
+    <h1 class="text-3xl font-bold text-sky-400">~/publications</h1>
+    <p class="text-sm text-slate-400">Stephen J. Hilt - Threat Researcher</p>
+  </header>
+  <div class="mt-8 text-center">
+    <a href="index.html" class="inline-block bg-slate-700 hover:bg-slate-600 text-white font-mono px-4 py-2 rounded transition">
+      ← Back to ~/home
+    </a>
+  </div>
+  <main class="container mx-auto px-4 py-10 flex-grow space-y-10">
+    <section class="terminal">
+      <h2 class="text-xl font-semibold text-sky-300 mb-4">Google Scholar</h2>
+      <iframe src="/scholar-box.html" width="100%" height="400" class="rounded border border-slate-700 w-full" style="background:#0f172a;" frameborder="0"></iframe>
+    </section>
+
+    <section class="terminal overflow-x-auto">
+      <h2 class="text-xl font-semibold text-sky-300 mb-4">Publications</h2>
+      <table class="min-w-full">
+        <thead>
+          <tr class="text-left text-sky-400 border-b border-slate-600">
+            <th class="pb-2 pr-4">Date</th>
+            <th class="pb-2 pr-4">Title</th>
+            <th class="pb-2 pr-4">Type</th>
+            <th class="pb-2">Link</th>
+          </tr>
+        </thead>
+        <tbody id="pub-table-body" class="text-slate-200">
+          <!-- Populated by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-slate-500 py-6 border-t border-slate-700">
+    &copy; 2025 Stephen J. Hilt — <a href="index.html" class="hover:underline">~/home</a>
+  </footer>
+
+  <script>
+    fetch('publications.json')
+      .then(response => response.json())
+      .then(data => {
+        const tbody = document.getElementById('pub-table-body');
+        data.publications.forEach(pub => {
+          const row = document.createElement('tr');
+          row.className = 'border-b border-slate-700 hover:bg-slate-800';
+          row.innerHTML = `
+            <td class="py-2 pr-4">${pub.date}</td>
+            <td class="py-2 pr-4">${pub.title}</td>
+            <td class="py-2 pr-4">${pub.type}</td>
+            <td class="py-2"><a href="${pub.link}" target="_blank">${pub.display}</a></td>
+          `;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        document.getElementById('pub-table-body').innerHTML = 
+          '<tr><td colspan="4" class="text-red-400 py-2">Failed to load publications.</td></tr>';
+        console.error('Error loading JSON:', error);
+      });
+  </script>
+</body>
+</html>
