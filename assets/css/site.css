@@ -1,0 +1,219 @@
+:root {
+  --bg:#0f1115; --panel:#13161c; --text:#e7e9ee;
+  --muted:#a0a6b3; --accent:#79ffe1; --ring: rgba(121,255,225,.25);
+}
+* { box-sizing: border-box }
+html,body { height:100% }
+body {
+  margin:0; font:16px/1.6 Inter, ui-sans-serif, system-ui;
+  color:var(--text); background:var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+.container { width:min(1100px, 92vw); margin-inline:auto; }
+.section { padding: clamp(2rem, 4vw, 3.5rem) 0; }
+
+/* Header nav */
+.site-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 0; position:sticky; top:0;
+  backdrop-filter:saturate(120%) blur(6px);
+  background:linear-gradient(180deg, rgba(15,17,21,.8), rgba(15,17,21,.2) 60%, transparent);
+  z-index:10;
+}
+.brand { font-weight:800; color:var(--text); text-decoration:none; }
+.nav a {
+  color:var(--muted); text-decoration:none; margin-left:1rem;
+  padding:.35rem .6rem; border-radius:999px; transition:200ms ease;
+}
+.nav a:hover { color:var(--text); background:rgba(255,255,255,.04) }
+.nav a.active { background:rgba(121,255,225,.08); box-shadow:0 0 0 2px var(--ring) inset; color:var(--text); }
+
+/* Hero banner */
+.hero-banner {
+  position:relative; height: clamp(260px, 40vw, 520px);
+  display:grid; align-items:end; overflow:hidden;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.hero-banner__img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; filter: grayscale(.35) contrast(1.05) brightness(.85);
+  opacity:0; transform: scale(1.02);
+  transition: opacity .5s ease, transform 1.2s ease;
+}
+.hero-banner__img.is-ready { opacity:1; transform:none; }
+.hero-banner__overlay {
+  position:absolute; inset:0; pointer-events:none; z-index:1;
+  background:
+    radial-gradient(1200px 520px at 85% -10%, rgba(121,255,225,.10), transparent 60%),
+    linear-gradient(180deg, rgba(15,17,21,.35) 0%, rgba(15,17,21,.55) 55%, rgba(15,17,21,.75) 100%);
+}
+.hero-banner__content { position:relative; z-index:2; padding-bottom: clamp(1rem, 4vw, 2rem); }
+.hero-banner__content h1 { margin:0 0 .35rem; font-size: clamp(1.4rem, 3vw, 2rem); }
+.lede { color:var(--muted); margin:0; }
+
+/* Cards */
+.cards {
+  list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1rem;
+}
+.card {
+  background:var(--panel); border:1px solid rgba(255,255,255,.05);
+  border-radius:16px; overflow:hidden;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.card a { color:inherit; text-decoration:none; display:block; padding:1rem; }
+.card h3 { margin:.25rem 0 .35rem; font-size:1.05rem }
+.card p { margin:0; color:var(--muted) }
+.card:hover { transform: translateY(-2px); border-color: rgba(121,255,225,.35) }
+.card-cover {
+  height:120px; margin:-1rem -1rem 0;
+  background-size:cover; background-position:center;
+  filter: grayscale(.3) contrast(1.05) brightness(.7); opacity:.55;
+}
+
+/* Filmstrip */
+.filmstrip {
+  display:flex; gap:.5rem; overflow:auto;
+  scrollbar-width:none; -ms-overflow-style:none; margin-top:1rem;
+}
+.filmstrip::-webkit-scrollbar { display:none }
+.filmstrip img {
+  height:72px; width:auto; border-radius:10px;
+  filter:grayscale(.2); opacity:.9;
+}
+
+/* Footer */
+.site-footer { padding:2rem 0 3rem; color:var(--muted) }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 9999;
+}
+
+.lightbox.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
+}
+.lightbox-close:hover { color: #ddd; }
+
+/* Publications styling */
+.terminal-like{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pub-table{ width:100%; border-collapse: collapse; }
+.pub-table thead th{
+  text-align:left;
+  font-weight:600;
+  padding:.75rem .9rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  color: var(--muted);
+}
+.pub-table tbody td{
+  padding:.6rem .9rem;
+}
+.pub-table tbody tr{
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.pub-table tbody tr:hover{
+  background: rgba(255,255,255,.03);
+}
+.muted{ color: var(--muted); }
+.error{ color:#fda4af; }
+.pub-section > h2{
+  font-size:.95rem;
+  color:var(--muted);
+  text-transform:lowercase;
+  letter-spacing:.6px;
+  margin:.25rem 0 1rem;
+}
+.scholar-frame {
+  display:block;
+  background: var(--bg);
+}
+
+/* Scholar box (iframe content) */
+.scholar-body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 Inter, ui-sans-serif, system-ui;
+  padding: 16px;
+}
+
+.scholar-card { 
+  /* .terminal-like already gives the framed look */
+  padding: 1rem 1rem 0.85rem;
+}
+
+.scholar-head { margin-bottom: .6rem; }
+.scholar-title { font-weight: 700; font-size: 1.05rem; }
+.scholar-sub { font-size: .92rem; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: .5rem .75rem;
+  margin: .25rem 0 .75rem;
+}
+
+.stat-grid dt {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 0;
+}
+
+.stat-grid dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.scholar-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: .6rem;
+  padding-top: .6rem;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: .35rem .6rem;
+  border-radius: 10px;
+  font-size: .92rem;
+}
+.btn-link:hover { border-color: rgba(121,255,225,.35); }
+
+/* tiny utility so we can remove default margins in iframe */
+.m-0 { margin: 0; }

@@ -1,128 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Stephen J. Hilt | Threat Researcher & Cybersecurity Expert</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Stephen J. Hilt is a Senior Threat Researcher specializing in ICS security, reverse engineering, and cybercrime intelligence. Speaker, author, and researcher.">
-  <meta name="keywords" content="Stephen J. Hilt, Threat Researcher, ICS Security, Cybersecurity, Reverse Engineering, Trend Micro, Cybercrime, Honeynets, DEF CON, S4x, Black Hat">
-  <meta name="author" content="Stephen J. Hilt">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Stephen J. Hilt | ICS Threat Researcher">
-  <meta property="og:description" content="Explore the work and insights of Stephen J. Hilt, a Senior Threat Researcher focused on ICS, reverse engineering, and cybercrime.">
-  <meta property="og:image" content="https://stephenhilt.com/images/avatar.jpg">
-  <meta property="og:url" content="https://stephenhilt.com">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Stephen J. Hilt | ICS Threat Researcher">
-  <meta name="twitter:description" content="Senior Threat Researcher at Trend Micro. ICS Security, Reverse Engineering, Cybercrime Intelligence.">
-  <meta name="twitter:image" content="https://stephenhilt.com/images/avatar.jpg">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Stephen J. Hilt",
-    "jobTitle": "Senior Threat Researcher",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Trend Micro"
-    },
-    "sameAs": [
-      "https://twitter.com/sjhilt",
-      "https://www.linkedin.com/in/stephen-hilt-889aa31b",
-      "https://github.com/sjhilt"
-    ],
-    "url": "https://stephenhilt.com"
-  }
-  </script>
-
-  <!-- Styles -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #0f172a;
-      color: #e2e8f0;
-      font-family: 'Fira Code', monospace;
-    }
-    a {
-      color: #60a5fa;
-    }
-    a:hover {
-      color: #3b82f6;
-      text-decoration: underline;
-    }
-    .terminal {
-      background: #1e293b;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-    }
-  </style>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1QL061J0PY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1QL061J0PY');
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stephen J. Hilt — Research</title>
+  <meta name="description" content="Senior Threat Researcher. ICS security, reverse engineering, and cybercrime intelligence." />
+  <link rel="preload" href="assets/css/site.css" as="style" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#111317" />
 </head>
-
-<body class="min-h-screen flex flex-col">
-
-  <header class="text-center py-10 border-b border-slate-700">
-    <img src="https://stephenhilt.com/images/avatar.jpg" loading="lazy" alt="Stephen Hilt" class="w-32 h-32 rounded-full mx-auto border-4 border-slate-600 shadow-lg mb-4">
-    <h1 class="text-3xl font-bold text-sky-400">Stephen J. Hilt</h1>
-    <p class="text-slate-400 mt-2">Senior Threat Researcher @ Trend Micro</p>
-    <p class="text-sm text-slate-500">ICS Security • Reverse Engineering • Cybercrime Intelligence</p>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="index.html">Stephen J. Hilt</a>
+    <nav class="nav">
+      <a href="#about">about</a>
+      <a href="#featured">featured</a>
+      <a href="publications.html">publications</a>
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
+    </nav>
   </header>
 
-  <main class="container mx-auto px-6 py-10 space-y-12 flex-grow">
+  <!-- Stylish hero banner -->
+  <header class="hero-banner" aria-label="site header image">
+    <img class="hero-banner__img" alt="" decoding="async" fetchpriority="high" />
+    <div class="hero-banner__overlay"></div>
+    <div class="container hero-banner__content">
+      <h1>Senior Threat Researcher @ Trend Micro</h1>
+      <p class="lede">ICS security • reverse engineering • cybercrime intelligence</p>
+    </div>
+  </header>
 
-    <section class="terminal">
-      <h2 class="text-xl font-semibold mb-4 text-sky-300">~/about</h2>
+  <main>
+    <section id="about" class="container section">
+      <h2>~/about</h2>
       <p>
-        <strong>Stephen J. Hilt</strong> is a cybersecurity expert and <strong>Senior Threat Researcher</strong> at Trend Micro, focusing on <strong>Industrial Control Systems (ICS)</strong> security and <strong>emerging cyber threats</strong>.
-        He is a co-author of <i>Hacking Exposed: Industrial Control Systems</i> and a frequent speaker at security conferences including DEF CON, S4x, Black Hat, and CS3STHLM.
-        Passionate about <strong>honeynets</strong>, <strong>radio protocol analysis</strong>, and malware tracking, he works to uncover and disrupt dangerous actors in the wild.
+        Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen’s work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats. His research has been presented at leading security conferences and published in widely respected industry reports, reflecting his commitment to advancing the security of interconnected systems worldwide.
       </p>
+
+      <!-- Filmstrip -->
+      <div class="filmstrip" data-photo-strip></div>
     </section>
 
-    <section class="terminal">
-      <h2 class="text-xl font-semibold mb-4 text-sky-300">~/featured_work</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li><a href="https://www.trendmicro.com/en_us/research/25/d/russian-infrastructure-north-korean-cybercrime.html">Void Dokkaebi: North Korean Ops & Russian Infrastructure</a></li>
-        <li><a href="https://www.trendmicro.com/en_us/research/24/l/earth-koshchei.html">Earth Koshchei: Red Team Tools in Real World Attacks</a></li>
-        <li><a href="https://documents.trendmicro.com/assets/white_papers/wp-bridging-divides-transcending-borders.pdf">Bridging Divides: English-Speaking Underground Report</a></li>
+    <section id="featured" class="container section">
+      <h2>~/featured_work</h2>
+      <ul class="cards">
+        <li class="card">
+          <a href="https://www.trendmicro.com/en_us/research/25/h/void-dokkaebi-north-korean-ops-russian-infrastructure.html" target="_blank" rel="noopener">
+            <div class="card-cover" data-photo-slot="card-1" aria-hidden="true"></div>
+            <h3>Void Dokkaebi: North Korean Ops & Russian Infrastructure</h3>
+            <p>Campaign analysis & infrastructure overlap</p>
+          </a>
+        </li>
+        <li class="card">
+          <a href="https://www.trendmicro.com/en_us/research/25/l/earth-koshchei-red-team-tools-in-real-world-attacks.html" target="_blank" rel="noopener">
+            <div class="card-cover" data-photo-slot="card-2" aria-hidden="true"></div>
+            <h3>Earth Koshchei: Red Team Tools in Real World Attacks</h3>
+            <p>Off-the-shelf tools, real-world impact</p>
+          </a>
+        </li>
+        <li class="card">
+          <a href="https://documents.trendmicro.com/resources/white-papers/bridging-divides-english-speaking-underground.pdf" target="_blank" rel="noopener">
+            <div class="card-cover" data-photo-slot="card-3" aria-hidden="true"></div>
+            <h3>Bridging Divides: English-Speaking Underground</h3>
+            <p>Market dynamics & monetization</p>
+          </a>
+        </li>
       </ul>
     </section>
-
-    <section class="terminal">
-      <h2 class="text-xl font-semibold mb-4 text-sky-300">~/resources</h2>
-      <div class="space-x-4">
-        <a href="publications.html" class="bg-sky-700 hover:bg-sky-600 text-white px-4 py-2 rounded">📚 Publications</a>
-        <a href="resume.html" class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded">📄 Resume</a>
-        <a href="https://github.com/sjhilt" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded">🐙 GitHub</a>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="text-center text-xs text-slate-500 py-6 border-t border-slate-700">
-    &copy; 2025 Stephen J. Hilt — Connect on
-    <a href="https://twitter.com/sjhilt">Twitter</a> /
-    <a href="https://www.linkedin.com/in/stephen-hilt-889aa31b">LinkedIn</a>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Stephen J. Hilt — 
+      <a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">Twitter</a> / 
+      <a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener">LinkedIn</a>
+    </small>
   </footer>
 
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/photos.js" defer></script>
 </body>
 </html>

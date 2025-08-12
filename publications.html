@@ -1,100 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>~/publications - Stephen J. Hilt</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #0f172a;
-      color: #e2e8f0;
-      font-family: 'Fira Code', monospace;
-    }
-    a {
-      color: #60a5fa;
-    }
-    a:hover {
-      color: #3b82f6;
-      text-decoration: underline;
-    }
-    .terminal {
-      background: #1e293b;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-    }
-  </style>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1QL061J0PY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1QL061J0PY');
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>~/publications — Stephen J. Hilt</title>
+  <meta name="description" content="Papers, reports, and talks by Stephen J. Hilt." />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#111317" />
 </head>
-<body class="min-h-screen flex flex-col">
-
-  <header class="text-center py-10 border-b border-slate-700">
-    <h1 class="text-3xl font-bold text-sky-400">~/publications</h1>
-    <p class="text-sm text-slate-400">Stephen J. Hilt - Threat Researcher</p>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="index.html">Stephen J. Hilt</a>
+    <nav class="nav">
+      <a href="index.html#about">about</a>
+      <a href="index.html#featured">featured</a>
+      <a class="active" href="publications.html">publications</a>
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
+    </nav>
   </header>
-  <div class="mt-8 text-center">
-    <a href="index.html" class="inline-block bg-slate-700 hover:bg-slate-600 text-white font-mono px-4 py-2 rounded transition">
-      ← Back to ~/home
-    </a>
-  </div>
-  <main class="container mx-auto px-4 py-10 flex-grow space-y-10">
-    <section class="terminal">
-      <h2 class="text-xl font-semibold text-sky-300 mb-4">Google Scholar</h2>
-      <iframe src="/scholar-box.html" width="100%" height="400" class="rounded border border-slate-700 w-full" style="background:#0f172a;" frameborder="0"></iframe>
+
+  <header class="hero-banner" aria-label="publications header image">
+    <img class="hero-banner__img" alt="" decoding="async" />
+    <div class="hero-banner__overlay"></div>
+    <div class="container hero-banner__content">
+      <h1>~/publications</h1>
+      <p class="lede">Selected papers, reports, and talks.</p>
+    </div>
+  </header>
+
+  <main class="container section">
+    <!-- Scholar card -->
+    <section class="pub-section">
+      <h2>google scholar</h2>
+      <div class="terminal-like">
+        <iframe src="scholar-box.html" width="100%" height="400" class="scholar-frame" frameborder="0"></iframe>
+      </div>
     </section>
 
-    <section class="terminal overflow-x-auto">
-      <h2 class="text-xl font-semibold text-sky-300 mb-4">Publications</h2>
-      <table class="min-w-full">
-        <thead>
-          <tr class="text-left text-sky-400 border-b border-slate-600">
-            <th class="pb-2 pr-4">Date</th>
-            <th class="pb-2 pr-4">Title</th>
-            <th class="pb-2 pr-4">Type</th>
-            <th class="pb-2">Link</th>
-          </tr>
-        </thead>
-        <tbody id="pub-table-body" class="text-slate-200">
-          <!-- Populated by JavaScript -->
-        </tbody>
-      </table>
+    <!-- Publications table -->
+    <section class="pub-section">
+      <h2>list</h2>
+      <div class="terminal-like">
+        <table class="pub-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="pub-table-body">
+            <tr><td colspan="4" class="muted">Loading publications…</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
-  <footer class="text-center text-xs text-slate-500 py-6 border-t border-slate-700">
-    &copy; 2025 Stephen J. Hilt — <a href="index.html" class="hover:underline">~/home</a>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Stephen J. Hilt</small>
   </footer>
 
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/photos.js" defer></script>
+
   <script>
-    fetch('publications.json')
-      .then(response => response.json())
-      .then(data => {
-        const tbody = document.getElementById('pub-table-body');
-        data.publications.forEach(pub => {
-          const row = document.createElement('tr');
-          row.className = 'border-b border-slate-700 hover:bg-slate-800';
-          row.innerHTML = `
-            <td class="py-2 pr-4">${pub.date}</td>
-            <td class="py-2 pr-4">${pub.title}</td>
-            <td class="py-2 pr-4">${pub.type}</td>
-            <td class="py-2"><a href="${pub.link}" target="_blank">${pub.display}</a></td>
-          `;
-          tbody.appendChild(row);
-        });
-      })
-      .catch(error => {
-        document.getElementById('pub-table-body').innerHTML = 
-          '<tr><td colspan="4" class="text-red-400 py-2">Failed to load publications.</td></tr>';
-        console.error('Error loading JSON:', error);
-      });
+  (function(){
+    const tbody = document.getElementById('pub-table-body');
+
+    function renderRows(items){
+      if (!Array.isArray(items) || !items.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="muted">No publications found.</td></tr>';
+        return;
+      }
+      items.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+      tbody.innerHTML = items.map(pub => `
+        <tr>
+          <td>${pub.date ?? ''}</td>
+          <td>${pub.title ? (pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${pub.title}</a>` : pub.title) : ''}</td>
+          <td>${pub.type ?? ''}</td>
+          <td>${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${pub.display || 'Link'}</a>` : ''}</td>
+        </tr>
+      `).join('');
+    }
+
+    async function load() {
+      const candidates = ['publications.json', 'data/publications.json'];
+      let data=null, lastErr=null;
+      for (const path of candidates) {
+        try {
+          const res = await fetch(path, { cache:'no-cache' });
+          if (!res.ok) { lastErr = res.status + ' ' + res.statusText; continue; }
+          const json = await res.json();
+          data = Array.isArray(json) ? json : (json && json.publications);
+          if (Array.isArray(data)) break;
+          lastErr = 'unexpected JSON shape';
+        } catch (e) { lastErr = e.message; }
+      }
+      if (!data) {
+        tbody.innerHTML = `<tr><td colspan="4" class="error">Failed to load publications (${lastErr || 'no data'}).</td></tr>`;
+        return;
+      }
+      renderRows(data);
+    }
+
+    document.addEventListener('DOMContentLoaded', load);
+  })();
   </script>
 </body>
 </html>
