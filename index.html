@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stephen J. Hilt — Research</title>
-  <meta name="description" content="Senior Threat Researcher. ICS security, reverse engineering, and cybercrime intelligence." />
+  <title>~/resume — Stephen J. Hilt</title>
+  <meta name="description" content="Résumé of Stephen J. Hilt — Senior Threat Researcher focused on ICS security, reverse engineering, and cybercrime intelligence." />
   <link rel="preload" href="assets/css/site.css" as="style" />
   <link rel="stylesheet" href="assets/css/site.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,60 +15,148 @@
   <header class="site-header container">
     <a class="brand" href="index.html">Stephen J. Hilt</a>
     <nav class="nav">
-      <a href="#about">about</a>
-      <a href="#featured">featured</a>
+      <a href="index.html#about">about</a>
+      <a href="index.html#featured">featured</a>
       <a href="publications.html">publications</a>
+      <a href="resume.html" aria-current="page">résumé</a>
       <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
     </nav>
   </header>
 
-  <!-- Stylish hero banner -->
-  <header class="hero-banner" aria-label="site header image">
-    <img class="hero-banner__img" alt="" decoding="async" fetchpriority="high" />
-    <div class="hero-banner__overlay"></div>
-    <div class="container hero-banner__content">
-      <h1>Senior Threat Researcher @ Trend Micro</h1>
-      <p class="lede">ICS security • reverse engineering • cybercrime intelligence</p>
-    </div>
-  </header>
+  <main class="container section resume">
+    <h1>~/resume</h1>
 
-  <main>
-    <section id="about" class="container section">
-      <h2>~/about</h2>
-      <p>
-        Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen’s work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats. His research has been presented at leading security conferences and published in widely respected industry reports, reflecting his commitment to advancing the security of interconnected systems worldwide.
+    <!-- Header card -->
+    <section class="resume-hero card">
+      <div class="hero-top">
+        <div>
+          <h2 class="name">Stephen Joseph Hilt II</h2>
+          <p class="role">Senior Threat Researcher</p>
+          <p class="tag">ICS Security · Reverse Engineering · Cybercrime Intelligence</p>
+        </div>
+
+        <ul class="contact-chips">
+          <li><a href="mailto:stephen@stephenhilt.com">stephen@stephenhilt.com</a></li>
+          <li><a href="https://stephenhilt.com" target="_blank" rel="noopener">stephenhilt.com</a></li>
+          <li><a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener">linkedin.com/in/stephenhilt</a></li>
+          <li><a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">@sjhilt</a></li>
+        </ul>
+      </div>
+
+      <p class="summary">
+        Research lead securing industrial control systems and critical infrastructure. 10+ years
+        tracking cybercrime and state-aligned operations; published author and frequent speaker.
+        Comfortable from protocol fuzzing and RF analysis to campaign attribution and takedown support.
       </p>
-
-      <!-- Filmstrip -->
-      <div class="filmstrip" data-photo-strip></div>
     </section>
 
-    <section id="featured" class="container section">
-      <h2>~/featured_work</h2>
-      <ul class="cards">
-        <li class="card">
-          <a href="https://www.trendmicro.com/en_us/research/25/h/void-dokkaebi-north-korean-ops-russian-infrastructure.html" target="_blank" rel="noopener">
-            <div class="card-cover" data-photo-slot="card-1" aria-hidden="true"></div>
-            <h3>Void Dokkaebi: North Korean Ops & Russian Infrastructure</h3>
-            <p>Campaign analysis & infrastructure overlap</p>
-          </a>
-        </li>
-        <li class="card">
-          <a href="https://www.trendmicro.com/en_us/research/25/l/earth-koshchei-red-team-tools-in-real-world-attacks.html" target="_blank" rel="noopener">
-            <div class="card-cover" data-photo-slot="card-2" aria-hidden="true"></div>
-            <h3>Earth Koshchei: Red Team Tools in Real World Attacks</h3>
-            <p>Off-the-shelf tools, real-world impact</p>
-          </a>
-        </li>
-        <li class="card">
-          <a href="https://documents.trendmicro.com/resources/white-papers/bridging-divides-english-speaking-underground.pdf" target="_blank" rel="noopener">
-            <div class="card-cover" data-photo-slot="card-3" aria-hidden="true"></div>
-            <h3>Bridging Divides: English-Speaking Underground</h3>
-            <p>Market dynamics & monetization</p>
-          </a>
-        </li>
-      </ul>
-    </section>
+    <!-- Body grid -->
+    <div class="resume-body">
+      <!-- Left rail -->
+      <aside class="rail">
+        <div class="rail-card">
+          <h3 class="rail-title">skills</h3>
+          <ul class="pill-list">
+            <li>ICS/OT Security</li><li>Reverse Engineering</li><li>Protocol Fuzzing</li>
+            <li>Threat Intel</li><li>RF Analysis</li><li>Honeypots</li>
+            <li>Red Team</li><li>Nmap/Nessus</li>
+          </ul>
+        </div>
+
+        <div class="rail-card">
+          <h3 class="rail-title">certifications</h3>
+          <ul class="tight">
+            <li>CISSP</li><li>CEH</li><li>Certified Penetration Tester</li>
+            <li>CCNA · CCSP</li>
+            <li>Cisco IOS / InfoSec / Firewall / IPS Specialist</li>
+            <li>ITIL</li>
+          </ul>
+        </div>
+
+        <div class="rail-card">
+          <h3 class="rail-title">education</h3>
+          <ul class="tight">
+            <li><strong>B.A., Computer Science</strong>, SIU–Carbondale (2006)</li>
+            <li><strong>Associate in Arts</strong>, John A. Logan College (2003)</li>
+          </ul>
+        </div>
+
+        <div class="rail-card">
+          <h3 class="rail-title">publications</h3>
+          <p>See <a href="publications.html">~/publications</a> for the full list.</p>
+        </div>
+
+        <button class="btn-print" onclick="window.print()">Download PDF</button>
+      </aside>
+
+      <!-- Main column -->
+      <section class="content">
+        <h2 class="section-label">experience</h2>
+
+        <article class="xp">
+          <header class="xp-head">
+            <h3>Sr. Threat Researcher</h3>
+            <div class="meta"><span>Trend Micro</span><span>Apr 2015 — Present</span></div>
+          </header>
+          <ul class="clean-list">
+            <li>Lead research on cybercrime, state-aligned ops, and emerging threats.</li>
+            <li>Design, deploy, and monitor distributed honeypots.</li>
+            <li>RF technologies research for ICS/OT detections and investigations.</li>
+            <li>Author of reports; frequent conference speaker. See <a href="publications.html">publications</a>.</li>
+          </ul>
+        </article>
+
+        <article class="xp">
+          <header class="xp-head">
+            <h3>ICS Security Consultant</h3>
+            <div class="meta"><span>Digital Bond Inc.</span><span>Apr 2013 — Apr 2015</span></div>
+          </header>
+          <ul class="clean-list">
+            <li>Led control-system security assessments and red-team engagements.</li>
+            <li>Built ICS-focused Nmap scripts: ENIP-info, S7-info, BACnet-info.</li>
+            <li>Protocol fuzzing (Python/Ruby); S4x14 “PLCPwn”.</li>
+            <li>RF assessments (GNU Radio, KillerBee, RFCat); custom Nessus audits. Spoke at DerbyCon 4.0; S4x15 ICS CTF.</li>
+          </ul>
+        </article>
+
+        <article class="xp">
+          <header class="xp-head">
+            <h3>Senior Information Security Specialist</h3>
+            <div class="meta"><span>Tennessee Valley Authority</span><span>Mar 2009 — Apr 2013</span></div>
+          </header>
+          <ul class="clean-list">
+            <li>Implemented & maintained Tenable SecurityCenter across IT/OT.</li>
+            <li>Led control-systems assessments and penetration tests; regulatory testing (FISMA, NERC).</li>
+            <li>Presenter, ICS Joint Working Group (2010); scenario developer for DHS CyberStorm III & GridEx.</li>
+            <li>NERC CIP SME (CIP-005/007); held US Secret clearance.</li>
+          </ul>
+        </article>
+
+        <article class="xp">
+          <header class="xp-head">
+            <h3>Real-time Process Systems Specialist</h3>
+            <div class="meta"><span>TVA</span><span>Aug 2006 — Mar 2009</span></div>
+          </header>
+          <ul class="clean-list">
+            <li>Designed OSPF; managed control-system networks; SSL VPN; RSA SecurID.</li>
+            <li>Cisco PIX/ASA/WLC; routing & switching; CA Spectrum; Cisco ACS.</li>
+            <li>Nessus & IBM AppScan vulnerability testing (IT + OT).</li>
+            <li>National SCADA Test Bed — advanced Red Team training.</li>
+          </ul>
+        </article>
+
+        <article class="xp">
+          <header class="xp-head">
+            <h3>Systems Administrator</h3>
+            <div class="meta"><span>SIU–Carbondale (Curriculum & Instruction)</span><span>Aug 2004 — May 2006</span></div>
+          </header>
+          <ul class="clean-list">
+            <li>Administered SUSE/Red Hat, macOS Server (Panther/Tiger), and Windows Server 2003.</li>
+            <li>Managed Mac labs and departmental core services.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer container">
@@ -79,6 +167,5 @@
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/js/photos.js" defer></script>
 </body>
 </html>
