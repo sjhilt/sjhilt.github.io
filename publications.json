@@ -1,13 +1,6 @@
 {
   "publications": [
     {
-      "date": "2025-05-09",
-      "title": "BsidesKnoxville 2025",
-      "type": "From Guardian to Threat: The Double Life of Security Tools",
-      "link": "https://www.youtube.com/watch?v=rhsbO8upGpM",
-      "display": "BsidesKNX"
-    },
-    {
       "date": "2025-04-23",
       "title": "Russian Infrastructure Plays Crucial Role in North Korean Cybercrime Operations",
       "type": "Blog",
@@ -31,7 +24,7 @@
     {
       "date": "2024-12-06",
       "title": "AI Assistants in the Future: Security Concerns and Risk Management",
-      "type": "Blog/Paper",
+      "type": "Blog",
       "link": "https://www.trendmicro.com/vinfo/us/security/news/security-technology/looking-into-the-future-risks-and-security-considerations-to-ai-digital-assistants",
       "display": "AI DAs"
     },
@@ -94,7 +87,7 @@
     {
       "date": "2022-04-26",
       "title": "How Cybercriminals Abuse Cloud Tunneling Services",
-      "type": "Blog/Paper",
+      "type": "Blog",
       "link": "https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/how-cybercriminals-abuse-cloud-tunneling-services",
       "display": "Cloud Tunneling"
     },
@@ -350,124 +343,133 @@
       "link": "https://dale-peterson.com/2014/02/03/why-plcpwn-is-important-for-ics-cyber-weapons/",
       "display": "PlcPwn"
     },
+
+    /* ---------- Presentations normalized below ---------- */
+    {
+      "date": "2025-05-09",
+      "title": "BsidesKnoxville 2025",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=rhsbO8upGpM",
+      "display": "From Guardian to Threat: The Double Life of Security Tools"
+    },
     {
       "date": "2020-05",
       "title": "BSidesKnoxville",
-      "type": "How we\n                  reverse-engineered multiple industrial radio\n                  remote-control systems",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=xBXktWwvEyI",
-      "display": "https://www.youtube.com/watch?v=xBXktWwvEyI"
+      "display": "How we reverse-engineered multiple industrial radio remote-control systems"
     },
     {
       "date": "2020-01",
       "title": "S4x20",
-      "type": "Factory Honeynet: Highly Realistic and\n              Interactive",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=p84HJveHQdg",
-      "display": "https://www.youtube.com/watch?v=p84HJveHQdg"
+      "display": "Factory Honeynet: Highly Realistic and Interactive"
     },
     {
       "date": "2019-10",
       "title": "CS3STHLM",
-      "type": "How we reverse-engineered multiple\n              industrial radio",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=5l_cWD5ZR-M",
-      "display": "https://www.youtube.com/watch?v=5l_cWD5ZR-M"
+      "display": "How we reverse-engineered multiple industrial radio"
     },
     {
       "date": "2019-03",
       "title": "RSA",
-      "type": "Secure the Pod Bay Doors, HAL:\n              Cybersecurity Risks of IoT Automation",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?reload=9&v=6vFYLJstCq0",
-      "display": "https://www.youtube.com/watch?reload=9&v=6vFYLJstCq0"
+      "display": "Secure the Pod Bay Doors, HAL: Cybersecurity Risks of IoT Automation"
     },
     {
       "date": "2019-01",
       "title": "S4x19",
-      "type": "The Industrial Radio Project - Hacking\n              Cranes Using SDR",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=1wBdD-KZ4rI",
-      "display": "https://www.youtube.com/watch?v=1wBdD-KZ4rI"
+      "display": "The Industrial Radio Project - Hacking Cranes Using SDR"
     },
     {
       "date": "2019-01",
       "title": "S4x19",
-      "type": "ICS Honeypots - How To Use Them (Panel)",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=pxP_D1oVYkg",
-      "display": "https://www.youtube.com/watch?v=pxP_D1oVYkg"
+      "display": "ICS Honeypots - How To Use Them (Panel)"
     },
     {
       "date": "2019-11",
       "title": "SecureWorld",
-      "type": "SecureWorld: Behind the Scenes",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=tqKfau4ZLmk",
-      "display": "https://www.youtube.com/watch?v=tqKfau4ZLmk"
+      "display": "SecureWorld: Behind the Scenes"
     },
     {
       "date": "2018-08",
       "title": "DEFCON 26 (IOT VILLAGE)",
-      "type": "The Sound of a Targeted Attack",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?reload=9&v=zzgmWlCfCRU",
-      "display": "https://www.youtube.com/watch?reload=9&v=zzgmWlCfCRU"
+      "display": "The Sound of a Targeted Attack"
     },
     {
       "date": "2018-05",
       "title": "BSidesKnoxville",
-      "type": "The differences and niches in the different\n              major criminal undergrounds",
+      "type": "Presentation",
       "link": "https://youtu.be/hhniUz5xG24",
-      "display": "https://youtu.be/hhniUz5xG24?t=2564"
+      "display": "The differences and niches in the different major criminal undergrounds"
     },
     {
       "date": "2018-04",
       "title": "HITB2018AMS",
-      "type": "Attacking IoT Speakers",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=za6F0pfisek",
-      "display": "https://www.youtube.com/watch?v=za6F0pfisek"
+      "display": "Attacking IoT Speakers"
     },
     {
       "date": "2017-09",
       "title": "Derbycon 7.0",
-      "type": "Victim Machine has joined #general: Using\n              Third Party APIs as C&C Infrastructure.",
+      "type": "Presentation",
       "link": "https://www.irongeek.com/i.php?page=videos/derbycon7/t115-victim-machine-has-joined-general-using-third-party-apis-as-cc-infrastructure-stephen-hilt-lord-alfred-remorin",
-      "display": "https://www.irongeek.com/i.php?page=videos/derbycon7/t115-victim-machine-has-joined-general-using-third-party-apis-as-cc-infrastructure-stephen-hilt-lord-alfred-remorin"
+      "display": "Victim Machine has joined #general: Using Third Party APIs as C&C Infrastructure"
     },
     {
       "date": "2016-09",
       "title": "Derbycon 6.0",
-      "type": "The 90's called, they want their technology\n              back",
+      "type": "Presentation",
       "link": "http://www.irongeek.com/i.php?page=videos/derbycon6/316-the-90s-called-they-want-their-technology-back-stephen-hilt",
-      "display": "http://www.irongeek.com/i.php?page=videos/derbycon6/316-the-90s-called-they-want-their-technology-back-stephen-hilt"
+      "display": "The 90's called, they want their technology back"
     },
     {
       "date": "2015-10",
       "title": "4SICS (CS3STHLM)",
-      "type": "The little pump gauge that could",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=m3utW3cj5ls",
-      "display": "https://www.youtube.com/watch?v=m3utW3cj5ls"
+      "display": "The little pump gauge that could"
     },
     {
       "date": "2015-08",
       "title": "Black Hat 2015",
-      "type": "The Little Pump Gauge That Could: Attacks\n              Against Gas Pump Monitoring Systems",
+      "type": "Presentation",
       "link": "https://www.youtube.com/watch?v=gorNee0MaoU",
-      "display": "https://www.youtube.com/watch?v=gorNee0MaoU"
+      "display": "The Little Pump Gauge That Could: Attacks Against Gas Pump Monitoring Systems"
     },
     {
       "date": "2015-??",
       "title": "Hack3rCon 5",
-      "type": "I Am Nation State (And So Can You!)",
+      "type": "Presentation",
       "link": "http://www.irongeek.com/i.php?page=videos/hack3rcon5/h13-i-am-nation-state-and-so-can-you-tothehilt-synackpwn",
-      "display": "http://www.irongeek.com/i.php?page=videos/hack3rcon5/h13-i-am-nation-state-and-so-can-you-tothehilt-synackpwn"
+      "display": "I Am Nation State (And So Can You!)"
     },
     {
       "date": "2014-09",
       "title": "Derbycon 4.0",
-      "type": "Protocol Me Maybe?: How to Date SCADA",
+      "type": "Presentation",
       "link": "http://www.irongeek.com/i.php?page=videos/derbycon4/t124-protocol-me-maybe-how-to-date-scada-stephen-hilt",
-      "display": "http://www.irongeek.com/i.php?page=videos/derbycon4/t124-protocol-me-maybe-how-to-date-scada-stephen-hilt"
+      "display": "Protocol Me Maybe?: How to Date SCADA"
     },
     {
       "date": "2014-01",
       "title": "S4x14",
-      "type": "PLCPwn",
+      "type": "Presentation",
       "link": "",
-      "display": ""
+      "display": "PLCPwn"
     }
   ]
 }
