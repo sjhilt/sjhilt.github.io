@@ -1,6 +1,13 @@
 {
   "publications": [
     {
+      "date": "2025-05-09",
+      "title": "BsidesKnoxville 2025",
+      "type": "From Guardian to Threat: The Double Life of Security Tools",
+      "link": "https://www.youtube.com/watch?v=rhsbO8upGpM",
+      "display": "BsidesKNX"
+    },
+    {
       "date": "2025-04-23",
       "title": "Russian Infrastructure Plays Crucial Role in North Korean Cybercrime Operations",
       "type": "Blog",
