@@ -101,167 +101,176 @@
   <script src="assets/js/photos.js" defer></script>
 
   <script>
-  (function(){
-    const tbody = document.getElementById('pub-table-body');
+(function(){
+  const tbody = document.getElementById('pub-table-body');
 
-    // Only these 5 types are allowed
-    const TYPES = ['Blog','Paper','Presentation','Book','Code'];
+  // Allowed filter buckets
+  const TYPES = ['Blog','Paper','Presentation','Book','Code'];
 
-    // State
-    let allData = [];
-    let activeTypes = new Set(TYPES);
+  // State
+  let allData = [];
+  let activeTypes = new Set(TYPES);
 
-    // ------ Rendering ------
-    function renderRows(items){
-      if (!Array.isArray(items) || !items.length) {
-        tbody.innerHTML = '<tr><td colspan="4" class="muted">No publications found.</td></tr>';
-        return;
-      }
-      items.sort((a,b) => (b.date||'').localeCompare(a.date||''));
-      tbody.innerHTML = items.map(pub => `
-        <tr>
-          <td>${pub.date ?? ''}</td>
-          <td>${pub.title ? (pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.title)}</a>` : escapeHTML(pub.title)) : ''}</td>
-          <td>${pub.type ?? ''}</td>
-          <td>${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.display || 'Link')}</a>` : ''}</td>
-        </tr>
-      `).join('');
+  // ------ Rendering ------
+  function renderRows(items){
+    if (!Array.isArray(items) || !items.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="muted">No publications found.</td></tr>';
+      return;
     }
+    items.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+    tbody.innerHTML = items.map(pub => `
+      <tr>
+        <td>${pub.date ?? ''}</td>
+        <td>${pub.title ? (pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.title)}</a>` : escapeHTML(pub.title)) : ''}</td>
+        <td>${pub.type ?? ''}</td>
+        <td>${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.display || 'Link')}</a>` : ''}</td>
+      </tr>
+    `).join('');
+  }
 
-    function applyFilter(){
-      const filtered = allData.filter(p => activeTypes.has(p.type));
-      renderRows(filtered);
-      updateCounts();
-      updateQueryString();
-    }
+  function applyFilter(){
+    const filtered = allData.filter(p => activeTypes.has(p.bucket));
+    renderRows(filtered);
+    updateCounts();
+    syncQueryString();
+  }
 
-    // ------ Filters UI ------
-    const filtersGroup = document.getElementById('filters-group');
+  // ------ Filters UI ------
+  const filtersGroup = document.getElementById('filters-group');
 
-    function buildFilters(){
-      filtersGroup.innerHTML = TYPES.map(t => {
-        const id = `f-${t.toLowerCase()}`;
-        return `
-          <label class="filters__chip" for="${id}">
-            <input type="checkbox" id="${id}" value="${t}" checked />
-            <span>${t}</span>
-            <span class="filters__count" data-count-for="${t}">(0)</span>
-          </label>
-        `;
-      }).join('');
-      filtersGroup.addEventListener('change', onFilterChange);
-      document.getElementById('filters-select-all').addEventListener('click', selectAll);
-      document.getElementById('filters-clear').addEventListener('click', clearAll);
-    }
+  function buildFilters(){
+    filtersGroup.innerHTML = TYPES.map(t => {
+      const id = `f-${t.toLowerCase()}`;
+      return `
+        <label class="filters__chip" for="${id}">
+          <input type="checkbox" id="${id}" value="${t}" checked />
+          <span>${t}</span>
+          <span class="filters__count" data-count-for="${t}">(0)</span>
+        </label>
+      `;
+    }).join('');
+    filtersGroup.addEventListener('change', onFilterChange);
+    document.getElementById('filters-select-all').addEventListener('click', selectAll);
+    document.getElementById('filters-clear').addEventListener('click', clearAll);
+  }
 
-    function onFilterChange(e){
-      if (e.target && e.target.type === 'checkbox') {
-        const type = e.target.value;
-        if (e.target.checked) activeTypes.add(type);
-        else activeTypes.delete(type);
-        // If nothing selected, keep table empty (explicit signal)
-        applyFilter();
-      }
-    }
-
-    function selectAll(){
-      activeTypes = new Set(TYPES);
-      setCheckboxesFromState();
+  function onFilterChange(e){
+    if (e.target && e.target.type === 'checkbox') {
+      const type = e.target.value;
+      e.target.checked ? activeTypes.add(type) : activeTypes.delete(type);
       applyFilter();
     }
+  }
 
-    function clearAll(){
-      activeTypes.clear();
-      setCheckboxesFromState();
-      applyFilter();
+  function selectAll(){
+    activeTypes = new Set(TYPES);
+    setCheckboxesFromState();
+    applyFilter();
+  }
+
+  function clearAll(){
+    activeTypes.clear();
+    setCheckboxesFromState();
+    applyFilter();
+  }
+
+  function setCheckboxesFromState(){
+    TYPES.forEach(t => {
+      const cb = document.querySelector(`input[value="${t}"]`);
+      if (cb) cb.checked = activeTypes.has(t);
+    });
+  }
+
+  function updateCounts(){
+    const counts = TYPES.reduce((acc,t)=> (acc[t]=0, acc), {});
+    allData.forEach(p => { if (counts[p.bucket] !== undefined) counts[p.bucket]++; });
+    TYPES.forEach(t => {
+      const el = document.querySelector(`[data-count-for="${t}"]`);
+      if (el) el.textContent = `(${counts[t]})`;
+    });
+  }
+
+  // ------ URL sync ------
+  function syncQueryString(){
+    const params = new URLSearchParams(location.search);
+    const list = Array.from(activeTypes);
+    if (list.length === TYPES.length) params.delete('types');
+    else params.set('types', list.join(','));
+    const newUrl = `${location.pathname}?${params.toString()}${location.hash}`;
+    history.replaceState(null, '', newUrl);
+  }
+
+  function hydrateFromQueryString(){
+    const params = new URLSearchParams(location.search);
+    const q = params.get('types');
+    if (!q) return; // default: all selected
+    const wanted = new Set(q.split(',').map(s => s.trim()).filter(Boolean));
+    activeTypes = new Set(TYPES.filter(t => wanted.has(t)));
+    // If the URL asked for none/invalid, fall back to all
+    if (activeTypes.size === 0) activeTypes = new Set(TYPES);
+  }
+
+  // ------ Data loading ------
+  async function load() {
+    const candidates = ['publications.json', 'data/publications.json'];
+    let data=null, lastErr=null;
+    for (const path of candidates) {
+      try {
+        const res = await fetch(path, { cache:'no-cache' });
+        if (!res.ok) { lastErr = res.status + ' ' + res.statusText; continue; }
+        const json = await res.json();
+        data = Array.isArray(json) ? json : (json && json.publications);
+        if (Array.isArray(data)) break;
+        lastErr = 'unexpected JSON shape';
+      } catch (e) { lastErr = e.message; }
+    }
+    if (!data) {
+      tbody.innerHTML = `<tr><td colspan="4" class="error">Failed to load publications (${lastErr || 'no data'}).</td></tr>`;
+      return;
     }
 
-    function setCheckboxesFromState(){
-      TYPES.forEach(t => {
-        const cb = document.querySelector(`input[value="${t}"]`);
-        if (cb) cb.checked = activeTypes.has(t);
-      });
-    }
+    // Build canonical bucket per item (don’t overwrite original type)
+    allData = data.map(p => ({ ...p, bucket: detectBucket(p) }))
+                  .filter(p => TYPES.includes(p.bucket)); // only our 5 filterable buckets
 
-    function updateCounts(){
-      const counts = TYPES.reduce((acc,t)=> (acc[t]=0, acc), {});
-      allData.forEach(p => { if (counts[p.type] !== undefined) counts[p.type]++; });
-      TYPES.forEach(t => {
-        const el = document.querySelector(`[data-count-for="${t}"]`);
-        if (el) el.textContent = `(${counts[t]})`;
-      });
-    }
+    hydrateFromQueryString();
+    setCheckboxesFromState();
+    updateCounts();
+    applyFilter();
+  }
 
-    // ------ URL sync ------
-    function updateQueryString(){
-      const params = new URLSearchParams(location.search);
-      const list = Array.from(activeTypes);
-      if (list.length === TYPES.length) {
-        params.delete('types');
-      } else {
-        params.set('types', list.join(','));
-      }
-      const newUrl = `${location.pathname}?${params.toString()}${location.hash}`;
-      history.replaceState(null, '', newUrl);
-    }
+  // ------ Type detection & helpers ------
+  function detectBucket(p){
+    const t = (p.type || '').toString().toLowerCase();
+    if (t.includes('blog')) return 'Blog';
+    if (t.includes('paper') || t.includes('report') || t.includes('white')) return 'Paper';
+    if (t.includes('book')) return 'Book';
+    if (t.includes('code')) return 'Code';
+    if (t.includes('present')) return 'Presentation';
 
-    function hydrateFromQueryString(){
-      const params = new URLSearchParams(location.search);
-      const q = params.get('types');
-      if (!q) return; // default: all selected
-      const wanted = new Set(q.split(',').map(s => s.trim()).filter(Boolean));
-      // keep only valid TYPES
-      activeTypes = new Set(TYPES.filter(t => wanted.has(t)));
-    }
+    // Heuristics for legacy presentation rows where "type" held the talk title
+    const link = (p.link || '').toLowerCase();
+    const title = (p.title || '').toLowerCase();
+    const looksLikeVideo = /(youtube\.com|youtu\.be|vimeo\.com|irongeek\.com)/.test(link);
+    const looksLikeConf  = /(s4x|bsides|defcon|derbycon|rsa|secureworld|hitb|cs3sthlm|black\s*hat|4sics|hack3rcon)/.test(title);
+    if (looksLikeVideo || looksLikeConf) return 'Presentation';
 
-    // ------ Data loading ------
-    async function load() {
-      const candidates = ['publications.json', 'data/publications.json'];
-      let data=null, lastErr=null;
-      for (const path of candidates) {
-        try {
-          const res = await fetch(path, { cache:'no-cache' });
-          if (!res.ok) { lastErr = res.status + ' ' + res.statusText; continue; }
-          const json = await res.json();
-          data = Array.isArray(json) ? json : (json && json.publications);
-          if (Array.isArray(data)) break;
-          lastErr = 'unexpected JSON shape';
-        } catch (e) { lastErr = e.message; }
-      }
-      if (!data) {
-        tbody.innerHTML = `<tr><td colspan="4" class="error">Failed to load publications (${lastErr || 'no data'}).</td></tr>`;
-        return;
-      }
+    // Unknown -> exclude from the 5 buckets
+    return '__OTHER__';
+  }
 
-      // Normalize unknown/mixed types to our 5 buckets if needed
-      allData = data.map(p => ({ ...p, type: normalizeType(p.type) })).filter(p => !!p.type && TYPES.includes(p.type));
+  function escapeHTML(str){
+    return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  }
 
-      hydrateFromQueryString();
-      setCheckboxesFromState();
-      updateCounts();
-      applyFilter();
-    }
-
-    // Utilities
-    function normalizeType(t){
-      if (!t) return null;
-      const s = String(t).toLowerCase();
-      if (s.includes('blog')) return 'Blog';
-      if (s.includes('paper') || s.includes('report') || s.includes('white')) return 'Paper';
-      if (s.includes('present')) return 'Presentation';
-      if (s.includes('book')) return 'Book';
-      if (s.includes('code')) return 'Code';
-      return null; // drop anything else
-    }
-
-    function escapeHTML(str){
-      return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-    }
-
-    // init
-    buildFilters();
+  // init
+  buildFilters();
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', load);
-  })();
-  </script>
+  } else {
+    load();
+  }
+})();
+</script>
 </body>
 </html>
