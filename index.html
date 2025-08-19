@@ -10,6 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#111317" />
+
+  <!-- Fallback visual if photos.js hasn't decorated covers yet -->
+  <style>
+    .card-cover.cover-fallback {
+      background: linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+  </style>
 </head>
 <body>
   <header class="site-header container">
@@ -44,42 +51,136 @@
       <div class="filmstrip" data-photo-strip></div>
     </section>
 
+    <!-- FEATURED: dynamically populated from publications.json -->
     <section id="featured" class="container section">
       <h2>~/featured_work</h2>
-      <ul class="cards">
-        <li class="card">
-          <a href="https://www.trendmicro.com/en_us/research/25/h/void-dokkaebi-north-korean-ops-russian-infrastructure.html" target="_blank" rel="noopener">
-            <div class="card-cover" data-photo-slot="card-1" aria-hidden="true"></div>
-            <h3>Void Dokkaebi: North Korean Ops & Russian Infrastructure</h3>
-            <p>Campaign analysis & infrastructure overlap</p>
-          </a>
-        </li>
-        <li class="card">
-          <a href="https://www.trendmicro.com/en_us/research/25/l/earth-koshchei-red-team-tools-in-real-world-attacks.html" target="_blank" rel="noopener">
-            <div class="card-cover" data-photo-slot="card-2" aria-hidden="true"></div>
-            <h3>Earth Koshchei: Red Team Tools in Real World Attacks</h3>
-            <p>Off-the-shelf tools, real-world impact</p>
-          </a>
-        </li>
-        <li class="card">
-          <a href="https://documents.trendmicro.com/resources/white-papers/bridging-divides-english-speaking-underground.pdf" target="_blank" rel="noopener">
-            <div class="card-cover" data-photo-slot="card-3" aria-hidden="true"></div>
-            <h3>Bridging Divides: English-Speaking Underground</h3>
-            <p>Market dynamics & monetization</p>
-          </a>
-        </li>
+      <ul id="featured-list" class="cards">
+        <li class="muted">Loading featured items…</li>
       </ul>
     </section>
   </main>
 
   <footer class="site-footer container">
-    <small>© <span id="year"></span> Stephen J. Hilt — 
-      <a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">Twitter</a> / 
+    <small>© <span id="year"></span> Stephen J. Hilt —
+      <a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">Twitter</a> /
       <a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener">LinkedIn</a>
     </small>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/js/photos.js" defer></script>
+
+  <script>
+  (function(){
+    const featuredList = document.getElementById('featured-list');
+    const JSON_PATH = 'publications.json'; // same folder as index.html
+
+    // Photo slots your photos.js maps to images. Adjust if you use different names.
+    const PHOTO_SLOTS = [
+      'card-1','card-2','card-3','card-4','card-5','card-6',
+      'card-7','card-8','card-9','card-10','card-11','card-12'
+    ];
+
+    function shuffle(arr){
+      const a = arr.slice();
+      for (let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i],a[j]] = [a[j],a[i]];
+      }
+      return a;
+    }
+
+    // Pretty-print YYYY[-MM][-DD] to "Mon D, YYYY" (or "Mon YYYY" if only year-month)
+    function fmtDate(s){
+      if (!s) return '';
+      const parts = String(s).split('-').map(x=>x.padStart(2,'0'));
+      let iso = s;
+      if (parts.length === 2) iso = `${parts[0]}-${parts[1]}-01`;
+      if (parts.length === 1) iso = `${parts[0]}-01-01`;
+      const d = new Date(iso);
+      if (isNaN(d)) return s;
+      return d.toLocaleDateString(undefined, {
+        year:'numeric',
+        month:'short',
+        day: parts.length>=3 ? 'numeric' : undefined
+      }).replace(',', '');
+    }
+
+    function escapeHTML(str){
+      return String(str).replace(/[&<>"']/g, s => (
+        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]
+      ));
+    }
+
+    // Tolerate comments and trailing commas in publications.json
+    function sanitizeJson(input){
+      let out = input.replace(/\/\*[\s\S]*?\*\//g, '');         // /* block comments */
+      out = out.replace(/(^|[^\:])\/\/.*$/gm, '$1');            // // line comments (not after protocol colon)
+      out = out.replace(/,\s*(\}|\])/g, '$1');                  // trailing commas
+      return out.trim();
+    }
+
+    function renderFeatured(items){
+      if (!items.length) {
+        featuredList.innerHTML = '<li class="muted">No featured publications found.</li>';
+        return;
+      }
+
+      const slots = shuffle(PHOTO_SLOTS).slice(0, items.length);
+
+      featuredList.innerHTML = items.map((pub, idx) => {
+        const slot = slots[idx] || 'card-1';
+        const title = escapeHTML(pub.title || '');
+        const type  = escapeHTML(pub.type || '');
+        const date  = escapeHTML(fmtDate(pub.date || ''));
+        const link  = pub.link || '#';
+        return `
+          <li class="card">
+            <a href="${link}" target="_blank" rel="noopener">
+              <div class="card-cover cover-fallback" data-photo-slot="${slot}" aria-hidden="true"></div>
+              <h3>${title}</h3>
+              <p>${type} — ${date}</p>
+            </a>
+          </li>
+        `;
+      }).join('');
+
+      // Refresh covers now that elements exist
+      try {
+        if (window.PhotoCovers && typeof window.PhotoCovers.refresh === 'function') {
+          window.PhotoCovers.refresh();
+        } else {
+          document.dispatchEvent(new CustomEvent('photos:refresh'));
+        }
+      } catch (_) { /* ignore; gradient fallback remains */ }
+    }
+
+    async function loadFeatured(){
+      try {
+        const res = await fetch(JSON_PATH, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        let text = await res.text();
+        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // strip BOM
+        const parsed = JSON.parse(sanitizeJson(text));
+        const pubs = Array.isArray(parsed) ? parsed : (parsed && parsed.publications) || [];
+
+        const latestThree = pubs
+          .filter(p => p && (p.type === 'Blog' || p.type === 'Paper'))
+          .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
+          .slice(0, 3);
+
+        renderFeatured(latestThree);
+      } catch (err) {
+        featuredList.innerHTML = `<li class="error">Failed to load publications (${escapeHTML(err.message)}).</li>`;
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadFeatured);
+    } else {
+      loadFeatured();
+    }
+  })();
+  </script>
 </body>
 </html>
