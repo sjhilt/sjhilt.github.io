@@ -45,14 +45,23 @@
         heroImg.src = src; // triggers load → adds .is-ready
       })();
 
-      // --- FEATURED CARD COVERS ---
-      (function covers() {
+      // --- FEATURED CARD COVERS (refactored to be reusable) ---
+      function applyCovers() {
         const coverEls = document.querySelectorAll("[data-photo-slot^='card-']");
         if (!coverEls.length) return;
-        pick(coverEls.length, imgs).forEach((p, i) => {
+        const selection = pick(coverEls.length, imgs);
+        selection.forEach((p, i) => {
           setBg(coverEls[i], p.thumb || p.full);
         });
-      })();
+      }
+
+      // Expose a public refresh hook and also listen for a custom event
+      window.PhotoCovers = window.PhotoCovers || {};
+      window.PhotoCovers.refresh = applyCovers;
+      document.addEventListener("photos:refresh", applyCovers);
+
+      // Initial pass for any covers already on the page at load
+      applyCovers();
 
       // --- FILMSTRIP + LIGHTBOX ---
       (function filmstripAndLightbox() {
