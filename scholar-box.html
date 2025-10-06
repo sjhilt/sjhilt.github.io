@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>~/scholar-box</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body class="scholar-body">
+  <div class="terminal-like scholar-card" id="scholarBox">
+    <p class="muted m-0">Loading scholar stats…</p>
+  </div>
+
+  <script>
+    (function(){
+      const el = document.getElementById("scholarBox");
+
+      const render = (d) => {
+        el.innerHTML = `
+          <div class="scholar-head">
+            <div class="scholar-title">${d.name ?? ""}</div>
+            <div class="scholar-sub muted">${d.affiliation ?? ""}</div>
+          </div>
+
+          <dl class="stat-grid">
+            <div><dt>Total Citations</dt><dd>${d.citations_all ?? ""}</dd></div>
+            <div><dt>Recent Citations</dt><dd>${d.citations_recent ?? ""}</dd></div>
+            <div><dt>h-index</dt><dd>${d.h_index_all ?? ""}</dd></div>
+            <div><dt>h-index (recent)</dt><dd>${d.h_index_recent ?? ""}</dd></div>
+          </dl>
+
+          <div class="scholar-footer">
+            <a class="btn-link" href="https://scholar.google.com/citations?user=W0iV6qYAAAAJ" target="_blank" rel="noopener">
+              View Google Scholar Page
+            </a>
+          </div>
+        `;
+      };
+
+      fetch("scholar-stats.json", { cache: "no-cache" })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status + " " + r.statusText))
+        .then(render)
+        .catch(err => {
+          el.innerHTML = `<p class="error m-0">Failed to load scholar stats.</p>`;
+          console.error(err);
+        });
+    })();
+  </script>
+</body>
+</html>

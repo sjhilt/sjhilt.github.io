@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stephen J. Hilt — Research</title>
+  <meta name="description" content="Senior Threat Researcher. ICS security, reverse engineering, and cybercrime intelligence." />
+  <link rel="preload" href="assets/css/site.css" as="style" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#111317" />
+
+  <!-- Fallback visual if photos.js hasn't decorated covers yet -->
+  <style>
+    .card-cover.cover-fallback {
+      background: linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="index.html">Stephen J. Hilt</a>
+    <nav class="nav">
+      <a href="#about">about</a>
+      <a href="#featured">featured</a>
+      <a href="publications.html">publications</a>
+      <a href="resume.html" aria-current="page">résumé</a>
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
+    </nav>
+  </header>
+
+  <!-- Stylish hero banner -->
+  <header class="hero-banner" aria-label="site header image">
+    <img class="hero-banner__img" alt="" decoding="async" fetchpriority="high" />
+    <div class="hero-banner__overlay"></div>
+    <div class="container hero-banner__content">
+      <h1>Senior Threat Researcher @ Trend Micro</h1>
+      <p class="lede">ICS security • reverse engineering • cybercrime intelligence</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container section">
+      <h2>~/about</h2>
+      <p>
+        Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen’s work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats. His research has been presented at leading security conferences and published in widely respected industry reports, reflecting his commitment to advancing the security of interconnected systems worldwide.
+      </p>
+
+      <!-- Filmstrip -->
+      <div class="filmstrip" data-photo-strip></div>
+    </section>
+
+    <!-- FEATURED: dynamically populated from publications.json -->
+    <section id="featured" class="container section">
+      <h2>~/featured_work</h2>
+      <ul id="featured-list" class="cards">
+        <li class="muted">Loading featured items…</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Stephen J. Hilt —
+      <a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">Twitter</a> /
+      <a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener">LinkedIn</a>
+    </small>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/photos.js" defer></script>
+
+  <script>
+  (function(){
+    const featuredList = document.getElementById('featured-list');
+    const JSON_PATH = 'publications.json'; // same folder as index.html
+
+    // Photo slots your photos.js maps to images. Adjust if you use different names.
+    const PHOTO_SLOTS = [
+      'card-1','card-2','card-3','card-4','card-5','card-6',
+      'card-7','card-8','card-9','card-10','card-11','card-12'
+    ];
+
+    function shuffle(arr){
+      const a = arr.slice();
+      for (let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i],a[j]] = [a[j],a[i]];
+      }
+      return a;
+    }
+
+    // Pretty-print YYYY[-MM][-DD] to "Mon D, YYYY" (or "Mon YYYY" if only year-month)
+    function fmtDate(s){
+      if (!s) return '';
+      const parts = String(s).split('-').map(x=>x.padStart(2,'0'));
+      let iso = s;
+      if (parts.length === 2) iso = `${parts[0]}-${parts[1]}-01`;
+      if (parts.length === 1) iso = `${parts[0]}-01-01`;
+      const d = new Date(iso);
+      if (isNaN(d)) return s;
+      return d.toLocaleDateString(undefined, {
+        year:'numeric',
+        month:'short',
+        day: parts.length>=3 ? 'numeric' : undefined
+      }).replace(',', '');
+    }
+
+    function escapeHTML(str){
+      return String(str).replace(/[&<>"']/g, s => (
+        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]
+      ));
+    }
+
+    // Tolerate comments and trailing commas in publications.json
+    function sanitizeJson(input){
+      let out = input.replace(/\/\*[\s\S]*?\*\//g, '');         // /* block comments */
+      out = out.replace(/(^|[^\:])\/\/.*$/gm, '$1');            // // line comments (not after protocol colon)
+      out = out.replace(/,\s*(\}|\])/g, '$1');                  // trailing commas
+      return out.trim();
+    }
+
+    function renderFeatured(items){
+      if (!items.length) {
+        featuredList.innerHTML = '<li class="muted">No featured publications found.</li>';
+        return;
+      }
+
+      const slots = shuffle(PHOTO_SLOTS).slice(0, items.length);
+
+      featuredList.innerHTML = items.map((pub, idx) => {
+        const slot = slots[idx] || 'card-1';
+        const title = escapeHTML(pub.title || '');
+        const type  = escapeHTML(pub.type || '');
+        const date  = escapeHTML(fmtDate(pub.date || ''));
+        const link  = pub.link || '#';
+        return `
+          <li class="card">
+            <a href="${link}" target="_blank" rel="noopener">
+              <div class="card-cover cover-fallback" data-photo-slot="${slot}" aria-hidden="true"></div>
+              <h3>${title}</h3>
+              <p>${type} — ${date}</p>
+            </a>
+          </li>
+        `;
+      }).join('');
+
+      // Refresh covers now that elements exist
+      try {
+        if (window.PhotoCovers && typeof window.PhotoCovers.refresh === 'function') {
+          window.PhotoCovers.refresh();
+        } else {
+          document.dispatchEvent(new CustomEvent('photos:refresh'));
+        }
+      } catch (_) { /* ignore; gradient fallback remains */ }
+    }
+
+    async function loadFeatured(){
+      try {
+        const res = await fetch(JSON_PATH, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        let text = await res.text();
+        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // strip BOM
+        const parsed = JSON.parse(sanitizeJson(text));
+        const pubs = Array.isArray(parsed) ? parsed : (parsed && parsed.publications) || [];
+
+        const latestThree = pubs
+          .filter(p => p && (p.type === 'Blog' || p.type === 'Paper'))
+          .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
+          .slice(0, 3);
+
+        renderFeatured(latestThree);
+      } catch (err) {
+        featuredList.innerHTML = `<li class="error">Failed to load publications (${escapeHTML(err.message)}).</li>`;
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadFeatured);
+    } else {
+      loadFeatured();
+    }
+  })();
+  </script>
+</body>
+</html>

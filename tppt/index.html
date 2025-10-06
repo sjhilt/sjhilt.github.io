@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tennessee Permit Practice Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    a { color: #90caf9; }
+
+    header {
+      background: #1f1f1f;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .question {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      border: 1px solid #333;
+    }
+
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .results {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .pagination button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      background: #3f51b5;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+      accent-color: #4caf50;
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tennessee Permit Practice Test</h1>
+    <p>120 Questions from the <a href="https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf" target="_blank">manual</a></p>
+  </header>
+  <main>
+    <form id="quizForm"></form>
+    <div class="pagination">
+      <button type="button" onclick="showPage(1)">Page 1</button>
+      <button type="button" onclick="showPage(2)">Page 2</button>
+      <button type="button" onclick="showPage(3)">Page 3</button>
+    </div>
+    <button type="button" class="submit-btn" onclick="checkAnswers()">Submit All Answers</button>
+    <div id="results" class="results"></div>
+  </main>
+  <script>
+    let questions = [];
+    const form = document.getElementById("quizForm");
+
+    async function loadQuestions() {
+      const res = await fetch("questions.json");
+      questions = await res.json();
+      showPage(1);
+    }
+
+    function renderQuestions(page) {
+      form.innerHTML = "";
+      const start = (page - 1) * 40;
+      const end = start + 40;
+      questions.slice(start, end).forEach((q, idx) => {
+        const index = start + idx;
+        const div = document.createElement("div");
+        div.classList.add("question");
+        let html = `<h3>Question ${index + 1}: ${q.q}</h3>`;
+        q.options.forEach((opt, j) => {
+          const letter = String.fromCharCode(65 + j);
+          html += `<div><label><input type='radio' name='q${index}' value='${letter}'> ${letter}. ${opt}</label></div>`;
+        });
+        div.innerHTML = html;
+        form.appendChild(div);
+      });
+    }
+
+    function showPage(page) {
+      renderQuestions(page);
+      window.scrollTo(0, 0);
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name='q${i}']:checked`);
+        if (selected && selected.value === q.a) score++;
+      });
+      const results = document.getElementById("results");
+      results.textContent = `You got ${score} out of ${questions.length} correct. (${Math.round((score / questions.length) * 100)}%)`;
+    }
+
+    loadQuestions();
+  </script>
+</body>
+</html>

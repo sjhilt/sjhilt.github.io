@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>~/publications — Stephen J. Hilt</title>
+  <meta name="description" content="Papers, reports, and talks by Stephen J. Hilt." />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#111317" />
+  <style>
+    /* tiny helper styles for the filter bar */
+    .filters { display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; margin:.75rem 0 1rem; }
+    .filters strong { opacity:.9; }
+    .filters label { display:inline-flex; gap:.35rem; align-items:center; }
+    .filters [data-count-for] { opacity:.65; font-variant-numeric: tabular-nums; }
+    .filters .btn-link { background:none; border:none; text-decoration:underline; cursor:pointer; padding:.2rem .3rem; }
+    @media (max-width:640px){ .filters{ gap:.5rem; } }
+  </style>
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="index.html">Stephen J. Hilt</a>
+    <nav class="nav">
+      <a href="index.html#about">about</a>
+      <a href="index.html#featured">featured</a>
+      <a class="active" href="publications.html">publications</a>
+      <a href="resume.html" aria-current="page">résumé</a>
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
+    </nav>
+  </header>
+
+  <header class="hero-banner" aria-label="publications header image">
+    <img class="hero-banner__img" alt="" decoding="async" />
+    <div class="hero-banner__overlay"></div>
+    <div class="container hero-banner__content">
+      <h1>~/publications</h1>
+      <p class="lede">Selected papers, reports, and talks.</p>
+    </div>
+  </header>
+
+  <main class="container section">
+    <!-- Scholar card -->
+    <section class="pub-section">
+      <h2>google scholar</h2>
+      <div class="terminal-like">
+        <iframe src="scholar-box.html" width="100%" height="400" class="scholar-frame" frameborder="0" title="Google Scholar publications"></iframe>
+      </div>
+    </section>
+
+    <!-- Publications table -->
+    <section class="pub-section">
+      <h2>list</h2>
+      <div class="terminal-like">
+
+        <!-- Filter controls -->
+        <div class="filters" role="group" aria-label="Filter by type">
+          <strong>Filter by type:</strong>
+          <label><input type="checkbox" value="Blog" checked> Blog <span data-count-for="Blog">(0)</span></label>
+          <label><input type="checkbox" value="Paper" checked> Paper <span data-count-for="Paper">(0)</span></label>
+          <label><input type="checkbox" value="Presentation" checked> Presentation <span data-count-for="Presentation">(0)</span></label>
+          <label><input type="checkbox" value="Book" checked> Book <span data-count-for="Book">(0)</span></label>
+          <label><input type="checkbox" value="Code" checked> Code <span data-count-for="Code">(0)</span></label>
+          <span style="margin-left:auto;display:inline-flex;gap:.75rem;">
+            <button type="button" id="filters-select-all" class="btn-link">select all</button>
+            <button type="button" id="filters-clear" class="btn-link">clear</button>
+          </span>
+        </div>
+
+        <table class="pub-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="pub-table-body">
+            <tr><td colspan="4" class="muted">Loading publications…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Stephen J. Hilt</small>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/photos.js" defer></script>
+
+  <script>
+  (function(){
+    const tbody = document.getElementById('pub-table-body');
+
+    // Load from the file right next to this HTML
+    const JSON_PATH = 'publications.json';
+
+    // Filter buckets (keep original `type` for display; use `bucket` for filtering)
+    const TYPES = ['Blog','Paper','Presentation','Book','Code'];
+    let allData = [];
+    let activeTypes = new Set(TYPES);
+
+    // -------- Rendering --------
+    function renderRows(items){
+      if (!Array.isArray(items) || !items.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="muted">No publications found.</td></tr>';
+        return;
+      }
+      items.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+      tbody.innerHTML = items.map(pub => `
+        <tr>
+          <td>${pub.date ?? ''}</td>
+          <td>${pub.title ? (pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.title)}</a>` : escapeHTML(pub.title)) : ''}</td>
+          <td>${pub.type ?? ''}</td>
+          <td>${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.display || 'Link')}</a>` : ''}</td>
+        </tr>
+      `).join('');
+    }
+
+    function applyFilter(){
+      const filtered = allData.filter(p => activeTypes.has(p.bucket));
+      renderRows(filtered);
+      updateCounts();
+    }
+
+    // -------- Counts --------
+    function updateCounts(){
+      const counts = TYPES.reduce((acc,t)=> (acc[t]=0, acc), {});
+      allData.forEach(p => { if (counts[p.bucket] !== undefined) counts[p.bucket]++; });
+      TYPES.forEach(t => {
+        const el = document.querySelector(`[data-count-for="${t}"]`);
+        if (el) el.textContent = `(${counts[t]})`;
+      });
+    }
+
+    // -------- Filters UI wiring --------
+    document.querySelectorAll('.filters input[type="checkbox"]').forEach(cb=>{
+      cb.addEventListener('change', (e)=>{
+        const t = e.target.value;
+        e.target.checked ? activeTypes.add(t) : activeTypes.delete(t);
+        applyFilter();
+      });
+    });
+    document.getElementById('filters-select-all').addEventListener('click', ()=>{
+      activeTypes = new Set(TYPES);
+      syncCheckboxes();
+      applyFilter();
+    });
+    document.getElementById('filters-clear').addEventListener('click', ()=>{
+      activeTypes.clear();
+      syncCheckboxes();
+      applyFilter();
+    });
+    function syncCheckboxes(){
+      document.querySelectorAll('.filters input[type="checkbox"]').forEach(cb=>{
+        cb.checked = activeTypes.has(cb.value);
+      });
+    }
+
+    // -------- Data loading --------
+    async function load() {
+      try {
+        const res = await fetch(JSON_PATH, { cache:'no-cache' });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        let text = await res.text();
+
+        // Remove BOM if any
+        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+
+        // Sanitize: strip comments and trailing commas, then parse
+        const cleaned = sanitizeJson(text);
+        const parsed = JSON.parse(cleaned);
+
+        const data = Array.isArray(parsed) ? parsed : (parsed && parsed.publications);
+        if (!Array.isArray(data)) throw new Error('unexpected JSON shape');
+
+        // Build filter bucket but leave original type for display
+        allData = data.map(p => ({ ...p, bucket: detectBucket(p) }))
+                      .filter(p => TYPES.includes(p.bucket));
+
+        updateCounts();
+        applyFilter();
+      } catch (err){
+        tbody.innerHTML = `<tr><td colspan="4" class="error">Failed to load publications (${escapeHTML(err.message)}).</td></tr>`;
+      }
+    }
+
+    // Strip // line comments, /* block */ comments, and trailing commas
+    function sanitizeJson(input){
+      // remove block comments
+      let out = input.replace(/\/\*[\s\S]*?\*\//g, '');
+      // remove line comments (but not URLs)
+      out = out.replace(/(^|[^\:])\/\/.*$/gm, '$1');
+      // remove trailing commas in objects and arrays
+      out = out.replace(/,\s*(\}|\])/g, '$1');
+      return out.trim();
+    }
+
+    // Map arbitrary/messy types into our 5 filter buckets
+    function detectBucket(p){
+      const t = (p.type || '').toString().toLowerCase();
+      if (t.includes('blog')) return 'Blog';
+      if (t.includes('paper') || t.includes('report') || t.includes('white')) return 'Paper';
+      if (t.includes('book')) return 'Book';
+      if (t.includes('code')) return 'Code';
+      if (t.includes('present')) return 'Presentation';
+
+      // Heuristics for legacy presentation rows where "type" held the talk title
+      const link = (p.link || '').toLowerCase();
+      const title = (p.title || '').toLowerCase();
+      const looksLikeVideo = /(youtube\.com|youtu\.be|vimeo\.com|irongeek\.com)/.test(link);
+      const looksLikeConf  = /(s4x|bsides|defcon|derbycon|rsa|secureworld|hitb|cs3sthlm|black\s*hat|4sics|hack3rcon)/.test(title);
+      if (looksLikeVideo || looksLikeConf) return 'Presentation';
+
+      // Mixed “Blog/Paper” -> treat as Blog for filtering
+      if (t.includes('blog/paper')) return 'Blog';
+
+      return '__OTHER__';
+    }
+
+    function escapeHTML(str){
+      return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load);
+    else load();
+  })();
+  </script>
+</body>
+</html>

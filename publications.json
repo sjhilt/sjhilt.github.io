@@ -1,0 +1,482 @@
+{
+  "publications": [
+    {
+      "date": "2025-09-08",
+      "title": "Complexity and Visibility Gaps in Power Automate",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/vinfo/us/security/news/threat-landscape/complexity-and-visibility-gaps-in-power-automate",
+      "display": "Power Automate"
+    },
+    {
+      "date": "2025-04-23",
+      "title": "Russian Infrastructure Plays Crucial Role in North Korean Cybercrime Operations",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/25/d/russian-infrastructure-north-korean-cybercrime.html",
+      "display": "Void Dokkaebi"
+    },
+    {
+      "date": "2025-01-07",
+      "title": "Bridging Divides,Transcending Borders",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-bridging-divides-transcending-borders.pdf",
+      "display": "English Underground"
+    },
+    {
+      "date": "2024-12-17",
+      "title": "Earth Koshchei Coopts Red Team Tools in Complex RDP Attacks",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/24/l/earth-koshchei.html",
+      "display": "Earth Koshchei"
+    },
+    {
+      "date": "2024-12-06",
+      "title": "AI Assistants in the Future: Security Concerns and Risk Management",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/vinfo/us/security/news/security-technology/looking-into-the-future-risks-and-security-considerations-to-ai-digital-assistants",
+      "display": "AI DAs"
+    },
+    {
+      "date": "2024-12-04",
+      "title": "The Road to Agentic AI: Exposed Foundations",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/24/k/agentic-ai.html",
+      "display": "Exposed Agentic AI"
+    },
+    {
+      "date": "2024-10-15",
+      "title": "Red Team Tools in the Hands of Cybercriminals and Nation States",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/images/TEx/articles/Research_Paper_Red_Team_Tools.pdf",
+      "display": "Red Team Tools"
+    },
+    {
+      "date": "2023-05-30",
+      "title": "Void Rabisu’s Use of RomCom Backdoor Shows a Growing Shift in Threat Actors’ Goals",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/23/e/void-rabisu-s-use-of-romcom-backdoor-shows-a-growing-shift-in-th.html",
+      "display": "Void Rabisu"
+    },
+    {
+      "date": "2023-05-23",
+      "title": "Future Exploitation Vector: File Extensions as Top-Level Domains",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/23/e/future-exploitation-vector-file-extensions-as-top-level-domains.html",
+      "display": "File Extensions TLD"
+    },
+    {
+      "date": "2023-02-02",
+      "title": "What SOCs Need to Know About Water Dybbuk, A BEC Actor Using Open-Source Toolkits",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/23/b/what-socs-need-to-know-about-water-dybbuk.html",
+      "display": "Water Dybbuk"
+    },
+    {
+      "date": "2022-12-15",
+      "title": "The Near and Far Future of Ransomware Business Models",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-the-near-and-far-future-of-ransomware.pdf",
+      "display": "Ransomware Business Models"
+    },
+    {
+      "date": "2022-11-08",
+      "title": "DeimosC2: What SOC Analysts and Incident Responders Need to Know About This C&C Framework",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/22/k/deimosc2-what-soc-analysts-and-incident-responders-need-to-know.html",
+      "display": "DeimosC2"
+    },
+    {
+      "date": "2022-06-06",
+      "title": "Closing the Door: DeadBolt Ransomware Locks Out Vendors With Multitiered Extortion Scheme",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/22/f/closing-the-door-deadbolt-ransomware-locks-out-vendors-with-mult.html",
+      "display": "Closing The Door"
+    },
+    {
+      "date": "2022-04-26",
+      "title": "How Cybercriminals Abuse Cloud Tunneling Services",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/how-cybercriminals-abuse-cloud-tunneling-services",
+      "display": "Cloud Tunneling"
+    },
+    {
+      "date": "2022-03-29",
+      "title": "A Floating Battleground Navigating the Landscape of Cloud-Based Cryptocurrency Mining",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-navigating-the-landscape-of-cloud-based-cryptocurrency-mining.pdf",
+      "display": "A Floating Battleground"
+    },
+    {
+      "date": "2022-03-17",
+      "title": "Cyclops Blink Sets Sights on Asus Routers",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/22/c/cyclops-blink-sets-sights-on-asus-routers--.html",
+      "display": "Cyclops Blink"
+    },
+    {
+      "date": "2022-01-20",
+      "title": "Backing Your Backup: Defending NAS Devices Against Evolving Threats",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/pdf/wp-backing-your-backup-defending-nas-devices-against-evolving-threats.pdf",
+      "display": "NAS Attacks"
+    },
+    {
+      "date": "2021-06-08",
+      "title": "Modern Ransomware's Double Extortion Tactics and How to Protect Enterprises Against Them",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-modern-ransomwares-double-extortion-tactics.pdf",
+      "display": "Double Extortion Ransomware"
+    },
+    {
+      "date": "2021-03-11",
+      "title": "The Future of P2P IoT Botnets",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/21/c/the-future-of-p2p-iot-botnets.html",
+      "display": "The Future of P2P IoT Botnets"
+    },
+    {
+      "date": "2021-01-19",
+      "title": "VPNFilter Two Years Later: Routers Still Compromised",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/21/a/vpnfilter-two-years-later-routers-still-compromised-.html",
+      "display": "VPFilter Two Years Later"
+    },
+    {
+      "date": "2020-12-22",
+      "title": "How to Protect Your Kid's Privcay While At-Home Learning",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/20/l/how-to-protect-your-kids-privacy-while-at-home-learning.html",
+      "display": "Kid's Privacy"
+    },
+    {
+      "date": "2020-09-16",
+      "title": "Tribe Of Hackers Blue Team Edition",
+      "type": "Book",
+      "link": "https://www.wiley.com/en-us/Tribe+of+Hackers+Blue+Team%3A+Tribal+Knowledge+from+the+Best+in+Defensive+Cybersecurity-p-9781119643425",
+      "display": "Tribe\n                Of Hackers Blue Team Edition"
+    },
+    {
+      "date": "2020-07-15",
+      "title": "Worm War: The Botnet Battle for IoT Territory",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-worm-war-the-botnet-battle-for-iot-territory.pdf",
+      "display": "Worm\n\n                War"
+    },
+    {
+      "date": "2020-01-20",
+      "title": "Caught in the Act: Running a Realistic Factory Honeypot\n              to Capture Real Threats",
+      "type": "Paper",
+      "link": "https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/fake-company-real-threats-logs-from-a-smart-factory-honeypot",
+      "display": "Fake Company, Real Threats"
+    },
+    {
+      "date": "2019-09-10",
+      "title": "The Internet of Things in the Cybercrime Underground",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-the-internet-of-things-in-the-cybercrime-underground.pdf",
+      "display": "IoT In the Cyber Crime Underground"
+    },
+    {
+      "date": "2019-08-30",
+      "title": "Tribe Of Hackers Red Team Edition",
+      "type": "Book",
+      "link": "https://www.wiley.com/en-us/Tribe+of+Hackers+Red+Team%3A+Tribal+Knowledge+from+the+Best+in+Offensive+Cybersecurity-p-9781119643326",
+      "display": "Tribe Of Hackers Red Team Edition"
+    },
+    {
+      "date": "2019-03-07",
+      "title": "Cultivating Security in the Food Production Industry:\n              Nipping IoT Risks and Threats in the Bud",
+      "type": "Paper",
+      "link": "https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/cultivating-security-in-the-food-production-industry",
+      "display": "Security in the Food Production Industry"
+    },
+    {
+      "date": "2019-03-06",
+      "title": "Cybersecurity Risks in Complex IoT Environments: Threats\n              to Smart Homes, Buildings and Other Structures",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-cybersecurity-risks-in-complex-iot-environments.pdf",
+      "display": "Cybersecurity Risks in Complex IoT\n                Environments"
+    },
+    {
+      "date": "2019-01-16",
+      "title": "A Security Analysis of Radio Remote Controllers for\n              Industrial Applications",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-a-security-analysis-of-radio-remote-controllers.pdf",
+      "display": "Industrial Radios"
+    },
+    {
+      "date": "2018-10-30",
+      "title": "Exposed and Vulnerable Critical Infrastructure: Water\n              and Energy Industries",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/white_papers/wp-exposed-and-vulnerable-critical-infrastructure-the-water-energy-industries.pdf",
+      "display": "Exposed and Vulnerable Critical\n                Infrastructure"
+    },
+    {
+      "date": "2017-12-30",
+      "title": "The Sound of a Targeted Attack",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/pdf/The-Sound-of-a-Targeted-Attack.pdf",
+      "display": "The\n\n\n\n\n\n                Sound of a Targeted Attack"
+    },
+    {
+      "date": "2017-06-06",
+      "title": "How Cybercriminals Can Abuse Chat Platform\n              APIs as C&C Infrastructures",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/wp/wp-how-cybercriminals-can-abuse-chat-platform-apis-as-cnc-infrastructures.pdf",
+      "display": "Chat\n\n\n\n\n\n                Platform API's as C&C"
+    },
+    {
+      "date": "2017-05-30",
+      "title": "Securing Smart Cities: Moving Toward Utopia\n              with Security in Mind",
+      "type": "Paper",
+      "link": "https://documents.trendmicro.com/assets/wp/wp-securing-smart-cities.pdf",
+      "display": "Securing\n\n\n\n\n\n                Smart Cities"
+    },
+    {
+      "date": "2017-02-15",
+      "title": "US Cities Exposed",
+      "type": "Paper",
+      "link": "https://www.trendmicro.com/content/dam/trendmicro/en/security-intelligence/research/reports/wp-us-cities-exposed.pdf",
+      "display": "US\n\n\n\n\n\n                Cities Exposed"
+    },
+    {
+      "date": "2016-12-13",
+      "title": "Leaking Beeps: IT Systems Broadcasting\n              Sensitive Info",
+      "type": "Paper",
+      "link": "http://blog.trendmicro.com/trendlabs-security-intelligence/leaking-beeps-systems-broadcasting-sensitive-info",
+      "display": "Leaking\n\n\n\n\n\n                Beeps (IT)"
+    },
+    {
+      "date": "2016-11-30",
+      "title": "HDDCryptor: Subtle Updates, Still a\n              Credible Threat",
+      "type": "Blog",
+      "link": "http://blog.trendmicro.com/trendlabs-security-intelligence/hddcryptor-updates-still-credible-threat/",
+      "display": "HDDCryptor:\n\n\n\n\n\n                Subtle Updates"
+    },
+    {
+      "date": "2016-11-09",
+      "title": "Pawn Storm Ramps Up Spear-phishing Before\n              Zero-Days Get Patched",
+      "type": "Blog",
+      "link": "http://blog.trendmicro.com/trendlabs-security-intelligence/pawn-storm-ramps-up-spear-phishing-before-zero-days-get-patched/",
+      "display": "PawnStorm\n\n\n\n\n\n                Ramps Up Spear-Phishing"
+    },
+    {
+      "date": "2016-10-25",
+      "title": "Leaking Beeps: Unencrypted Pager Messages\n              in Industrial Environments",
+      "type": "Paper",
+      "link": "http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp_leaking-beeps-industrial.pdf",
+      "display": "Leaking\n\n\n\n\n\n                Beeps (ICS)"
+    },
+    {
+      "date": "2016-09-29",
+      "title": "The Rise and Fall of Encryptor RaaS",
+      "type": "Blog",
+      "link": "http://blog.trendmicro.com/trendlabs-security-intelligence/the-rise-and-fall-of-encryptor-raas/",
+      "display": "Rise\n\n\n\n\n\n                and Fall of Encryptor RaaS"
+    },
+    {
+      "date": "2016-09-20",
+      "title": "Fox-infoPCWorx-info",
+      "type": "Code",
+      "link": "https://nmap.org/nsedoc/scripts/fox-info.html",
+      "display": "fox-info.nse"
+    },
+    {
+      "date": "2016-09-26",
+      "title": "Leaking Beeps: Unencrypted Pager Messages\n              in the Healthcare Industry",
+      "type": "Paper",
+      "link": "http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp-leaking-beeps-healthcare.pdf",
+      "display": "Leaking\n\n\n\n\n\n                Beeps (Health Care)"
+    },
+    {
+      "date": "2016-09-15",
+      "title": "BkSoD by Ransomware: HDDCryptor Uses\n              Commercial Tools to Encrypt Network Shares and Lock HDDs",
+      "type": "Blog",
+      "link": "http://blog.trendmicro.com/trendlabs-security-intelligence/bksod-by-ransomware-hddcryptor-uses-commercial-tools-to-encrypt-network-shares-and-lock-hdds/",
+      "display": "HDDCryptor"
+    },
+    {
+      "date": "2016-08-28",
+      "title": "Hacking Exposed Industrial Control Systems",
+      "type": "Book",
+      "link": "https://www.mheducation.ca/professional/products/9781259589713/hacking+exposed+industrial+control+systems:+ics+and+scada+security+secrets+%7C%7C+solutions/",
+      "display": "Hacking\n\n\n\n\n\n                Exposed ICS"
+    },
+    {
+      "date": "2015-12-07",
+      "title": "North American Underground: The Glass Tank",
+      "type": "Paper",
+      "link": "http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp-north-american-underground.pdf",
+      "display": "North\n\n\n\n\n\n                American Underground"
+    },
+    {
+      "date": "2015-11-11",
+      "title": "GasPot Integrated Into Conpot, Contributing\n              to Open Source ICS Research",
+      "type": "Blog",
+      "link": "http://blog.trendmicro.com/trendlabs-security-intelligence/gaspot-integrated-into-conpot-contributing-to-open-source-ics-research/",
+      "display": "Gaspot/Conpot"
+    },
+    {
+      "date": "2015-08-05",
+      "title": "The Gaspot Experiment",
+      "type": "Paper",
+      "link": "http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp_the_gaspot_experiment.pdf",
+      "display": "The\n\n\n\n\n\n                Gaspot Experiment"
+    },
+    {
+      "date": "2015-06-03",
+      "title": "bacnet-infoenip-infoomron-infos7-info",
+      "type": "Code",
+      "link": "https://nmap.org/nsedoc/scripts/bacnet-info.html",
+      "display": "bacnet-info.nse"
+    },
+    {
+      "date": "2014-10-01",
+      "title": "Threat Intelligence firm mistakes research\n              for nation-state attack",
+      "type": "Blog",
+      "link": "Threat Intelligence firm mistakes\n                research for nation-state attack",
+      "display": "APT Chattanooga"
+    },
+    {
+      "date": "2014-03-26",
+      "title": "Redpoint: Discover & Enumerate BACnet\n              Devices",
+      "type": "Blog",
+      "link": "https://dale-peterson.com/2014/03/26/redpoint-discover-enumerate-bacnet-devices/",
+      "display": "Redpoint:\n\n\n\n\n\n                Bacnet"
+    },
+    {
+      "date": "2014-2-03",
+      "title": "PlcPwn",
+      "type": "Blog",
+      "link": "https://dale-peterson.com/2014/02/03/why-plcpwn-is-important-for-ics-cyber-weapons/",
+      "display": "PlcPwn"
+    },
+
+    /* ---------- Presentations below ---------- */
+    {
+      "date": "2025-05-09",
+      "title": "BsidesKnoxville 2025",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=rhsbO8upGpM",
+      "display": "From Guardian to Threat: The Double Life of Security Tools"
+    },
+    {
+      "date": "2020-05",
+      "title": "BSidesKnoxville",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=xBXktWwvEyI",
+      "display": "How we reverse-engineered multiple industrial radio remote-control systems"
+    },
+    {
+      "date": "2020-01",
+      "title": "S4x20",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=p84HJveHQdg",
+      "display": "Factory Honeynet: Highly Realistic and Interactive"
+    },
+    {
+      "date": "2019-10",
+      "title": "CS3STHLM",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=5l_cWD5ZR-M",
+      "display": "How we reverse-engineered multiple industrial radio"
+    },
+    {
+      "date": "2019-03",
+      "title": "RSA",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?reload=9&v=6vFYLJstCq0",
+      "display": "Secure the Pod Bay Doors, HAL: Cybersecurity Risks of IoT Automation"
+    },
+    {
+      "date": "2019-01",
+      "title": "S4x19",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=1wBdD-KZ4rI",
+      "display": "The Industrial Radio Project - Hacking Cranes Using SDR"
+    },
+    {
+      "date": "2019-01",
+      "title": "S4x19",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=pxP_D1oVYkg",
+      "display": "ICS Honeypots - How To Use Them (Panel)"
+    },
+    {
+      "date": "2019-11",
+      "title": "SecureWorld",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=tqKfau4ZLmk",
+      "display": "SecureWorld: Behind the Scenes"
+    },
+    {
+      "date": "2018-08",
+      "title": "DEFCON 26 (IOT VILLAGE)",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?reload=9&v=zzgmWlCfCRU",
+      "display": "The Sound of a Targeted Attack"
+    },
+    {
+      "date": "2018-05",
+      "title": "BSidesKnoxville",
+      "type": "Presentation",
+      "link": "https://youtu.be/hhniUz5xG24",
+      "display": "The differences and niches in the different major criminal undergrounds"
+    },
+    {
+      "date": "2018-04",
+      "title": "HITB2018AMS",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=za6F0pfisek",
+      "display": "Attacking IoT Speakers"
+    },
+    {
+      "date": "2017-09",
+      "title": "Derbycon 7.0",
+      "type": "Presentation",
+      "link": "https://www.irongeek.com/i.php?page=videos/derbycon7/t115-victim-machine-has-joined-general-using-third-party-apis-as-cc-infrastructure-stephen-hilt-lord-alfred-remorin",
+      "display": "Victim Machine has joined #general: Using Third Party APIs as C&C Infrastructure"
+    },
+    {
+      "date": "2016-09",
+      "title": "Derbycon 6.0",
+      "type": "Presentation",
+      "link": "http://www.irongeek.com/i.php?page=videos/derbycon6/316-the-90s-called-they-want-their-technology-back-stephen-hilt",
+      "display": "The 90's called, they want their technology back"
+    },
+    {
+      "date": "2015-10",
+      "title": "4SICS (CS3STHLM)",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=m3utW3cj5ls",
+      "display": "The little pump gauge that could"
+    },
+    {
+      "date": "2015-08",
+      "title": "Black Hat 2015",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=gorNee0MaoU",
+      "display": "The Little Pump Gauge That Could: Attacks Against Gas Pump Monitoring Systems"
+    },
+    {
+      "date": "2015-??",
+      "title": "Hack3rCon 5",
+      "type": "Presentation",
+      "link": "http://www.irongeek.com/i.php?page=videos/hack3rcon5/h13-i-am-nation-state-and-so-can-you-tothehilt-synackpwn",
+      "display": "I Am Nation State (And So Can You!)"
+    },
+    {
+      "date": "2014-09",
+      "title": "Derbycon 4.0",
+      "type": "Presentation",
+      "link": "http://www.irongeek.com/i.php?page=videos/derbycon4/t124-protocol-me-maybe-how-to-date-scada-stephen-hilt",
+      "display": "Protocol Me Maybe?: How to Date SCADA"
+    },
+    {
+      "date": "2014-01",
+      "title": "S4x14",
+      "type": "Presentation",
+      "link": "https://dale-peterson.com/2014/02/03/s4x14-video-stephen-hilt-on-plcpwn/",
+      "display": "PLCPwn"
+    }
+  ]
+}
