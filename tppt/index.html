@@ -29,124 +29,462 @@
       margin: auto;
     }
 
-    .question {
-      background: #1e1e1e;
-      padding: 15px;
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: #333;
       border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #4caf50;
+      transition: width 0.3s ease;
+    }
+
+    .progress-text {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    .question-container {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      border: 1px solid #333;
+      min-height: 300px;
+    }
+
+    .question-number {
+      color: #4caf50;
+      font-size: 0.9em;
       margin-bottom: 15px;
+    }
+
+    h3 {
+      margin-bottom: 25px;
+      font-size: 1.3em;
+    }
+
+    .options-container {
+      margin: 20px 0;
+    }
+
+    .option {
+      background: #2a2a2a;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background: #333;
+      border-color: #4caf50;
+    }
+
+    .option.selected {
+      background: #1a472a;
+      border-color: #4caf50;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #4caf50;
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+    label {
+      display: block;
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .nav-btn {
+      padding: 12px 25px;
+      background: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: #303f9f;
+    }
+
+    .nav-btn:disabled {
+      background: #555;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .nav-btn.next {
+      background: #4caf50;
+    }
+
+    .nav-btn.next:hover:not(:disabled) {
+      background: #45a049;
+    }
+
+    .nav-btn.submit {
+      background: #ff9800;
+    }
+
+    .nav-btn.submit:hover {
+      background: #f57c00;
+    }
+
+    .results {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.4);
       border: 1px solid #333;
     }
 
-    .submit-btn {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 25px;
+    .results h2 {
+      color: #4caf50;
+      margin-bottom: 20px;
+    }
+
+    .score {
+      font-size: 2.5em;
+      color: #ffcc00;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .score-details {
+      font-size: 1.2em;
+      margin: 15px 0;
+    }
+
+    .restart-btn {
+      margin-top: 30px;
+      padding: 15px 35px;
       background: #4caf50;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
+      font-size: 1.1em;
     }
 
-    .results {
-      margin-top: 20px;
+    .restart-btn:hover {
+      background: #45a049;
+    }
+
+    .loading {
       text-align: center;
+      padding: 50px;
       font-size: 1.2em;
-      font-weight: bold;
-      color: #ffcc00;
     }
 
-    .pagination {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .pagination button {
-      margin: 0 5px;
-      padding: 10px 20px;
-      background: #3f51b5;
-      color: white;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-    }
-
-    input[type="radio"] {
-      margin-right: 8px;
-      accent-color: #4caf50;
-    }
-
-    label {
-      display: inline-block;
-      margin-bottom: 6px;
-      cursor: pointer;
-    }
-
-    h3 {
-      margin-bottom: 10px;
+    @media (max-width: 600px) {
+      .question-container {
+        padding: 20px;
+      }
+      
+      .navigation {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .nav-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Tennessee Permit Practice Test</h1>
-    <p>120 Questions from the <a href="https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf" target="_blank">manual</a></p>
+    <p>20 Random Questions from a Pool of 100+ Questions</p>
+    <div style="margin-top: 15px;">
+      <a href="https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf" target="_blank" style="background: #ff6b35; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+        📖 Tennessee Driver's Manual (Official PDF)
+      </a>
+    </div>
   </header>
   <main>
-    <form id="quizForm"></form>
-    <div class="pagination">
-      <button type="button" onclick="showPage(1)">Page 1</button>
-      <button type="button" onclick="showPage(2)">Page 2</button>
-      <button type="button" onclick="showPage(3)">Page 3</button>
+    <div id="loadingScreen" class="loading">Loading questions...</div>
+    
+    <div id="quizContainer" style="display: none;">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div id="progressText" class="progress-text"></div>
+      
+      <div id="questionContainer" class="question-container"></div>
+      
+      <div class="navigation">
+        <button id="prevBtn" class="nav-btn" onclick="previousQuestion()">Previous</button>
+        <button id="nextBtn" class="nav-btn next" onclick="nextQuestion()">Next</button>
+      </div>
     </div>
-    <button type="button" class="submit-btn" onclick="checkAnswers()">Submit All Answers</button>
-    <div id="results" class="results"></div>
+    
+    <div id="resultsContainer" class="results" style="display: none;">
+      <h2>Test Complete!</h2>
+      <div id="scoreDisplay" class="score"></div>
+      <div id="scoreDetails" class="score-details"></div>
+      <button class="restart-btn" onclick="restartQuiz()">Take Test Again</button>
+    </div>
   </main>
+  
   <script>
     let questions = [];
-    const form = document.getElementById("quizForm");
+    let randomizedQuestions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+    let totalQuestions = 0;
+
+    // Fisher-Yates shuffle algorithm
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    // Remove duplicates from questions array
+    function removeDuplicates(questionsArray) {
+      const seen = new Set();
+      const unique = [];
+      
+      for (const question of questionsArray) {
+        const key = question.q; // Use question text as the key
+        if (!seen.has(key)) {
+          seen.add(key);
+          unique.push(question);
+        }
+      }
+      
+      return unique;
+    }
 
     async function loadQuestions() {
-      const res = await fetch("questions.json");
-      questions = await res.json();
-      showPage(1);
+      try {
+        const res = await fetch("questions.json");
+        const allQuestions = await res.json();
+        
+        // Remove duplicate questions
+        const uniqueQuestions = removeDuplicates(allQuestions);
+        
+        // Shuffle all questions
+        const shuffled = shuffleArray(uniqueQuestions);
+        
+        // Take only 20 questions for this test
+        const testQuestions = shuffled.slice(0, 20);
+        
+        // Set up the test with 20 questions
+        randomizedQuestions = testQuestions.map((q, idx) => ({
+          ...q,
+          id: idx
+        }));
+        
+        totalQuestions = 20;
+        
+        // Hide loading screen and show quiz
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.getElementById('quizContainer').style.display = 'block';
+        
+        // Display first question
+        displayQuestion();
+      } catch (error) {
+        console.error('Error loading questions:', error);
+        document.getElementById('loadingScreen').textContent = 'Error loading questions. Please refresh the page.';
+      }
     }
 
-    function renderQuestions(page) {
-      form.innerHTML = "";
-      const start = (page - 1) * 40;
-      const end = start + 40;
-      questions.slice(start, end).forEach((q, idx) => {
-        const index = start + idx;
-        const div = document.createElement("div");
-        div.classList.add("question");
-        let html = `<h3>Question ${index + 1}: ${q.q}</h3>`;
-        q.options.forEach((opt, j) => {
-          const letter = String.fromCharCode(65 + j);
-          html += `<div><label><input type='radio' name='q${index}' value='${letter}'> ${letter}. ${opt}</label></div>`;
-        });
-        div.innerHTML = html;
-        form.appendChild(div);
+    function displayQuestion() {
+      const question = randomizedQuestions[currentQuestionIndex];
+      const container = document.getElementById('questionContainer');
+      
+      // Update progress
+      updateProgress();
+      
+      // Generate HTML for the question
+      let html = `
+        <div class="question-number">Question ${currentQuestionIndex + 1} of ${totalQuestions}</div>
+        <h3>${question.q}</h3>
+        <div class="options-container">
+      `;
+      
+      // Randomize the order of options as well
+      const optionsWithLetters = question.options.map((opt, idx) => ({
+        text: opt,
+        letter: String.fromCharCode(65 + idx)
+      }));
+      
+      const randomizedOptions = shuffleArray(optionsWithLetters);
+      
+      randomizedOptions.forEach((option) => {
+        const isSelected = userAnswers[question.id] === option.letter;
+        html += `
+          <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(this, '${question.id}', '${option.letter}')">
+            <label>
+              <input type="radio" 
+                     name="q${question.id}" 
+                     value="${option.letter}"
+                     ${isSelected ? 'checked' : ''}>
+              ${option.letter}. ${option.text}
+            </label>
+          </div>
+        `;
       });
+      
+      html += '</div>';
+      container.innerHTML = html;
+      
+      // Update navigation buttons
+      updateNavigationButtons();
     }
 
-    function showPage(page) {
-      renderQuestions(page);
-      window.scrollTo(0, 0);
-    }
-
-    function checkAnswers() {
-      let score = 0;
-      questions.forEach((q, i) => {
-        const selected = document.querySelector(`input[name='q${i}']:checked`);
-        if (selected && selected.value === q.a) score++;
+    function selectOption(element, questionId, answer) {
+      // Store the answer
+      userAnswers[questionId] = answer;
+      
+      // Update visual selection
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('selected');
       });
-      const results = document.getElementById("results");
-      results.textContent = `You got ${score} out of ${questions.length} correct. (${Math.round((score / questions.length) * 100)}%)`;
+      element.classList.add('selected');
+      
+      // Check the radio button
+      const radio = element.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.checked = true;
+      }
     }
 
+    function updateProgress() {
+      const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+      document.getElementById('progressFill').style.width = `${progress}%`;
+      
+      const answeredCount = Object.keys(userAnswers).length;
+      document.getElementById('progressText').textContent = 
+        `${answeredCount} of ${totalQuestions} questions answered`;
+    }
+
+    function updateNavigationButtons() {
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      // Disable/enable previous button
+      prevBtn.disabled = currentQuestionIndex === 0;
+      
+      // Change next button to submit on last question
+      if (currentQuestionIndex === totalQuestions - 1) {
+        nextBtn.textContent = 'Submit Test';
+        nextBtn.className = 'nav-btn submit';
+        nextBtn.onclick = submitTest;
+      } else {
+        nextBtn.textContent = 'Next';
+        nextBtn.className = 'nav-btn next';
+        nextBtn.onclick = nextQuestion;
+      }
+    }
+
+    function previousQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        displayQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < totalQuestions - 1) {
+        currentQuestionIndex++;
+        displayQuestion();
+      }
+    }
+
+    function submitTest() {
+      // Check if all questions are answered
+      const answeredCount = Object.keys(userAnswers).length;
+      if (answeredCount < totalQuestions) {
+        const unanswered = totalQuestions - answeredCount;
+        if (!confirm(`You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. Do you want to submit anyway?`)) {
+          return;
+        }
+      }
+      
+      // Calculate score and build review
+      let correctCount = 0;
+      let reviewHTML = '<div style="text-align: left; margin-top: 30px;"><h3>Review Your Answers:</h3>';
+      
+      randomizedQuestions.forEach((q, index) => {
+        const userAnswer = userAnswers[q.id];
+        const isCorrect = userAnswer === q.a;
+        if (isCorrect) correctCount++;
+        
+        reviewHTML += `
+          <div style="background: #2a2a2a; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid ${isCorrect ? '#4caf50' : '#f44336'};">
+            <div style="font-weight: bold; margin-bottom: 10px;">Question ${index + 1}: ${q.q}</div>
+            <div style="margin: 5px 0;">Your answer: ${userAnswer ? `${userAnswer}. ${q.options[userAnswer.charCodeAt(0) - 65]}` : 'Not answered'}</div>
+            <div style="margin: 5px 0; color: ${isCorrect ? '#4caf50' : '#ff9800'};">
+              Correct answer: ${q.a}. ${q.options[q.a.charCodeAt(0) - 65]}
+            </div>
+            <div style="margin-top: 5px;">
+              ${isCorrect ? '✅ Correct!' : '❌ Incorrect'}
+            </div>
+          </div>
+        `;
+      });
+      
+      reviewHTML += '</div>';
+      
+      const percentage = Math.round((correctCount / totalQuestions) * 100);
+      
+      // Hide quiz container and show results
+      document.getElementById('quizContainer').style.display = 'none';
+      document.getElementById('resultsContainer').style.display = 'block';
+      
+      // Display results with review
+      document.getElementById('scoreDisplay').textContent = `${percentage}%`;
+      document.getElementById('scoreDetails').innerHTML = `
+        You answered ${correctCount} out of ${totalQuestions} questions correctly.<br>
+        ${percentage >= 70 ? '✅ Congratulations! You passed!' : '❌ Keep studying and try again!'}<br>
+        ${reviewHTML}
+      `;
+    }
+
+    function restartQuiz() {
+      // Reset everything
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      
+      // Load new questions for a fresh test
+      loadQuestions();
+    }
+
+    // Load questions when page loads
     loadQuestions();
   </script>
 </body>

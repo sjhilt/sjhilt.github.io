@@ -10,33 +10,413 @@
     ]
   },
   {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
+    "q": "What is the minimum following distance in normal conditions?",
     "a": "B",
     "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
+      "One second",
+      "Two seconds",
+      "Three seconds",
+      "Four seconds"
     ]
   },
   {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
+    "q": "When parking on a hill with a curb, which way should you turn your wheels?",
     "a": "C",
     "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
+      "Always away from the curb",
+      "Always toward the curb",
+      "Toward curb when facing downhill, away when facing uphill",
+      "It doesn't matter"
     ]
   },
   {
-    "q": "When are you required to use your headlights?",
+    "q": "What is the speed limit in a school zone when children are present in Tennessee?",
+    "a": "B",
+    "options": [
+      "10 mph",
+      "15 mph",
+      "20 mph",
+      "25 mph"
+    ]
+  },
+  {
+    "q": "What does a flashing red light mean?",
+    "a": "A",
+    "options": [
+      "Stop completely, then proceed when safe",
+      "Slow down and proceed with caution",
+      "Stop only if traffic is present",
+      "Speed up to clear the intersection"
+    ]
+  },
+  {
+    "q": "When should you use your parking lights?",
     "a": "D",
     "options": [
-      "Only in the rain",
-      "When turning",
+      "While driving in fog",
+      "While driving at night",
+      "While driving in rain",
+      "Never while driving"
+    ]
+  },
+  {
+    "q": "What is the proper hand signal for a right turn?",
+    "a": "B",
+    "options": [
+      "Left arm straight out",
+      "Left arm bent upward at elbow",
+      "Left arm bent downward at elbow",
+      "Right arm straight out"
+    ]
+  },
+  {
+    "q": "How far from a fire hydrant must you park?",
+    "a": "C",
+    "options": [
+      "10 feet",
+      "12 feet",
+      "15 feet",
+      "20 feet"
+    ]
+  },
+  {
+    "q": "What does a pennant-shaped sign indicate?",
+    "a": "A",
+    "options": [
+      "No passing zone",
+      "School zone",
+      "Construction zone",
+      "Hospital zone"
+    ]
+  },
+  {
+    "q": "When can you drive in a center turn lane?",
+    "a": "B",
+    "options": [
+      "To pass slower traffic",
+      "To prepare for a left turn",
+      "To merge into traffic",
+      "During rush hour only"
+    ]
+  },
+  {
+    "q": "What should you do if you experience a tire blowout?",
+    "a": "D",
+    "options": [
+      "Brake immediately",
+      "Accelerate to maintain control",
+      "Turn sharply to the shoulder",
+      "Hold steering wheel firmly and gradually slow down"
+    ]
+  },
+  {
+    "q": "What is the legal BAC limit for drivers under 21 in Tennessee?",
+    "a": "B",
+    "options": [
+      "0.00%",
+      "0.02%",
+      "0.05%",
+      "0.08%"
+    ]
+  },
+  {
+    "q": "When must you stop for a school bus?",
+    "a": "C",
+    "options": [
+      "Only when behind the bus",
+      "Only on two-lane roads",
+      "When red lights are flashing and stop sign is extended",
+      "Only in school zones"
+    ]
+  },
+  {
+    "q": "What does a green arrow mean?",
+    "a": "A",
+    "options": [
+      "You may turn in the direction of the arrow",
+      "You must turn in the direction of the arrow",
+      "Oncoming traffic has a red light",
+      "The turn lane is closing"
+    ]
+  },
+  {
+    "q": "How far ahead should you dim your high beams when approaching another vehicle?",
+    "a": "D",
+    "options": [
+      "100 feet",
+      "200 feet",
+      "300 feet",
+      "500 feet"
+    ]
+  },
+  {
+    "q": "What is the minimum age to obtain a learner's permit in Tennessee?",
+    "a": "A",
+    "options": [
+      "15 years old",
+      "15 and a half years old",
+      "16 years old",
+      "16 and a half years old"
+    ]
+  },
+  {
+    "q": "When are roads most slippery?",
+    "a": "B",
+    "options": [
+      "After hours of heavy rain",
+      "During the first few minutes of rainfall",
+      "Just before it starts raining",
+      "After the rain has stopped"
+    ]
+  },
+  {
+    "q": "What should you do at a four-way stop?",
+    "a": "C",
+    "options": [
+      "The largest vehicle goes first",
+      "Vehicles going straight go first",
+      "First vehicle to stop goes first",
+      "Vehicle on the right goes first if arriving simultaneously"
+    ]
+  },
+  {
+    "q": "What does a white painted curb mean?",
+    "a": "D",
+    "options": [
+      "No parking at any time",
+      "Limited time parking",
+      "Handicapped parking only",
+      "Passenger loading and unloading only"
+    ]
+  },
+  {
+    "q": "When is it legal to pass on the right on a multi-lane highway?",
+    "a": "A",
+    "options": [
+      "When the vehicle ahead is turning left",
+      "When you're in a hurry",
+      "When the right lane is empty",
+      "Never"
+    ]
+  },
+  {
+    "q": "What should you do if you encounter fog while driving?",
+    "a": "B",
+    "options": [
+      "Use high beams",
+      "Use low beams",
+      "Use parking lights only",
+      "Turn on hazard lights and continue"
+    ]
+  },
+  {
+    "q": "How often must you renew your driver's license in Tennessee?",
+    "a": "C",
+    "options": [
+      "Every 4 years",
+      "Every 6 years",
+      "Every 8 years",
+      "Every 10 years"
+    ]
+  },
+  {
+    "q": "What does a broken yellow line mean?",
+    "a": "A",
+    "options": [
+      "Passing is allowed when safe",
+      "No passing allowed",
+      "Two-way traffic ahead",
+      "Lane ends ahead"
+    ]
+  },
+  {
+    "q": "When should you yield the right-of-way?",
+    "a": "D",
+    "options": [
+      "Only at yield signs",
+      "Only when turning left",
+      "Only in intersections",
+      "When required by law or safety"
+    ]
+  },
+  {
+    "q": "What is the purpose of rumble strips?",
+    "a": "B",
+    "options": [
+      "To slow down traffic",
+      "To alert drowsy or inattentive drivers",
+      "To mark pedestrian crossings",
+      "To indicate no passing zones"
+    ]
+  },
+  {
+    "q": "When backing up, you should:",
+    "a": "C",
+    "options": [
+      "Use only your mirrors",
+      "Honk your horn continuously",
+      "Turn and look through the rear window",
+      "Have someone guide you"
+    ]
+  },
+  {
+    "q": "What does a solid double yellow line mean?",
+    "a": "A",
+    "options": [
+      "No passing in either direction",
+      "Pass only on the right",
+      "Two-way traffic",
+      "Center turn lane"
+    ]
+  },
+  {
+    "q": "When must you use turn signals?",
+    "a": "D",
+    "options": [
+      "Only in heavy traffic",
+      "Only when other vehicles are present",
+      "Only during daylight",
+      "Before any turn or lane change"
+    ]
+  },
+  {
+    "q": "What should you do if your accelerator sticks?",
+    "a": "B",
+    "options": [
+      "Pump the brake pedal rapidly",
+      "Shift to neutral",
+      "Turn off the ignition immediately",
+      "Pull the emergency brake"
+    ]
+  },
+  {
+    "q": "How far from a railroad crossing should you stop?",
+    "a": "C",
+    "options": [
+      "10-25 feet",
+      "15-30 feet",
+      "15-50 feet",
+      "50-100 feet"
+    ]
+  },
+  {
+    "q": "What is the 'Move Over' law in Tennessee?",
+    "a": "A",
+    "options": [
+      "Move to adjacent lane when emergency vehicles are stopped",
+      "Let faster traffic pass",
+      "Move right for sirens",
+      "Yield to merging traffic"
+    ]
+  },
+  {
+    "q": "When should you increase your following distance?",
+    "a": "D",
+    "options": [
+      "Only in rain",
+      "Only at night",
+      "Only in heavy traffic",
+      "In bad weather, poor visibility, or when following large vehicles"
+    ]
+  },
+  {
+    "q": "What does a blue sign indicate?",
+    "a": "B",
+    "options": [
+      "Warning",
+      "Motorist services",
+      "Construction zone",
+      "Regulatory information"
+    ]
+  },
+  {
+    "q": "When are you required to have liability insurance in Tennessee?",
+    "a": "C",
+    "options": [
       "Only on highways",
-      "From sunset to sunrise or during limited visibility"
+      "Only if you've had an accident",
+      "Whenever you drive",
+      "Only for new drivers"
+    ]
+  },
+  {
+    "q": "What should you do when you see a pedestrian with a white cane?",
+    "a": "A",
+    "options": [
+      "Stop and give them the right-of-way",
+      "Honk to alert them",
+      "Drive around them quickly",
+      "Flash your lights"
+    ]
+  },
+  {
+    "q": "What is highway hypnosis?",
+    "a": "D",
+    "options": [
+      "Fear of driving on highways",
+      "Excessive speed on highways",
+      "Road rage on highways",
+      "Drowsiness from monotonous driving"
+    ]
+  },
+  {
+    "q": "When parallel parking, how close to the curb should you be?",
+    "a": "B",
+    "options": [
+      "6 inches",
+      "12 inches",
+      "18 inches",
+      "24 inches"
+    ]
+  },
+  {
+    "q": "What does a round yellow sign indicate?",
+    "a": "C",
+    "options": [
+      "School zone",
+      "No passing zone",
+      "Railroad crossing ahead",
+      "Pedestrian crossing"
+    ]
+  },
+  {
+    "q": "When should you use hazard lights?",
+    "a": "A",
+    "options": [
+      "When your vehicle is disabled",
+      "In heavy rain",
+      "In heavy traffic",
+      "When driving slowly"
+    ]
+  },
+  {
+    "q": "What is the 'three-second rule'?",
+    "a": "B",
+    "options": [
+      "Time to check mirrors",
+      "Safe following distance",
+      "Time at stop signs",
+      "Turning signal duration"
+    ]
+  },
+  {
+    "q": "What color are construction zone signs?",
+    "a": "C",
+    "options": [
+      "Yellow",
+      "White",
+      "Orange",
+      "Red"
+    ]
+  },
+  {
+    "q": "When can you drive in an HOV lane?",
+    "a": "D",
+    "options": [
+      "During rush hour only",
+      "When traffic is heavy",
+      "With a special permit",
+      "With required number of passengers"
     ]
   },
   {
@@ -50,63 +430,503 @@
     ]
   },
   {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
+    "q": "What is the minimum age for an unrestricted driver's license in Tennessee?",
+    "a": "C",
     "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
+      "16 years old",
+      "17 years old",
+      "18 years old",
+      "21 years old"
     ]
   },
   {
-    "q": "When can you legally pass another vehicle on the right?",
+    "q": "When driving in work zones, you should:",
     "a": "B",
     "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
+      "Speed up to get through quickly",
+      "Reduce speed and stay alert",
+      "Use your horn frequently",
+      "Pass on the shoulder"
     ]
   },
   {
-    "q": "What does a solid white line on the right edge of the road mean?",
+    "q": "What does an orange diamond-shaped sign indicate?",
     "a": "A",
     "options": [
-      "Edge of the roadway",
-      "No passing",
+      "Construction or maintenance area",
       "School zone",
-      "Emergency lane only"
+      "Hospital zone",
+      "Recreation area"
     ]
   },
   {
-    "q": "How far ahead should you signal before making a turn?",
+    "q": "How many feet before a turn must you signal in a business or residential area?",
     "a": "C",
     "options": [
       "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
+      "75 feet",
+      "100 feet",
+      "200 feet"
     ]
   },
   {
-    "q": "If your vehicle begins to skid, what should you do?",
+    "q": "What should you do when you see an emergency vehicle with flashing lights behind you?",
     "a": "D",
     "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
+      "Speed up to clear the way",
+      "Stop immediately wherever you are",
+      "Continue at the same speed",
+      "Pull to the right and stop"
     ]
   },
   {
-    "q": "What does a red octagon-shaped sign indicate?",
+    "q": "When is it illegal to drive in Tennessee without corrective lenses if required?",
     "a": "A",
     "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
+      "Always if listed on your license",
+      "Only at night",
+      "Only on highways",
+      "Only in bad weather"
+    ]
+  },
+  {
+    "q": "What does a triangular orange sign on the back of a vehicle indicate?",
+    "a": "B",
+    "options": [
+      "Student driver",
+      "Slow-moving vehicle",
+      "Wide load",
+      "Hazardous materials"
+    ]
+  },
+  {
+    "q": "When must you have your vehicle inspected in Tennessee?",
+    "a": "C",
+    "options": [
+      "Every 6 months",
+      "Every year",
+      "Before registration renewal",
+      "Only when buying or selling"
+    ]
+  },
+  {
+    "q": "What is the penalty for a first DUI offense in Tennessee?",
+    "a": "D",
+    "options": [
+      "Warning only",
+      "Fine only",
+      "License suspension only",
+      "Jail time, fine, and license revocation"
+    ]
+  },
+  {
+    "q": "When should you use your horn?",
+    "a": "A",
+    "options": [
+      "To warn others of danger",
+      "To express anger",
+      "To greet friends",
+      "To hurry other drivers"
+    ]
+  },
+  {
+    "q": "What does a green curb marking mean?",
+    "a": "B",
+    "options": [
+      "No parking",
+      "Limited time parking",
+      "Loading zone only",
+      "Handicapped parking"
+    ]
+  },
+  {
+    "q": "How close can you park to a crosswalk?",
+    "a": "C",
+    "options": [
+      "10 feet",
+      "15 feet",
+      "20 feet",
+      "30 feet"
+    ]
+  },
+  {
+    "q": "What should you do if you have a blowout while driving?",
+    "a": "D",
+    "options": [
+      "Brake hard immediately",
+      "Turn sharply off the road",
+      "Accelerate to maintain control",
+      "Grip steering wheel and ease off gas"
+    ]
+  },
+  {
+    "q": "When can you legally make a U-turn?",
+    "a": "A",
+    "options": [
+      "When it's safe and not prohibited",
+      "At any intersection",
+      "On any street",
+      "Only in residential areas"
+    ]
+  },
+  {
+    "q": "What is defensive driving?",
+    "a": "B",
+    "options": [
+      "Driving aggressively",
+      "Being prepared for other drivers' mistakes",
+      "Driving slowly",
+      "Using your horn frequently"
+    ]
+  },
+  {
+    "q": "How many points on your license leads to suspension in Tennessee?",
+    "a": "C",
+    "options": [
+      "6 points",
+      "10 points",
+      "12 points",
+      "15 points"
+    ]
+  },
+  {
+    "q": "What does a brown sign indicate?",
+    "a": "D",
+    "options": [
+      "Construction zone",
+      "School zone",
+      "Warning",
+      "Recreation or cultural interest area"
+    ]
+  },
+  {
+    "q": "When must children use car seats in Tennessee?",
+    "a": "A",
+    "options": [
+      "Under age 9 and under 4'9\" tall",
+      "Under age 5 only",
+      "Under age 12",
+      "Under 60 pounds only"
+    ]
+  },
+  {
+    "q": "What is the speed limit on Tennessee interstate highways unless otherwise posted?",
+    "a": "B",
+    "options": [
+      "65 mph",
+      "70 mph",
+      "75 mph",
+      "80 mph"
+    ]
+  },
+  {
+    "q": "When parking downhill with a curb, turn your wheels:",
+    "a": "C",
+    "options": [
+      "Away from the curb",
+      "Straight ahead",
+      "Toward the curb",
+      "It doesn't matter"
+    ]
+  },
+  {
+    "q": "What should you do if your brakes fail?",
+    "a": "D",
+    "options": [
+      "Turn off the engine immediately",
+      "Shift to reverse",
+      "Jump from the vehicle",
+      "Pump brakes and shift to lower gear"
+    ]
+  },
+  {
+    "q": "When can you park in a handicapped space?",
+    "a": "A",
+    "options": [
+      "Only with proper permit displayed",
+      "For quick errands",
+      "If no other spaces available",
+      "When picking up handicapped person"
+    ]
+  },
+  {
+    "q": "What does a red curb mean?",
+    "a": "B",
+    "options": [
+      "Limited parking",
+      "No parking or stopping",
+      "Loading zone",
+      "Emergency vehicles only"
+    ]
+  },
+  {
+    "q": "How should you handle a curve?",
+    "a": "C",
+    "options": [
+      "Speed up through it",
+      "Brake hard in the curve",
+      "Slow down before entering",
+      "Coast through in neutral"
+    ]
+  },
+  {
+    "q": "What is the hand signal for slowing or stopping?",
+    "a": "D",
+    "options": [
+      "Left arm straight out",
+      "Left arm up",
+      "Right arm out",
+      "Left arm down"
+    ]
+  },
+  {
+    "q": "When must you report an accident to police?",
+    "a": "A",
+    "options": [
+      "When there's injury, death, or property damage over $1,500",
+      "Only when someone is killed",
+      "For any accident",
+      "Only on highways"
+    ]
+  },
+  {
+    "q": "What should you do at a flashing red traffic signal?",
+    "a": "B",
+    "options": [
+      "Slow down and proceed",
+      "Complete stop, then proceed when safe",
+      "Stop only if traffic present",
+      "Treat as yield sign"
+    ]
+  },
+  {
+    "q": "When are motorcycle helmets required in Tennessee?",
+    "a": "C",
+    "options": [
+      "Never required",
+      "Only on highways",
+      "Always for all riders",
+      "Only for riders under 21"
+    ]
+  },
+  {
+    "q": "What is the safest position in traffic?",
+    "a": "D",
+    "options": [
+      "In the fast lane",
+      "Close behind another vehicle",
+      "In the slow lane",
+      "With space cushion around you"
+    ]
+  },
+  {
+    "q": "What does a double solid yellow line mean?",
+    "a": "A",
+    "options": [
+      "No passing from either direction",
+      "Pass with caution",
+      "One-way street",
+      "Center turn lane"
+    ]
+  },
+  {
+    "q": "When should you use low beam headlights?",
+    "a": "B",
+    "options": [
+      "Only in fog",
+      "In fog, heavy rain, or snow",
+      "Never in daytime",
+      "Only at night"
+    ]
+  },
+  {
+    "q": "What is the proper way to enter an interstate highway?",
+    "a": "C",
+    "options": [
+      "Stop at the end of the ramp",
+      "Enter at any speed",
+      "Accelerate on the entrance ramp",
+      "Always yield and stop"
+    ]
+  },
+  {
+    "q": "How many seconds should you scan ahead while driving?",
+    "a": "D",
+    "options": [
+      "2-3 seconds",
+      "5-8 seconds",
+      "10-12 seconds",
+      "12-15 seconds"
+    ]
+  },
+  {
+    "q": "What should you do when hydroplaning?",
+    "a": "A",
+    "options": [
+      "Ease off gas and steer straight",
+      "Brake firmly",
+      "Accelerate through it",
+      "Turn sharply"
+    ]
+  },
+  {
+    "q": "When is passing on the right legal?",
+    "a": "B",
+    "options": [
+      "Never",
+      "On multi-lane roads when safe",
+      "On the shoulder",
+      "In school zones"
+    ]
+  },
+  {
+    "q": "What is Tennessee's implied consent law?",
+    "a": "C",
+    "options": [
+      "Consent to vehicle search",
+      "Consent to insurance check",
+      "Consent to chemical test when suspected of DUI",
+      "Consent to license check"
+    ]
+  },
+  {
+    "q": "What should you check before backing up?",
+    "a": "D",
+    "options": [
+      "Mirrors only",
+      "Backup camera only",
+      "Horn first",
+      "Behind and all around vehicle"
+    ]
+  },
+  {
+    "q": "When can you drive on the shoulder?",
+    "a": "A",
+    "options": [
+      "Only in emergencies",
+      "To pass traffic",
+      "During rush hour",
+      "To exit faster"
+    ]
+  },
+  {
+    "q": "What is road rage?",
+    "a": "B",
+    "options": [
+      "Defensive driving",
+      "Aggressive or violent behavior by drivers",
+      "Fear of highways",
+      "Slow driving"
+    ]
+  },
+  {
+    "q": "How should you respond to tailgaters?",
+    "a": "C",
+    "options": [
+      "Brake check them",
+      "Speed up",
+      "Gradually slow down or change lanes",
+      "Use hand gestures"
+    ]
+  },
+  {
+    "q": "When should you check blind spots?",
+    "a": "D",
+    "options": [
+      "Only when changing lanes",
+      "Only when turning",
+      "Only on highways",
+      "Before any lane change or turn"
+    ]
+  },
+  {
+    "q": "What is the two-second rule used for?",
+    "a": "A",
+    "options": [
+      "Measuring following distance",
+      "Time at stop signs",
+      "Merging time",
+      "Signal duration"
+    ]
+  },
+  {
+    "q": "When should you not use cruise control?",
+    "a": "B",
+    "options": [
+      "On highways",
+      "On wet or slippery roads",
+      "During daytime",
+      "On long trips"
+    ]
+  },
+  {
+    "q": "What does a yellow curb mean?",
+    "a": "C",
+    "options": [
+      "No parking ever",
+      "Handicapped only",
+      "Loading zone or limited time",
+      "Bus stop only"
+    ]
+  },
+  {
+    "q": "When must you yield to pedestrians?",
+    "a": "D",
+    "options": [
+      "Only at marked crosswalks",
+      "Only when they have walk signal",
+      "Only in school zones",
+      "Always when they're in crosswalk"
+    ]
+  },
+  {
+    "q": "What should you do if you're drowsy while driving?",
+    "a": "A",
+    "options": [
+      "Stop and rest",
+      "Open windows",
+      "Turn up radio",
+      "Drink caffeine and continue"
+    ]
+  },
+  {
+    "q": "How far should you stay behind emergency vehicles?",
+    "a": "B",
+    "options": [
+      "100 feet",
+      "500 feet",
+      "1000 feet",
+      "One mile"
+    ]
+  },
+  {
+    "q": "What does a white diamond symbol in a lane mean?",
+    "a": "C",
+    "options": [
+      "Merge ahead",
+      "Bike lane",
+      "HOV or reserved lane",
+      "Turn lane"
+    ]
+  },
+  {
+    "q": "When can you cross a double yellow line?",
+    "a": "D",
+    "options": [
+      "To pass slow traffic",
+      "When road is clear",
+      "In residential areas",
+      "To turn into driveway or side road"
+    ]
+  },
+  {
+    "q": "What is the first thing to do after an accident?",
+    "a": "A",
+    "options": [
+      "Check for injuries and call for help",
+      "Exchange insurance information",
+      "Move vehicles",
+      "Call your insurance company"
     ]
   },
   {
@@ -137,1016 +957,6 @@
       "When turning",
       "Only on highways",
       "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
-    ]
-  },
-  {
-    "q": "What does a yellow diamond-shaped sign signify?",
-    "a": "D",
-    "options": [
-      "Speed limit change",
-      "School zone",
-      "Stop ahead",
-      "Warning of hazard ahead"
-    ]
-  },
-  {
-    "q": "When can you legally pass another vehicle on the right?",
-    "a": "B",
-    "options": [
-      "On a two-lane road",
-      "When the vehicle ahead is making a left turn",
-      "In a construction zone",
-      "At an intersection"
-    ]
-  },
-  {
-    "q": "What does a solid white line on the right edge of the road mean?",
-    "a": "A",
-    "options": [
-      "Edge of the roadway",
-      "No passing",
-      "School zone",
-      "Emergency lane only"
-    ]
-  },
-  {
-    "q": "How far ahead should you signal before making a turn?",
-    "a": "C",
-    "options": [
-      "50 feet",
-      "25 feet",
-      "At least 100 feet",
-      "Only when other vehicles are near"
-    ]
-  },
-  {
-    "q": "If your vehicle begins to skid, what should you do?",
-    "a": "D",
-    "options": [
-      "Brake hard",
-      "Turn off the engine",
-      "Speed up",
-      "Steer in the direction you want the front wheels to go"
-    ]
-  },
-  {
-    "q": "What does a red octagon-shaped sign indicate?",
-    "a": "A",
-    "options": [
-      "Stop",
-      "Yield",
-      "Do Not Enter",
-      "Caution"
-    ]
-  },
-  {
-    "q": "What should you do when approaching a flashing yellow traffic signal?",
-    "a": "B",
-    "options": [
-      "Stop completely",
-      "Slow down and proceed with caution",
-      "Speed up to clear the intersection",
-      "Turn on your hazard lights"
-    ]
-  },
-  {
-    "q": "What is the legal BAC limit for drivers over 21 in Tennessee?",
-    "a": "C",
-    "options": [
-      "0.10%",
-      "0.05%",
-      "0.08%",
-      "0.02%"
-    ]
-  },
-  {
-    "q": "When are you required to use your headlights?",
-    "a": "D",
-    "options": [
-      "Only in the rain",
-      "When turning",
-      "Only on highways",
-      "From sunset to sunrise or during limited visibility"
-    ]
-  },
-  {
-    "q": "What should you do if you miss your exit on the interstate?",
-    "a": "A",
-    "options": [
-      "Continue to the next exit",
-      "Stop and back up",
-      "Make a U-turn",
-      "Pull over and wait"
     ]
   },
   {
