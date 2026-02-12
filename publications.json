@@ -1,6 +1,13 @@
 {
   "publications": [
     {
+      "date": "2026-02-12",
+      "title": "Threat Attribution Framework: How TrendAI Applies Structure Over Speculation",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/threat-attribution-framework-how-trendai-applies-structure-over-speculation",
+      "display": "Threat Attribution Framework"
+    },
+    {
       "date": "2025-12-09",
       "title": "Preparing Your Organization for the Next Generation of Agentic AI Cybercrime",
       "type": "Paper",
