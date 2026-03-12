@@ -75,6 +75,32 @@
     </style>
 </head>
 <body>
+    <!-- QR Code Warning Splash -->
+    <div id="qr-warning" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0a0a;display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;">
+        <div style="max-width:450px;text-align:center;border:3px solid #ff4444;border-radius:15px;padding:40px;background:#1a0000;">
+            <div style="font-size:4em;margin-bottom:15px;">⚠️</div>
+            <div style="font-family:'Courier New',monospace;color:#ff4444;font-size:1.5em;font-weight:bold;margin-bottom:15px;text-shadow:0 0 10px rgba(255,68,68,0.5);">WAIT A SECOND!</div>
+            <div style="font-family:'Courier New',monospace;color:#ff6666;font-size:1em;line-height:1.6;margin-bottom:10px;">You just scanned a random QR code without knowing where it goes...</div>
+            <div style="font-family:'Courier New',monospace;color:#ffcc00;font-size:1.1em;line-height:1.6;margin-bottom:20px;">🚨 <strong>Rule #1 of Cyber Security:</strong><br>Never scan unknown QR codes! They could lead to malicious sites that steal your data.</div>
+            <div style="font-family:'Courier New',monospace;color:#ccc;font-size:0.85em;margin-bottom:20px;">Lucky for you, this one is safe. 😉</div>
+            <button onclick="dismissWarning()" style="padding:12px 30px;background:#00ff41;color:#000;border:none;border-radius:5px;font-family:'Courier New',monospace;font-size:1em;font-weight:bold;cursor:pointer;letter-spacing:1px;">GOT IT — LET ME IN!</button>
+            <div id="countdown" style="font-family:'Courier New',monospace;color:#666;font-size:0.8em;margin-top:10px;">Auto-continuing in 3s...</div>
+        </div>
+    </div>
+    <script>
+        let count = 3;
+        const cdEl = document.getElementById('countdown');
+        const cdTimer = setInterval(() => {
+            count--;
+            if (count <= 0) { clearInterval(cdTimer); dismissWarning(); }
+            else cdEl.textContent = 'Auto-continuing in ' + count + 's...';
+        }, 1000);
+        function dismissWarning() {
+            clearInterval(cdTimer);
+            document.getElementById('qr-warning').style.display = 'none';
+        }
+    </script>
+
     <div class="container">
         <div class="header">
             <h1>🔐 TrendAI CYBER CHALLENGE</h1>
