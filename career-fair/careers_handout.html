@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendAI - Cyber Security Careers Handout</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none !important; }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: white;
+            color: #000;
+            width: 8.5in;
+            margin: 0 auto;
+            padding: 0.4in;
+        }
+        .no-print {
+            text-align: center; margin: 20px; padding: 15px;
+            background: #fffde7; border: 1px solid #f9a825; border-radius: 5px;
+        }
+        .no-print button {
+            padding: 10px 30px; font-size: 1.1em; cursor: pointer;
+            background: #000; color: #fff; border: none; border-radius: 5px;
+        }
+        .page {
+            border: 3px solid #000;
+            padding: 25px;
+            min-height: 10in;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .header h1 {
+            font-size: 2em;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        .header .tagline {
+            font-size: 0.95em;
+            font-style: italic;
+            margin-top: 4px;
+        }
+        .intro {
+            font-size: 0.92em;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            padding: 10px;
+            border-left: 4px solid #000;
+            background: #f9f9f9;
+        }
+        .careers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .career-card {
+            border: 2px solid #000;
+            padding: 12px;
+        }
+        .career-card .icon-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .career-card .icon {
+            font-size: 1.5em;
+        }
+        .career-card h3 {
+            font-size: 0.95em;
+            font-family: 'Courier New', monospace;
+        }
+        .career-card p {
+            font-size: 0.78em;
+            line-height: 1.4;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .career-card .skills {
+            font-size: 0.7em;
+            color: #555;
+        }
+        .career-card .skills span {
+            display: inline-block;
+            border: 1px solid #999;
+            padding: 1px 5px;
+            margin: 1px;
+            font-family: 'Courier New', monospace;
+        }
+        .career-card .salary {
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .section-title {
+            font-size: 1.15em;
+            font-family: 'Courier New', monospace;
+            border-bottom: 2px solid #000;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+        }
+        .pathways {
+            margin-bottom: 18px;
+        }
+        .pathway-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 0.82em;
+        }
+        .pathway-row .step {
+            background: #000;
+            color: #fff;
+            padding: 4px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+        .pathway-row .arrow {
+            font-weight: bold;
+        }
+        .pathway-row .detail {
+            color: #333;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        .resources, .why-trendai {
+            border: 2px solid #000;
+            padding: 12px;
+        }
+        .resources h3, .why-trendai h3 {
+            font-size: 0.95em;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 4px;
+        }
+        .resources ul {
+            list-style: none;
+            font-size: 0.8em;
+            line-height: 1.6;
+        }
+        .resources ul li::before {
+            content: ">> ";
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        .why-trendai ul {
+            list-style: none;
+            font-size: 0.8em;
+            line-height: 1.6;
+        }
+        .why-trendai ul li::before {
+            content: "[+] ";
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        .footer {
+            border-top: 3px solid #000;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8em;
+        }
+        .footer .cta {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        .stats-bar {
+            background: #000;
+            color: #fff;
+            padding: 8px 15px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-around;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+            text-align: center;
+        }
+        .stats-bar .stat-num {
+            font-size: 1.4em;
+            font-weight: bold;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button onclick="window.print()">Print This Handout</button>
+    </div>
+    <div class="page">
+        <div class="header">
+            <h1>TrendAI | CYBER SECURITY CAREERS</h1>
+            <div class="tagline">AI Fearlessly — Your Future Starts Here</div>
+        </div>
+
+        <div class="stats-bar">
+            <div><span class="stat-num">3.5M</span>Unfilled Cyber Jobs Globally</div>
+            <div><span class="stat-num">0%</span>Unemployment Rate</div>
+            <div><span class="stat-num">$120K+</span>Avg. Starting Salary</div>
+            <div><span class="stat-num">33%</span>Job Growth by 2033</div>
+        </div>
+
+        <div class="intro">
+            Cybersecurity is one of the fastest-growing and most important career fields in the world. 
+            Every company, government, and organization needs people who can protect their data and systems 
+            from cyber threats. At <strong>TrendAI</strong>, we combine <strong>artificial intelligence</strong> with 
+            cybersecurity to stop the most advanced threats. Here are some of the exciting careers you could pursue:
+        </div>
+
+        <div class="section-title">> CAREER PATHS IN CYBER SECURITY</div>
+
+        <div class="careers-grid">
+            <div class="career-card">
+                <div class="icon-title">
+                    <span class="icon">&#x1F6E1;</span>
+                    <h3>Security Analyst</h3>
+                </div>
+                <p>Monitor networks and systems for security breaches. Investigate incidents and respond to threats in real-time.</p>
+                <div class="skills"><span>SIEM</span> <span>Networking</span> <span>Log Analysis</span></div>
+                <div class="salary">$75K - $120K/year</div>
+            </div>
+            <div class="career-card">
+                <div class="icon-title">
+                    <span class="icon">&#x1F575;</span>
+                    <h3>Threat Researcher</h3>
+                </div>
+                <p>Hunt for new malware, vulnerabilities, and attack techniques. Study how hackers operate to build better defenses.</p>
+                <div class="skills"><span>Malware</span> <span>Reverse Eng.</span> <span>Python</span></div>
+                <div class="salary">$90K - $150K/year</div>
+            </div>
+            <div class="career-card">
+                <div class="icon-title">
+                    <span class="icon">&#x1F50D;</span>
+                    <h3>Penetration Tester</h3>
+                </div>
+                <p>Ethically hack into systems to find weaknesses before the bad guys do. Get paid to think like a hacker!</p>
+                <div class="skills"><span>Kali Linux</span> <span>Scripting</span> <span>Web Security</span></div>
+                <div class="salary">$85K - $140K/year</div>
+            </div>
+            <div class="career-card">
+                <div class="icon-title">
+                    <span class="icon">&#x1F916;</span>
+                    <h3>AI Security Engineer</h3>
+                </div>
+                <p>Build AI/ML models that automatically detect and stop cyber attacks. The cutting edge of defense technology.</p>
+                <div class="skills"><span>Machine Learning</span> <span>Python</span> <span>Data Science</span></div>
+                <div class="salary">$100K - $180K/year</div>
+            </div>
+            <div class="career-card">
+                <div class="icon-title">
+                    <span class="icon">&#x1F52C;</span>
+                    <h3>Digital Forensics</h3>
+                </div>
+                <p>Investigate cyber crimes like a digital detective. Recover deleted files, trace attackers, and present evidence.</p>
+                <div class="skills"><span>Forensics Tools</span> <span>OS Internals</span> <span>Legal</span></div>
+                <div class="salary">$70K - $125K/year</div>
+            </div>
+            <div class="career-card">
+                <div class="icon-title">
+                    <span class="icon">&#x2601;</span>
+                    <h3>Cloud Security</h3>
+                </div>
+                <p>Secure cloud infrastructure (AWS, Azure, GCP). As companies move to the cloud, these skills are in huge demand.</p>
+                <div class="skills"><span>AWS</span> <span>Azure</span> <span>IAM</span> <span>Containers</span></div>
+                <div class="salary">$95K - $165K/year</div>
+            </div>
+        </div>
+
+        <div class="section-title">> YOUR PATH TO CYBER SECURITY</div>
+        <div class="pathways">
+            <div class="pathway-row">
+                <span class="step">STEP 1</span>
+                <span class="arrow">--></span>
+                <span class="detail"><strong>Learn the basics:</strong> Networking, Linux, Python programming</span>
+            </div>
+            <div class="pathway-row">
+                <span class="step">STEP 2</span>
+                <span class="arrow">--></span>
+                <span class="detail"><strong>Practice:</strong> TryHackMe, HackTheBox, CyberStart (free platforms!)</span>
+            </div>
+            <div class="pathway-row">
+                <span class="step">STEP 3</span>
+                <span class="arrow">--></span>
+                <span class="detail"><strong>Get certified:</strong> CompTIA Security+, CEH, or Google Cybersecurity Certificate</span>
+            </div>
+            <div class="pathway-row">
+                <span class="step">STEP 4</span>
+                <span class="arrow">--></span>
+                <span class="detail"><strong>Build experience:</strong> CTF competitions, bug bounties, internships</span>
+            </div>
+            <div class="pathway-row">
+                <span class="step">STEP 5</span>
+                <span class="arrow">--></span>
+                <span class="detail"><strong>Launch your career:</strong> Apply to TrendAI and start protecting the world!</span>
+            </div>
+        </div>
+
+        <div class="two-col">
+            <div class="resources">
+                <h3>FREE LEARNING RESOURCES</h3>
+                <ul>
+                    <li>TryHackMe.com — Beginner-friendly labs</li>
+                    <li>CyberStart.com — For students</li>
+                    <li>OverTheWire.org — War games</li>
+                    <li>HackTheBox.com — Challenges</li>
+                    <li>Coursera — Google Cyber Certificate</li>
+                    <li>PicoCTF.org — Student CTF competition</li>
+                </ul>
+            </div>
+            <div class="why-trendai">
+                <h3>WHY TRENDAI?</h3>
+                <ul>
+                    <li>AI-powered threat detection</li>
+                    <li>Protecting millions of users worldwide</li>
+                    <li>Internship &amp; mentorship programs</li>
+                    <li>Work on cutting-edge technology</li>
+                    <li>Remote &amp; flexible work options</li>
+                    <li>Continuous learning culture</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <strong>TrendAI</strong> — AI Fearlessly<br>
+                CSAS Career Fair 2026
+            </div>
+            <div style="text-align:center;">
+                <div id="qrcode" style="display:inline-block;"></div>
+                <div style="font-family:'Courier New',monospace; font-size:0.7em; margin-top:3px;">SCAN FOR DIGITAL COPY</div>
+            </div>
+            <div class="cta">
+                &lt;/&gt; YOUR FUTURE IN CYBER STARTS TODAY
+            </div>
+        </div>
+    </div>
+    <script>
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://stephenhilt.com/career-fair/careers_handout.html",
+            width: 80, height: 80,
+            colorDark: "#000000", colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>
