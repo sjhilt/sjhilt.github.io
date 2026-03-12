@@ -111,7 +111,7 @@
             <input type="text" id="answer" placeholder="Type your answer here..." autocomplete="off">
         </div>
 
-        <button class="submit-btn" onclick="checkAnswer()">🔓 DECRYPT 🔓</button>
+        <button class="submit-btn" onclick="checkAnswer()">🔓 DECODE 🔓</button>
 
         <div class="feedback" id="feedback"></div>
     </div>
@@ -125,7 +125,7 @@
             
             if (input === correctAnswer) {
                 feedback.className = 'feedback success';
-                feedback.innerHTML = '✅ DECRYPTED! Moving to Level 3...';
+                feedback.innerHTML = '✅ DECODED! Moving to Level 3...';
                 setTimeout(() => { window.location.href = 'level3.html'; }, 2000);
             } else {
                 feedback.className = 'feedback error';
