@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendAI Cyber Challenge - Printable Flyer</title>
+    <!-- QR Code library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none !important; }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: white;
+            color: #000;
+            width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        .page {
+            border: 4px solid #000;
+            padding: 30px;
+            min-height: 10in;
+            position: relative;
+        }
+        /* Top banner */
+        .banner {
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .banner h1 {
+            font-size: 2.4em;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+        .banner .sub {
+            font-size: 1.1em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        /* Main content area */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .left-col {
+            flex: 1;
+        }
+        .right-col {
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* QR Code section */
+        .qr-section {
+            text-align: center;
+            border: 3px solid #000;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .qr-section h2 {
+            font-size: 1em;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        #qrcode img, #qrcode canvas {
+            width: 180px !important;
+            height: 180px !important;
+        }
+        .qr-section .scan-text {
+            font-size: 0.85em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        /* Challenge description */
+        .challenge-desc {
+            margin-bottom: 20px;
+        }
+        .challenge-desc h2 {
+            font-size: 1.4em;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        .challenge-desc p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        /* Levels preview */
+        .levels {
+            margin-bottom: 20px;
+        }
+        .levels h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        .level-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px;
+            border: 1px solid #999;
+            margin-bottom: 6px;
+            background: #f5f5f5;
+        }
+        .level-num {
+            background: #000;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        .level-info .level-name {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .level-info .level-desc {
+            font-size: 0.8em;
+            color: #555;
+        }
+        /* Reward section */
+        .reward {
+            border: 3px dashed #000;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .reward h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .reward p {
+            font-size: 0.9em;
+        }
+        /* Fun facts sidebar */
+        .fun-facts {
+            border: 2px solid #000;
+            padding: 12px;
+        }
+        .fun-facts h3 {
+            font-size: 0.9em;
+            text-align: center;
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+        .fun-facts .fact {
+            font-size: 0.75em;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            text-indent: -15px;
+            line-height: 1.4;
+        }
+        .fun-facts .fact::before {
+            content: "► ";
+            font-weight: bold;
+        }
+        /* Bottom section */
+        .bottom {
+            border-top: 3px solid #000;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bottom .left {
+            font-size: 0.85em;
+        }
+        .bottom .right {
+            text-align: right;
+            font-size: 0.8em;
+            font-family: 'Courier New', monospace;
+        }
+        /* Decorative elements */
+        .binary-strip {
+            font-family: 'Courier New', monospace;
+            font-size: 0.6em;
+            color: #ccc;
+            text-align: center;
+            margin: 10px 0;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+        .corner-decoration {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 0.6em;
+            color: #999;
+        }
+        .corner-decoration.top-left { top: 8px; left: 10px; }
+        .corner-decoration.top-right { top: 8px; right: 10px; }
+        .corner-decoration.bottom-left { bottom: 8px; left: 10px; }
+        .corner-decoration.bottom-right { bottom: 8px; right: 10px; }
+        /* Instructions bar */
+        .instructions-bar {
+            background: #000;
+            color: #fff;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .no-print {
+            text-align: center;
+            margin: 20px;
+            padding: 15px;
+            background: #fffde7;
+            border: 1px solid #f9a825;
+            border-radius: 5px;
+        }
+        .no-print button {
+            padding: 10px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .no-print p {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <p><strong>NOTE:</strong> You'll need to host the challenge files on a web server and update the QR code URL below.</p>
+        <p>Current QR points to a placeholder URL. Replace it in the script at the bottom of this page.</p>
+        <button onclick="window.print()">🖨️ Print This Flyer</button>
+    </div>
+
+    <div class="page">
+        <div class="corner-decoration top-left">01001000 01000001</div>
+        <div class="corner-decoration top-right">01000011 01001011</div>
+        <div class="corner-decoration bottom-left">SEC://2026</div>
+        <div class="corner-decoration bottom-right">TREND-AI-CTF</div>
+
+        <div class="banner">
+            <img src="TrendAI-Logo-Black-RGB.png" alt="TrendAI" style="height: 60px; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto;">
+            <div class="sub">CYBER SECURITY CHALLENGE</div>
+            <div style="font-size: 0.85em; font-style: italic; margin-top: 4px;">AI Fearlessly</div>
+        </div>
+
+        <div class="instructions-bar">
+            [ SCAN &bull; DECODE &bull; CONQUER &bull; WIN CANDY ]
+        </div>
+
+        <div class="main-content">
+            <div class="left-col">
+                <div class="challenge-desc">
+                    <h2>&gt; THE MISSION</h2>
+                    <p>Think you have what it takes to be a <strong>cybersecurity expert</strong>? 
+                    Prove it! Scan the QR code with your phone and crack <strong>3 encoded messages</strong> 
+                    using real decoding techniques.</p>
+                    <p>No computer needed — just your <strong>phone</strong> and your <strong>brain</strong>!</p>
+                </div>
+
+                <div class="levels">
+                    <h3>&gt; CHALLENGE LEVELS</h3>
+                    <div class="level-item">
+                        <div class="level-num">1</div>
+                        <div class="level-info">
+                            <div class="level-name">Intercepted Message</div>
+                            <div class="level-desc">A scrambled enemy transmission — can you figure out the pattern?</div>
+                        </div>
+                    </div>
+                    <div class="level-item">
+                        <div class="level-num">2</div>
+                        <div class="level-info">
+                            <div class="level-name">Suspicious Payload</div>
+                            <div class="level-desc">A hidden message in an email — what encoding is this?</div>
+                        </div>
+                    </div>
+                    <div class="level-item">
+                        <div class="level-num">3</div>
+                        <div class="level-info">
+                            <div class="level-name">Forensic Recovery</div>
+                            <div class="level-desc">Raw data from a compromised drive — decode the machine language</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reward">
+                    <h3>&#x1F36C; COMPLETE ALL 3 = FREE CANDY! &#x1F36C;</h3>
+                    <p>Show your victory screen to claim your reward!</p>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="qr-section">
+                    <h2>SCAN TO START</h2>
+                    <div id="qrcode"></div>
+                    <div class="scan-text">Point your phone camera here!</div>
+                </div>
+
+                <div class="fun-facts">
+                    <h3>CYBER FACTS</h3>
+                    <div class="fact">The first computer virus was created in 1986 called "Brain"</div>
+                    <div class="fact">There is a cyber attack every 39 seconds</div>
+                    <div class="fact">95% of breaches are caused by human error</div>
+                    <div class="fact">Chattanooga has the fastest internet in the Western Hemisphere — 10 Gbps!</div>
+                    <div class="fact">The average cost of a data breach is $4.5 million</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="binary-strip">
+            01010100 01110010 01100101 01101110 01100100 01000001 01001001 00100000 01000011 01111001 01100010 01100101 01110010 00100000 01000011 01101000 01100001 01101100 01101100 01100101 01101110 01100111 01100101
+        </div>
+
+        <div class="bottom">
+            <div class="left">
+                <strong>TrendAI</strong> — AI Fearlessly<br>
+                CSAS Career Fair 2026
+            </div>
+            <div class="right">
+                &lt;/&gt; DIFFICULTY: BEGINNER<br>
+                TIME: ~10 MINUTES<br>
+                TOOLS: YOUR PHONE
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // IMPORTANT: Replace this URL with where you host the challenge files
+        // For example, if you use GitHub Pages: "https://yourusername.github.io/trendai-challenge/level1.html"
+        // Or any web server URL where the challenge files are hosted
+        const challengeURL = "https://stephenhilt.com/cyber-challenge/level1.html";
+        
+        new QRCode(document.getElementById("qrcode"), {
+            text: challengeURL,
+            width: 180,
+            height: 180,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>

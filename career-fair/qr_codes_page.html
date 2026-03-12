@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendAI Career Fair - All QR Codes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none !important; }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: white;
+            color: #000;
+            width: 8.5in;
+            margin: 0 auto;
+            padding: 0.4in;
+        }
+        .no-print {
+            text-align: center; margin: 20px; padding: 15px;
+            background: #fffde7; border: 1px solid #f9a825; border-radius: 5px;
+        }
+        .no-print button {
+            padding: 10px 30px; font-size: 1.1em; cursor: pointer;
+            background: #000; color: #fff; border: none; border-radius: 5px;
+        }
+        .page-title {
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        .qr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 10px;
+        }
+        .qr-card {
+            border: 3px solid #000;
+            padding: 15px;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+        .qr-card .card-title {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+        .qr-card .card-subtitle {
+            font-size: 0.7em;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .qr-card .qr-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .qr-card .qr-container img,
+        .qr-card .qr-container canvas {
+            width: 180px !important;
+            height: 180px !important;
+        }
+        .qr-card .scan-instruction {
+            font-family: 'Courier New', monospace;
+            font-size: 0.7em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .section-label {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .cut-line {
+            border: none;
+            border-top: 2px dashed #ccc;
+            margin: 25px 0 5px 0;
+        }
+        .cut-label {
+            text-align: center;
+            font-size: 0.65em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button onclick="window.print()">🖨️ Print All QR Codes</button>
+    </div>
+
+    <div class="page-title">TrendAI — ALL QR CODES</div>
+
+    <!-- CYBER CHALLENGE QR CODES -->
+    <div class="section-label">🔐 CYBER CHALLENGE — Scan to Start</div>
+
+    <div class="qr-grid">
+        <div class="qr-card">
+            <div class="card-title">CYBER CHALLENGE</div>
+            <div class="card-subtitle">Decode 3 messages, win candy!</div>
+            <div class="qr-container" id="qr-challenge-1"></div>
+            <div class="scan-instruction">SCAN TO START</div>
+        </div>
+
+        <div class="qr-card">
+            <div class="card-title">CYBER CHALLENGE</div>
+            <div class="card-subtitle">Decode 3 messages, win candy!</div>
+            <div class="qr-container" id="qr-challenge-2"></div>
+            <div class="scan-instruction">SCAN TO START</div>
+        </div>
+
+        <div class="qr-card">
+            <div class="card-title">CYBER CHALLENGE</div>
+            <div class="card-subtitle">Decode 3 messages, win candy!</div>
+            <div class="qr-container" id="qr-challenge-3"></div>
+            <div class="scan-instruction">SCAN TO START</div>
+        </div>
+    </div>
+
+    <div class="cut-label">✂ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ✂</div>
+    <hr class="cut-line">
+
+    <!-- CAREERS HANDOUT QR CODES -->
+    <div class="section-label">🚀 CYBER CAREERS HANDOUT</div>
+
+    <div class="qr-grid">
+        <div class="qr-card">
+            <div class="card-title">CAREERS HANDOUT</div>
+            <div class="card-subtitle">Cyber security career paths &amp; resources</div>
+            <div class="qr-container" id="qr-careers-1"></div>
+            <div class="scan-instruction">SCAN FOR INFO</div>
+        </div>
+
+        <div class="qr-card">
+            <div class="card-title">CAREERS HANDOUT</div>
+            <div class="card-subtitle">Cyber security career paths &amp; resources</div>
+            <div class="qr-container" id="qr-careers-2"></div>
+            <div class="scan-instruction">SCAN FOR INFO</div>
+        </div>
+
+        <div class="qr-card">
+            <div class="card-title">CAREERS HANDOUT</div>
+            <div class="card-subtitle">Cyber security career paths &amp; resources</div>
+            <div class="qr-container" id="qr-careers-3"></div>
+            <div class="scan-instruction">SCAN FOR INFO</div>
+        </div>
+    </div>
+
+    <div class="cut-label">✂ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ✂</div>
+    <hr class="cut-line">
+
+    <!-- ONLINE SAFETY QR CODES -->
+    <div class="section-label">🛡️ ONLINE SAFETY TIPS FOR TEENS</div>
+
+    <div class="qr-grid">
+        <div class="qr-card">
+            <div class="card-title">ONLINE SAFETY</div>
+            <div class="card-subtitle">Stay safe online — tips for teens</div>
+            <div class="qr-container" id="qr-safety-1"></div>
+            <div class="scan-instruction">SCAN FOR TIPS</div>
+        </div>
+
+        <div class="qr-card">
+            <div class="card-title">ONLINE SAFETY</div>
+            <div class="card-subtitle">Stay safe online — tips for teens</div>
+            <div class="qr-container" id="qr-safety-2"></div>
+            <div class="scan-instruction">SCAN FOR TIPS</div>
+        </div>
+
+        <div class="qr-card">
+            <div class="card-title">ONLINE SAFETY</div>
+            <div class="card-subtitle">Stay safe online — tips for teens</div>
+            <div class="qr-container" id="qr-safety-3"></div>
+            <div class="scan-instruction">SCAN FOR TIPS</div>
+        </div>
+    </div>
+
+    <script>
+        const urls = {
+            challenge: "https://stephenhilt.com/cyber-challenge/level1.html",
+            careers: "https://stephenhilt.com/career-fair/careers_handout.html",
+            safety: "https://stephenhilt.com/career-fair/online_safety_teens.html"
+        };
+
+        function makeQR(elementId, url) {
+            new QRCode(document.getElementById(elementId), {
+                text: url, width: 180, height: 180,
+                colorDark: "#000000", colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Generate all QR codes
+        for (let i = 1; i <= 3; i++) {
+            makeQR("qr-challenge-" + i, urls.challenge);
+            makeQR("qr-careers-" + i, urls.careers);
+            makeQR("qr-safety-" + i, urls.safety);
+        }
+    </script>
+</body>
+</html>
