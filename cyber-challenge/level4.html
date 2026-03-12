@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 TrendAI Cyber Challenge - COMPLETE!</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff41;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            border: 3px solid #ffd700;
+            border-radius: 10px;
+            padding: 30px;
+            background: #111;
+            box-shadow: 0 0 40px rgba(255,215,0,0.3);
+            text-align: center;
+        }
+        .trophy {
+            font-size: 4em;
+            margin-bottom: 10px;
+            animation: bounce 1s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+            50% { text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 60px #ffd700; }
+        }
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .confetti {
+            position: fixed;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+        .header h1 {
+            font-size: 1.6em;
+            color: #ffd700;
+            margin-bottom: 5px;
+            animation: glow 2s ease infinite;
+        }
+        .header .subtitle {
+            font-size: 1em;
+            color: #00ff41;
+            margin-bottom: 20px;
+        }
+        .progress {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        .progress .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #ffd700;
+            background: #ffd700;
+            box-shadow: 0 0 8px #ffd700;
+        }
+        .victory-msg {
+            background: #1a1a00;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            font-size: 1em;
+            line-height: 1.8;
+            color: #fff;
+        }
+        .victory-msg .big {
+            font-size: 1.3em;
+            color: #ffd700;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+        .candy-box {
+            background: linear-gradient(135deg, #1a0a00, #0a1a00);
+            border: 3px dashed #ff6600;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .candy-box .candy-emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .candy-box .candy-title {
+            font-size: 1.2em;
+            color: #ff6600;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .candy-box .candy-msg {
+            font-size: 0.95em;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        .candy-box .candy-code {
+            display: inline-block;
+            background: #000;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            padding: 8px 20px;
+            margin-top: 12px;
+            font-size: 1.4em;
+            color: #ffd700;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+        .skills-learned {
+            background: #0a1a0a;
+            border: 1px solid #00ff41;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .skills-learned h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #00ff41;
+        }
+        .skills-learned .skill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #1a3a1a;
+            font-size: 0.9em;
+        }
+        .skills-learned .skill:last-child {
+            border-bottom: none;
+        }
+        .skills-learned .skill .check {
+            color: #00ff41;
+            font-size: 1.2em;
+        }
+        .skills-learned .skill .name {
+            color: #ccc;
+        }
+        .skills-learned .skill .tag {
+            margin-left: auto;
+            background: #00ff41;
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+        .careers {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .careers h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        .careers p {
+            color: #aaa;
+            font-size: 0.85em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .careers .role {
+            color: #00ff41;
+            font-weight: bold;
+        }
+        .footer {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 15px;
+        }
+        .footer a {
+            color: #00ff41;
+            text-decoration: none;
+        }
+        .share-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        .share-btn:hover {
+            background: #ffd700;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="trophy">🏆</div>
+        
+        <div class="header">
+            <h1>MISSION COMPLETE!</h1>
+            <div class="subtitle">// ALL SYSTEMS DECRYPTED //</div>
+        </div>
+
+        <div class="progress">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="victory-msg">
+            🎉 Congratulations, Cyber Recruit! 🎉
+            <span class="big">You cracked all 3 codes!</span>
+            You just used the same skills that real cybersecurity professionals use every day — 
+            cryptography, encoding analysis, and digital forensics. You've got what it takes!
+        </div>
+
+        <div class="candy-box">
+            <div class="candy-emoji">🍬🍫🍭</div>
+            <div class="candy-title">YOU EARNED A REWARD!</div>
+            <div class="candy-msg">
+                Show this screen to claim your candy! 
+                Give them this secret code:
+            </div>
+            <div class="candy-code">CYBER-HERO-2026</div>
+        </div>
+
+        <div class="skills-learned">
+            <h3>🧠 Skills You Just Used</h3>
+            <div class="skill">
+                <span class="check">✅</span>
+                <span class="name">ROT13 / Caesar Cipher</span>
+                <span class="tag">CRYPTOGRAPHY</span>
+            </div>
+            <div class="skill">
+                <span class="check">✅</span>
+                <span class="name">Base64 Decoding</span>
+                <span class="tag">ENCODING</span>
+            </div>
+            <div class="skill">
+                <span class="check">✅</span>
+                <span class="name">Hexadecimal Analysis</span>
+                <span class="tag">FORENSICS</span>
+            </div>
+            <div class="skill">
+                <span class="check">✅</span>
+                <span class="name">Using Online Tools</span>
+                <span class="tag">OSINT</span>
+            </div>
+        </div>
+
+        <div class="careers">
+            <h3>🚀 Cyber Careers at TrendAI</h3>
+            <p>The skills you just used are the building blocks of real cybersecurity careers:</p>
+            <p><span class="role">🔒 Security Analyst</span> — Monitor and protect systems from attacks</p>
+            <p><span class="role">🕵️ Threat Researcher</span> — Hunt for new malware and vulnerabilities</p>
+            <p><span class="role">🔬 Digital Forensics</span> — Investigate cyber crimes and recover evidence</p>
+            <p><span class="role">🤖 AI Security Engineer</span> — Use AI to detect and stop threats</p>
+            <p><span class="role">🛡️ Penetration Tester</span> — Ethically hack systems to find weaknesses</p>
+            <p style="margin-top:15px; color:#ffd700; text-align:center;">Talk to us to learn more about cyber careers! 🎯</p>
+        </div>
+
+        <button class="share-btn" onclick="shareResult()">📱 Share Your Achievement</button>
+
+        <div class="footer">
+            <p>TrendAI — AI Fearlessly</p>
+            <p>CSAS Career Fair 2026</p>
+        </div>
+    </div>
+
+    <!-- Confetti animation -->
+    <script>
+        function createConfetti() {
+            const colors = ['#ffd700', '#00ff41', '#ff6600', '#ff4444', '#4444ff', '#ff44ff'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear ${Math.random() * 2}s`;
+                confetti.style.animationFillMode = 'forwards';
+                document.body.appendChild(confetti);
+            }
+        }
+        createConfetti();
+        setInterval(createConfetti, 5000);
+
+        function shareResult() {
+            const text = "🏆 I just completed the TrendAI Cyber Security Challenge! I decoded ROT13, Base64, and Hexadecimal messages. Think you can beat it? #TrendAI #CyberSecurity #CareerFair";
+            if (navigator.share) {
+                navigator.share({
+                    title: 'TrendAI Cyber Challenge Complete!',
+                    text: text
+                });
+            } else {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Achievement text copied to clipboard! Share it on social media! 🎉');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
