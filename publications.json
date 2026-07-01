@@ -1,6 +1,13 @@
 {
   "publications": [
     {
+      "date": "2026-06-04",
+      "title": "The Cybercriminal Underground: Mapping the Healthcare Data Economy",
+      "type": "Paper",
+      "link": "https://www.trendaisecurity.com/en-us/resources-insights/research/the-cybercriminal-underground-mapping-the-healthcare-data-economy",
+      "display": "Healthcare Underground"
+    },
+    {
       "date": "2026-03-04",
       "title": "Europol, Microsoft, TrendAI™, and Collaborators Halt Tycoon 2FA Operations",
       "type": "Blog",
