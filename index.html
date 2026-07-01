@@ -25,7 +25,7 @@
       <a href="#about">about</a>
       <a href="#featured">featured</a>
       <a href="publications.html">publications</a>
-      <a href="resume.html" aria-current="page">résumé</a>
+      <a href="resume.html">résumé</a>
       <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
     </nav>
   </header>
@@ -35,17 +35,34 @@
     <img class="hero-banner__img" alt="" decoding="async" fetchpriority="high" />
     <div class="hero-banner__overlay"></div>
     <div class="container hero-banner__content">
+      <p class="eyebrow">field notes // threat research // critical infrastructure</p>
       <h1>Principal Threat Researcher @ TrendAI</h1>
       <p class="lede">ICS security • reverse engineering • cybercrime intelligence</p>
+      <div class="hero-actions" aria-label="Primary links">
+        <a class="btn-primary" href="publications.html">Read the work</a>
+        <a class="btn-ghost" href="resume.html">View résumé</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section id="about" class="container section">
-      <h2>~/about</h2>
-      <p>
-        Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen’s work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats. His research has been presented at leading security conferences and published in widely respected industry reports, reflecting his commitment to advancing the security of interconnected systems worldwide.
-      </p>
+      <div class="section-head">
+        <h2>~/about</h2>
+        <p class="section-note">A practical mix of hands-on research, public reporting, and field-tested analysis.</p>
+      </div>
+
+      <div class="about-panel">
+        <p>
+          Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen’s work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats.
+        </p>
+        <ul class="focus-list" aria-label="Research focus areas">
+          <li><span>01</span> ICS/OT security research</li>
+          <li><span>02</span> Reverse engineering and protocol analysis</li>
+          <li><span>03</span> Cybercrime and underground economy tracking</li>
+          <li><span>04</span> Public reports, talks, and intelligence briefs</li>
+        </ul>
+      </div>
 
       <!-- Filmstrip -->
       <div class="filmstrip" data-photo-strip></div>
@@ -53,7 +70,13 @@
 
     <!-- FEATURED: dynamically populated from publications.json -->
     <section id="featured" class="container section">
-      <h2>~/featured_work</h2>
+      <div class="section-head section-head--split">
+        <div>
+          <h2>~/featured_work</h2>
+          <p class="section-note">Latest selected publications pulled from the site archive.</p>
+        </div>
+        <a class="btn-link" href="publications.html">all publications →</a>
+      </div>
       <ul id="featured-list" class="cards">
         <li class="muted">Loading featured items…</li>
       </ul>
