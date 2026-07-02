@@ -54,7 +54,7 @@
 
       <div class="about-panel">
         <p>
-          Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen’s work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats.
+          Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen's work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats.
         </p>
         <ul class="focus-list" aria-label="Research focus areas">
           <li><span>01</span> ICS/OT security research</li>
@@ -66,6 +66,14 @@
 
       <!-- Filmstrip -->
       <div class="filmstrip" data-photo-strip></div>
+
+      <!-- Stats bar — populated by JS from publications.json -->
+      <div class="stats-bar" id="stats-bar" aria-label="Research stats at a glance">
+        <div class="stat-item"><span class="stat-num" id="stat-pubs">—</span><span class="stat-label">Publications</span></div>
+        <div class="stat-item"><span class="stat-num" id="stat-talks">—</span><span class="stat-label">Presentations</span></div>
+        <div class="stat-item"><span class="stat-num" id="stat-years">—</span><span class="stat-label">Years Active</span></div>
+        <div class="stat-item"><span class="stat-num" id="stat-types">—</span><span class="stat-label">Types</span></div>
+      </div>
     </section>
 
     <!-- FEATURED: dynamically populated from publications.json -->
@@ -86,6 +94,7 @@
   <footer class="site-footer container">
     <small>© <span id="year"></span> Stephen J. Hilt —
       <a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">Twitter</a> /
+      <a href="https://bsky.app/profile/sjhilt.bsky.social" target="_blank" rel="noopener">Bluesky</a> /
       <a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener">LinkedIn</a>
     </small>
   </footer>
@@ -118,8 +127,8 @@
       if (!s) return '';
       const parts = String(s).split('-').map(x=>x.padStart(2,'0'));
       let iso = s;
-      if (parts.length === 2) iso = `${parts[0]}-${parts[1]}-01`;
-      if (parts.length === 1) iso = `${parts[0]}-01-01`;
+      if (parts.length === 2) iso = parts[0] + '-' + parts[1] + '-01';
+      if (parts.length === 1) iso = parts[0] + '-01-01';
       const d = new Date(iso);
       if (isNaN(d)) return s;
       return d.toLocaleDateString(undefined, {
@@ -130,14 +139,14 @@
     }
 
     function escapeHTML(str){
-      return String(str).replace(/[&<>"']/g, s => (
-        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]
-      ));
+      var el = document.createElement('span');
+      el.textContent = str;
+      return el.innerHTML;
     }
 
     // Tolerate comments and trailing commas in publications.json
     function sanitizeJson(input){
-      let out = input.replace(/\/\*[\s\S]*?\*\//g, '');         // /* block comments */
+      var out = input.replace(/\/\*[\s\S]*?\*\//g, '');         // /* block comments */
       out = out.replace(/(^|[^\:])\/\/.*$/gm, '$1');            // // line comments (not after protocol colon)
       out = out.replace(/,\s*(\}|\])/g, '$1');                  // trailing commas
       return out.trim();
@@ -149,23 +158,21 @@
         return;
       }
 
-      const slots = shuffle(PHOTO_SLOTS).slice(0, items.length);
+      var slots = shuffle(PHOTO_SLOTS).slice(0, items.length);
 
-      featuredList.innerHTML = items.map((pub, idx) => {
-        const slot = slots[idx] || 'card-1';
-        const title = escapeHTML(pub.title || '');
-        const type  = escapeHTML(pub.type || '');
-        const date  = escapeHTML(fmtDate(pub.date || ''));
-        const link  = pub.link || '#';
-        return `
-          <li class="card">
-            <a href="${link}" target="_blank" rel="noopener">
-              <div class="card-cover cover-fallback" data-photo-slot="${slot}" aria-hidden="true"></div>
-              <h3>${title}</h3>
-              <p>${type} — ${date}</p>
-            </a>
-          </li>
-        `;
+      featuredList.innerHTML = items.map(function(pub, idx){
+        var slot = slots[idx] || 'card-1';
+        var title = escapeHTML(pub.title || '');
+        var type  = escapeHTML(pub.type || '');
+        var date  = escapeHTML(fmtDate(pub.date || ''));
+        var link  = pub.link || '#';
+        return '<li class="card">' +
+          '<a href="' + link + '" target="_blank" rel="noopener">' +
+            '<div class="card-cover cover-fallback" data-photo-slot="' + slot + '" aria-hidden="true"></div>' +
+            '<h3>' + title + '</h3>' +
+            '<p><span class="type-badge" data-type="' + type + '">' + type + '</span>' + date + '</p>' +
+          '</a>' +
+        '</li>';
       }).join('');
 
       // Refresh covers now that elements exist
@@ -180,21 +187,35 @@
 
     async function loadFeatured(){
       try {
-        const res = await fetch(JSON_PATH, { cache: 'no-cache' });
-        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-        let text = await res.text();
+        var res = await fetch(JSON_PATH, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+        var text = await res.text();
         if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // strip BOM
-        const parsed = JSON.parse(sanitizeJson(text));
-        const pubs = Array.isArray(parsed) ? parsed : (parsed && parsed.publications) || [];
+        var parsed = JSON.parse(sanitizeJson(text));
+        var pubs = Array.isArray(parsed) ? parsed : (parsed && parsed.publications) || [];
 
-        const latestThree = pubs
-          .filter(p => p && (p.type === 'Blog' || p.type === 'Paper'))
-          .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
-          .slice(0, 3);
+        var latestSix = pubs
+          .filter(function(p){ return p && (p.type === 'Blog' || p.type === 'Paper'); })
+          .sort(function(a,b){ return (b.date || '').localeCompare(a.date || ''); })
+          .slice(0, 6);
 
-        renderFeatured(latestThree);
+        renderFeatured(latestSix);
+
+        // Populate stats bar
+        try {
+          var allWritten = pubs.filter(function(p){ return p && p.type !== 'Presentation'; });
+          var allTalks = pubs.filter(function(p){ return p && p.type === 'Presentation'; });
+          var years = pubs.map(function(p){ return parseInt((p.date||'').slice(0,4)); }).filter(function(y){ return y > 2000; });
+          var span = years.length ? (Math.max.apply(null, years) - Math.min.apply(null, years) + 1) : 0;
+          var typeSet = {};
+          pubs.forEach(function(p){ if(p && p.type) typeSet[p.type] = true; });
+          document.getElementById('stat-pubs').textContent = allWritten.length;
+          document.getElementById('stat-talks').textContent = allTalks.length;
+          document.getElementById('stat-years').textContent = span ? span + '+' : '—';
+          document.getElementById('stat-types').textContent = Object.keys(typeSet).length;
+        } catch(_){}
       } catch (err) {
-        featuredList.innerHTML = `<li class="error">Failed to load publications (${escapeHTML(err.message)}).</li>`;
+        featuredList.innerHTML = '<li class="error">Failed to load publications (' + escapeHTML(err.message) + ').</li>';
       }
     }
 
