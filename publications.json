@@ -394,6 +394,13 @@
       "display": "From Guardian to Threat: The Double Life of Security Tools"
     },
     {
+      "date": "2025-01",
+      "title": "Global Anti-Scam Summit (GASS) America 2025",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=cVEq1k5MOBI",
+      "display": "Winning the War on AI Scams: Myth or Mission Possible? (Panel)"
+    },
+    {
       "date": "2020-05",
       "title": "BSidesKnoxville",
       "type": "Presentation",
@@ -469,6 +476,20 @@
       "type": "Presentation",
       "link": "https://www.irongeek.com/i.php?page=videos/derbycon7/t115-victim-machine-has-joined-general-using-third-party-apis-as-cc-infrastructure-stephen-hilt-lord-alfred-remorin",
       "display": "Victim Machine has joined #general: Using Third Party APIs as C&C Infrastructure"
+    },
+    {
+      "date": "2016-10",
+      "title": "4SICS (CS3STHLM) 2016",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=yG3MIEbDt_E",
+      "display": "Lessons Learned by the Ukraine Attack (Panel)"
+    },
+    {
+      "date": "2016-10",
+      "title": "4SICS (CS3STHLM) 2016",
+      "type": "Presentation",
+      "link": "https://www.youtube.com/watch?v=cGL9kr7JSOw",
+      "display": "The 90s Called"
     },
     {
       "date": "2016-09",
