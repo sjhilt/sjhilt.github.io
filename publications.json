@@ -1,6 +1,13 @@
 {
   "publications": [
     {
+      "date": "2026-07-22",
+      "title": "Law Enforcement Takes Down Kratos/Sneaky2FA Phishing Service, With an Assist From TrendAI™",
+      "type": "Blog",
+      "link": "https://www.trendmicro.com/en_us/research/26/g/kratos-takedown.html",
+      "display": "Kratos/Sneaky2FA Takedown"
+    },
+    {
       "date": "2026-06-04",
       "title": "The Cybercriminal Underground: Mapping the Healthcare Data Economy",
       "type": "Paper",
