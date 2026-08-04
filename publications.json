@@ -1,6 +1,20 @@
 {
   "publications": [
     {
+      "date": "2026-08-04",
+      "title": "TrendAI™ Intelligence Aids Law Enforcement Arrest of Tycoon 2FA Operators",
+      "type": "Blog",
+      "link": "https://www.trendaisecurity.com/en-us/resources-insights/trendai-security-blog/trendaitm-intelligence-aids-law-enforcement-arrest-of-tycoon-2fa-operators",
+      "display": "Tycoon 2FA Arrest"
+    },
+    {
+      "date": "2026-08-04",
+      "title": "What Cybercriminals Look For in Corporate Insiders",
+      "type": "Paper",
+      "link": "https://www.trendaisecurity.com/en/resources-insights/deep-research/what-cybercriminals-look-for-in-corporate-insiders",
+      "display": "Corporate Insiders"
+    },
+    {
       "date": "2026-07-22",
       "title": "Law Enforcement Takes Down Kratos/Sneaky2FA Phishing Service, With an Assist From TrendAI™",
       "type": "Blog",
