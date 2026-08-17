@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFP Time — Live Feed</title>
+  <meta name="description" content="A live, readable view of open CFPs and upcoming conferences from CFP Time." />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <style>
+    .feed-status { color:var(--muted); }
+    .feed { list-style:none; margin:1rem 0 2rem; padding:0; display:grid; gap:.75rem; }
+    .feed-item { padding:1rem; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+    .feed-item h3 { margin:0 0 .35rem; }
+    .feed-item p { margin:.2rem 0; }
+    .feed-item a { color:var(--accent); }
+    .feed-item details { margin-top:.6rem; }
+    .feed-item pre { white-space:pre-wrap; font:inherit; color:var(--muted); }
+    .error { color:#ff9b9b; }
+  </style>
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="index.html">Stephen J. Hilt</a>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>~/cfptime</h1>
+      <p>Live data loaded from the public CFP Time API when this page opens.</p>
+      <p id="status" class="feed-status" role="status">Loading feeds…</p>
+    </div>
+
+    <section aria-labelledby="open-heading">
+      <h2 id="open-heading">Open CFPs <span id="open-count"></span></h2>
+      <ul id="open-cfps" class="feed"><li>Loading…</li></ul>
+    </section>
+
+    <section aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Upcoming conferences <span id="upcoming-count"></span></h2>
+      <ul id="upcoming" class="feed"><li>Loading…</li></ul>
+    </section>
+  </main>
+
+  <script>
+    const API = {
+      open: 'https://api.cfptime.org/api/cfps/',
+      upcoming: 'https://api.cfptime.org/api/upcoming/'
+    };
+
+    const text = (value) => value == null || value === '' ? 'Not provided' : String(value);
+
+    function addText(parent, label, value) {
+      const paragraph = document.createElement('p');
+      const strong = document.createElement('strong');
+      strong.textContent = `${label}: `;
+      paragraph.append(strong, document.createTextNode(text(value)));
+      parent.append(paragraph);
+    }
+
+    function safeLink(value) {
+      if (!value) return null;
+      try {
+        const url = new URL(value);
+        return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function render(items, listId, countId) {
+      const list = document.getElementById(listId);
+      const count = document.getElementById(countId);
+      list.replaceChildren();
+      count.textContent = `(${items.length})`;
+
+      items.forEach((item) => {
+        const entry = document.createElement('li');
+        entry.className = 'feed-item';
+        entry.dataset.cfpId = text(item.id);
+
+        const heading = document.createElement('h3');
+        const website = safeLink(item.website);
+        if (website) {
+          const link = document.createElement('a');
+          link.href = website;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = text(item.name);
+          heading.append(link);
+        } else {
+          heading.textContent = text(item.name);
+        }
+        entry.append(heading);
+
+        addText(entry, 'CFP deadline', item.cfp_deadline);
+        addText(entry, 'Conference start', item.conf_start_date);
+        addText(entry, 'Location', [item.city, item.province, item.country].filter(Boolean).join(', '));
+        addText(entry, 'Duration', item.number_of_days ? `${item.number_of_days} day(s)` : null);
+
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = 'Full details';
+        details.append(summary);
+        addText(details, 'Twitter', item.twitter);
+        addText(details, 'Speaker benefits', item.speaker_benefits);
+
+        const description = document.createElement('pre');
+        description.textContent = text(item.cfp_details);
+        details.append(description);
+
+        const conduct = safeLink(item.code_of_conduct);
+        if (conduct) {
+          const conductLine = document.createElement('p');
+          const conductLink = document.createElement('a');
+          conductLink.href = conduct;
+          conductLink.target = '_blank';
+          conductLink.rel = 'noopener';
+          conductLink.textContent = 'Code of conduct';
+          conductLine.append(conductLink);
+          details.append(conductLine);
+        }
+
+        entry.append(details);
+        list.append(entry);
+      });
+    }
+
+    function showError(listId, countId, error) {
+      const list = document.getElementById(listId);
+      const item = document.createElement('li');
+      item.className = 'error';
+      item.textContent = `Failed to load: ${error.message}`;
+      list.replaceChildren(item);
+      document.getElementById(countId).textContent = '(unavailable)';
+    }
+
+    async function loadFeed(url) {
+      const response = await fetch(url, { headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const data = await response.json();
+      if (!Array.isArray(data)) throw new Error('Unexpected API response');
+      return data;
+    }
+
+    async function load() {
+      const status = document.getElementById('status');
+      const [openResult, upcomingResult] = await Promise.allSettled([
+        loadFeed(API.open),
+        loadFeed(API.upcoming)
+      ]);
+
+      if (openResult.status === 'fulfilled') render(openResult.value, 'open-cfps', 'open-count');
+      else showError('open-cfps', 'open-count', openResult.reason);
+
+      if (upcomingResult.status === 'fulfilled') render(upcomingResult.value, 'upcoming', 'upcoming-count');
+      else showError('upcoming', 'upcoming-count', upcomingResult.reason);
+
+      const failures = [openResult, upcomingResult].filter((result) => result.status === 'rejected').length;
+      status.textContent = failures
+        ? `Loaded with ${failures} feed error(s) at ${new Date().toISOString()}`
+        : `Both feeds loaded at ${new Date().toISOString()}`;
+    }
+
+    load();
+  </script>
+</body>
+</html>
