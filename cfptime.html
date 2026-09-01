@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFP Time JSON</title>
+  <style>
+    body { margin:0; padding:1rem; background:#fff; color:#000; }
+    pre { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; }
+  </style>
+</head>
+<body>
+  <pre id="json">Loading…</pre>
+
+  <script>
+    const endpoints = {
+      open_cfps: 'https://api.cfptime.org/api/cfps/',
+      upcoming: 'https://api.cfptime.org/api/upcoming/'
+    };
+
+    async function getJson(url) {
+      const response = await fetch(url, { headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      return response.json();
+    }
+
+    async function load() {
+      const output = document.getElementById('json');
+
+      try {
+        const [openCfps, upcoming] = await Promise.all([
+          getJson(endpoints.open_cfps),
+          getJson(endpoints.upcoming)
+        ]);
+
+        output.textContent = JSON.stringify({
+          fetched_at: new Date().toISOString(),
+          source: endpoints,
+          open_cfps: openCfps,
+          upcoming
+        }, null, 2);
+      } catch (error) {
+        output.textContent = JSON.stringify({
+          error: error.message,
+          fetched_at: new Date().toISOString(),
+          source: endpoints
+        }, null, 2);
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>
