@@ -1,6 +1,13 @@
 {
   "publications": [
     {
+      "date": "2026-09-02",
+      "title": "Mapping the Criminal Economy Targeting Critical Infrastructure",
+      "type": "Paper",
+      "link": "https://www.trendaisecurity.com/en/resources-insights/deep-research/mapping-the-criminal-economy-targeting-critical-infrastructure",
+      "display": "Critical Infrastructure Criminal Economy"
+    },
+    {
       "date": "2026-08-08",
       "title": "An Invisible Attack Surface: Thousands of Industrial Control Systems Exposed Near Data Centers",
       "type": "Paper",
