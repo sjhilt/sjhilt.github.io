@@ -1,150 +1,121 @@
-// assets/js/photos.js
 (function () {
-  const ready = (fn) =>
-    document.readyState !== "loading"
-      ? fn()
-      : document.addEventListener("DOMContentLoaded", fn);
+  const ready = callback => document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', callback)
+    : callback();
 
   ready(async () => {
     try {
-      console.log("[photos] init");
+      const response = await fetch('photos/manifest.json', { cache: 'no-cache' });
+      if (!response.ok) return;
 
-      // Fetch manifest (relative so it works locally + on Pages)
-      const res = await fetch("photos/manifest.json", { cache: "no-cache" });
-      if (!res.ok) {
-        console.warn("[photos] manifest fetch failed:", res.status, res.statusText);
-        return;
+      const data = await response.json();
+      const images = Array.isArray(data.images) ? data.images : Array.isArray(data) ? data : [];
+      if (!images.length) return;
+
+      const sourceFor = image => image && (image.full || image.thumb);
+      const thumbFor = image => image && (image.thumb || image.full);
+
+      const heroImage = document.querySelector('.hero-banner__img');
+      if (heroImage) {
+        const hero = images.find(image => image.id === '001') || images[0];
+        heroImage.addEventListener('load', () => heroImage.classList.add('is-ready'), { once: true });
+        heroImage.src = sourceFor(hero);
       }
-      const data = await res.json();
-      const imgs = Array.isArray(data.images) ? data.images : Array.isArray(data) ? data : [];
-      console.log("[photos] images:", imgs.length);
-      if (!imgs.length) return;
 
-      // Helpers
-      const pick = (n, arr) => {
-        const pool = arr.slice();
-        const out = [];
-        while (n-- > 0 && pool.length) {
-          out.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
-        }
-        return out;
-      };
-      const setBg = (el, src) => { if (el) el.style.backgroundImage = `url(${src})`; };
-
-      // --- HERO BANNER ---
-      (function hero() {
-        const heroImg = document.querySelector(".hero-banner__img");
-        if (!heroImg) return;
-        const chosen =
-          imgs.find(i => i.tone === "cool") ||
-          imgs.find(i => i.tone === "neutral") ||
-          imgs[0];
-        const src = chosen.full || chosen.thumb;
-        console.log("[photos] hero src:", src);
-        heroImg.addEventListener("load", () => heroImg.classList.add("is-ready"));
-        heroImg.src = src; // triggers load → adds .is-ready
-      })();
-
-      // --- FEATURED CARD COVERS (refactored to be reusable) ---
       function applyCovers() {
-        const coverEls = document.querySelectorAll("[data-photo-slot^='card-']");
-        if (!coverEls.length) return;
-        const selection = pick(coverEls.length, imgs);
-        selection.forEach((p, i) => {
-          setBg(coverEls[i], p.thumb || p.full);
+        document.querySelectorAll('[data-photo-slot^="card-"]').forEach((element, index) => {
+          const image = images[(17 + index * 19) % images.length];
+          element.style.backgroundImage = `url("${thumbFor(image)}")`;
         });
       }
 
-      // Expose a public refresh hook and also listen for a custom event
-      window.PhotoCovers = window.PhotoCovers || {};
-      window.PhotoCovers.refresh = applyCovers;
-      document.addEventListener("photos:refresh", applyCovers);
-
-      // Initial pass for any covers already on the page at load
+      document.addEventListener('photos:refresh', applyCovers);
       applyCovers();
 
-      // --- FILMSTRIP + LIGHTBOX ---
-      (function filmstripAndLightbox() {
-        const strip = document.querySelector("[data-photo-strip]");
-        if (!strip) { console.warn("[photos] no [data-photo-strip]"); return; }
+      const strip = document.querySelector('[data-photo-strip]');
+      if (!strip) return;
 
-        const maxThumbs = Math.min(12, imgs.length);
-        const selection = pick(maxThumbs, imgs);
-        console.log("[photos] filmstrip picked:", selection.length);
+      const count = Math.min(12, images.length);
+      const selection = Array.from({ length: count }, (_, index) => images[(index * 9) % images.length]);
+      let currentIndex = -1;
+      let previousFocus = null;
 
-        if (!selection.length) {
-          strip.innerHTML = "<span class='muted'>No images available.</span>";
-          return;
-        }
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.id = 'lightbox';
+      lightbox.setAttribute('role', 'dialog');
+      lightbox.setAttribute('aria-modal', 'true');
+      lightbox.setAttribute('aria-label', 'Expanded field photograph');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightbox.innerHTML = `
+        <button class="lightbox-close" type="button" aria-label="Close photograph">&times;</button>
+        <img class="lightbox-img" alt="">
+      `;
+      document.body.appendChild(lightbox);
 
-        // Ensure lightbox exists (inject if missing)
-        let lightbox = document.getElementById("lightbox");
-        let lightboxImg = document.getElementById("lightboxImg");
-        let lightboxClose = document.getElementById("lightboxClose");
+      const lightboxImage = lightbox.querySelector('.lightbox-img');
+      const closeButton = lightbox.querySelector('.lightbox-close');
 
-        if (!lightbox) {
-          const wrapper = document.createElement("div");
-          wrapper.innerHTML = `
-            <div class="lightbox" id="lightbox" aria-hidden="true">
-              <span class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</span>
-              <img class="lightbox-img" id="lightboxImg" alt="">
-            </div>`;
-          document.body.appendChild(wrapper.firstElementChild);
-          lightbox = document.getElementById("lightbox");
-          lightboxImg = document.getElementById("lightboxImg");
-          lightboxClose = document.getElementById("lightboxClose");
-        }
+      function show(index) {
+        currentIndex = index;
+        const image = selection[currentIndex];
+        lightboxImage.src = sourceFor(image);
+        lightboxImage.alt = image.alt || 'Expanded field photograph';
+        lightbox.classList.add('is-visible');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      }
 
-        // Build thumbnails
-        strip.innerHTML = "";
-        selection.forEach((p, idx) => {
-          const img = new Image();
-          img.loading = "lazy";
-          img.src = p.thumb || p.full;
-          img.alt = p.alt || "";
-          img.dataset.index = String(idx);
-          img.addEventListener("click", () => openLightbox(idx));
-          strip.appendChild(img);
+      function close() {
+        lightbox.classList.remove('is-visible');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+        currentIndex = -1;
+        if (previousFocus) previousFocus.focus();
+      }
+
+      function move(delta) {
+        if (currentIndex < 0) return;
+        currentIndex = (currentIndex + delta + selection.length) % selection.length;
+        const image = selection[currentIndex];
+        lightboxImage.src = sourceFor(image);
+        lightboxImage.alt = image.alt || 'Expanded field photograph';
+      }
+
+      selection.forEach((image, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.setAttribute('aria-label', `Open photograph ${index + 1} of ${selection.length}`);
+
+        const thumbnail = new Image();
+        thumbnail.loading = 'lazy';
+        thumbnail.decoding = 'async';
+        thumbnail.src = thumbFor(image);
+        thumbnail.alt = image.alt || '';
+        button.appendChild(thumbnail);
+        button.addEventListener('click', () => {
+          previousFocus = button;
+          show(index);
         });
+        strip.appendChild(button);
+      });
 
-        let currentIndex = -1;
-
-        function openLightbox(idx) {
-          currentIndex = idx;
-          const item = selection[currentIndex];
-          const src = item.full || item.thumb;
-          if (!src) return;
-          lightboxImg.src = src;
-          lightbox.classList.add("is-visible");
-          lightbox.setAttribute("aria-hidden", "false");
+      closeButton.addEventListener('click', close);
+      lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+      document.addEventListener('keydown', event => {
+        if (!lightbox.classList.contains('is-visible')) return;
+        if (event.key === 'Escape') close();
+        if (event.key === 'ArrowLeft') move(-1);
+        if (event.key === 'ArrowRight') move(1);
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          closeButton.focus();
         }
-
-        function closeLightbox() {
-          lightbox.classList.remove("is-visible");
-          lightbox.setAttribute("aria-hidden", "true");
-          lightboxImg.src = "";
-          currentIndex = -1;
-        }
-
-        function nav(delta) {
-          if (currentIndex < 0) return;
-          currentIndex = (currentIndex + delta + selection.length) % selection.length;
-          const item = selection[currentIndex];
-          lightboxImg.src = item.full || item.thumb;
-        }
-
-        lightboxClose.addEventListener("click", closeLightbox);
-        lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-        document.addEventListener("keydown", (e) => {
-          if (!lightbox.classList.contains("is-visible")) return;
-          if (e.key === "Escape") closeLightbox();
-          if (e.key === "ArrowLeft") nav(-1);
-          if (e.key === "ArrowRight") nav(1);
-        });
-      })();
-
-    } catch (e) {
-      console.error("[photos] error", e);
+      });
+    } catch (error) {
+      console.error('[photos] Unable to load photography:', error);
     }
   });
 })();

@@ -3,227 +3,207 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stephen J. Hilt — Research</title>
-  <meta name="description" content="Principal Threat Researcher. ICS security, reverse engineering, and cybercrime intelligence." />
-  <link rel="preload" href="assets/css/site.css" as="style" />
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <title>Stephen J. Hilt — Threat Research</title>
+  <meta name="description" content="Threat research by Stephen J. Hilt across industrial control systems, critical infrastructure, reverse engineering, and cybercrime intelligence." />
+  <meta name="theme-color" content="#090c11" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <meta name="theme-color" content="#111317" />
-
-  <!-- Fallback visual if photos.js hasn't decorated covers yet -->
-  <style>
-    .card-cover.cover-fallback {
-      background: linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header container">
-    <a class="brand" href="index.html">Stephen J. Hilt</a>
-    <nav class="nav">
+    <a class="brand" href="index.html" aria-current="page">Stephen J. Hilt</a>
+    <nav class="nav" aria-label="Primary navigation">
       <a href="#about">about</a>
-      <a href="#featured">featured</a>
+      <a href="#featured">work</a>
       <a href="publications.html">publications</a>
       <a href="resume.html">résumé</a>
-      <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener noreferrer">github</a>
     </nav>
   </header>
 
-  <!-- Stylish hero banner -->
-  <header class="hero-banner" aria-label="site header image">
+  <header class="hero-banner">
     <img class="hero-banner__img" alt="" decoding="async" fetchpriority="high" />
     <div class="hero-banner__overlay"></div>
     <div class="container hero-banner__content">
-      <p class="eyebrow">field notes // threat research // critical infrastructure</p>
-      <h1>Principal Threat Researcher @ TrendAI</h1>
-      <p class="lede">ICS security • reverse engineering • cybercrime intelligence</p>
-      <div class="hero-actions" aria-label="Primary links">
-        <a class="btn-primary" href="publications.html">Read the work</a>
-        <a class="btn-ghost" href="resume.html">View résumé</a>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">threat research // critical infrastructure // cybercrime</p>
+          <h1>Researching the systems and economies attackers depend on.</h1>
+          <p class="lede">I investigate threats to industrial systems and critical infrastructure—from protocols and radio technologies to criminal markets and state-aligned operations.</p>
+          <div class="hero-actions" aria-label="Primary links">
+            <a class="btn-primary" href="publications.html">Explore the research <span aria-hidden="true">→</span></a>
+            <a class="btn-ghost" href="resume.html">View résumé</a>
+          </div>
+        </div>
+        <aside class="profile-card" aria-label="Stephen Hilt profile">
+          <img src="images/avatar.jpg" alt="Stephen J. Hilt speaking at a security event" width="400" height="400" />
+          <div class="profile-card__body">
+            <strong>Stephen J. Hilt</strong>
+            <span>Principal Threat Researcher</span>
+            <span class="status-line">TrendAI</span>
+          </div>
+        </aside>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section id="about" class="container section">
       <div class="section-head">
-        <h2>~/about</h2>
-        <p class="section-note">A practical mix of hands-on research, public reporting, and field-tested analysis.</p>
+        <h2>about</h2>
+        <p class="section-note">Hands-on technical research translated into useful intelligence for defenders.</p>
       </div>
 
-      <div class="about-panel">
-        <p>
-          Stephen J. Hilt is a seasoned threat researcher specializing in industrial control systems (ICS) security, cybercrime investigations, and advanced persistent threats. With extensive experience in uncovering complex attacks targeting critical infrastructure, he has contributed to numerous high-impact reports and global threat intelligence initiatives. Stephen's work bridges deep technical expertise with strategic analysis, enabling organizations to better understand and defend against emerging cyber threats.
-        </p>
-        <ul class="focus-list" aria-label="Research focus areas">
-          <li><span>01</span> ICS/OT security research</li>
-          <li><span>02</span> Reverse engineering and protocol analysis</li>
-          <li><span>03</span> Cybercrime and underground economy tracking</li>
-          <li><span>04</span> Public reports, talks, and intelligence briefs</li>
-        </ul>
+      <div class="about-layout">
+        <div class="about-copy">
+          <p>Stephen J. Hilt is a threat researcher specializing in industrial control systems, cybercrime investigations, and advanced persistent threats. His work uncovers how attackers target critical infrastructure and turns those findings into practical guidance for defenders.</p>
+          <p>Across nearly two decades in security, he has combined protocol analysis, reverse engineering, honeypot research, underground economy tracking, and field-tested assessments to connect deep technical evidence with the larger threat landscape.</p>
+        </div>
+        <div class="focus-panel">
+          <ul class="focus-list" aria-label="Research focus areas">
+            <li><span>01</span><span>ICS and OT security research</span></li>
+            <li><span>02</span><span>Reverse engineering and protocol analysis</span></li>
+            <li><span>03</span><span>Cybercrime and underground economy tracking</span></li>
+            <li><span>04</span><span>Public reports, talks, and intelligence briefs</span></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Filmstrip -->
-      <div class="filmstrip" data-photo-strip></div>
-
-      <!-- Stats bar — populated by JS from publications.json -->
-      <div class="stats-bar" id="stats-bar" aria-label="Research stats at a glance">
-        <div class="stat-item"><span class="stat-num" id="stat-pubs">—</span><span class="stat-label">Publications</span></div>
+      <div class="stats-bar" aria-label="Research stats at a glance">
+        <div class="stat-item"><span class="stat-num" id="stat-pubs">—</span><span class="stat-label">Written works</span></div>
         <div class="stat-item"><span class="stat-num" id="stat-talks">—</span><span class="stat-label">Presentations</span></div>
-        <div class="stat-item"><span class="stat-num" id="stat-years">—</span><span class="stat-label">Years Active</span></div>
-        <div class="stat-item"><span class="stat-num" id="stat-types">—</span><span class="stat-label">Types</span></div>
+        <div class="stat-item"><span class="stat-num" id="stat-years">—</span><span class="stat-label">Years published</span></div>
+        <div class="stat-item"><span class="stat-num" id="stat-citations">—</span><span class="stat-label">Scholar citations</span></div>
+      </div>
+
+      <div class="field-notes">
+        <p class="field-notes__label">field notes / selected photography</p>
+        <div class="filmstrip" data-photo-strip aria-label="Selected field photography"></div>
       </div>
     </section>
 
-    <!-- FEATURED: dynamically populated from publications.json -->
     <section id="featured" class="container section">
       <div class="section-head section-head--split">
         <div>
-          <h2>~/featured_work</h2>
-          <p class="section-note">Latest selected publications pulled from the site archive.</p>
+          <h2>latest_work</h2>
+          <p class="section-note">The newest papers and research posts from the full archive.</p>
         </div>
-        <a class="btn-link" href="publications.html">all publications →</a>
+        <a class="btn-link" href="publications.html">View all publications <span aria-hidden="true">→</span></a>
       </div>
-      <ul id="featured-list" class="cards">
-        <li class="muted">Loading featured items…</li>
+      <ul id="featured-list" class="cards" aria-live="polite">
+        <li class="muted">Loading featured work…</li>
       </ul>
     </section>
   </main>
 
   <footer class="site-footer container">
-    <small>© <span id="year"></span> Stephen J. Hilt —
-      <a href="https://twitter.com/sjhilt" target="_blank" rel="noopener">Twitter</a> /
-      <a href="https://bsky.app/profile/sjhilt.bsky.social" target="_blank" rel="noopener">Bluesky</a> /
-      <a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener">LinkedIn</a>
+    <small>© <span id="year"></span> Stephen J. Hilt</small>
+    <small>
+      <a href="https://bsky.app/profile/sjhilt.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a> ·
+      <a href="https://www.linkedin.com/in/stephenhilt/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener noreferrer">GitHub</a>
     </small>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/js/photos.js" defer></script>
-
   <script>
-  (function(){
+  (function () {
     const featuredList = document.getElementById('featured-list');
-    const JSON_PATH = 'publications.json'; // same folder as index.html
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Photo slots your photos.js maps to images. Adjust if you use different names.
-    const PHOTO_SLOTS = [
-      'card-1','card-2','card-3','card-4','card-5','card-6',
-      'card-7','card-8','card-9','card-10','card-11','card-12'
-    ];
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[char]));
+    }
 
-    function shuffle(arr){
-      const a = arr.slice();
-      for (let i=a.length-1;i>0;i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [a[i],a[j]] = [a[j],a[i]];
+    function safeURL(value) {
+      try {
+        const url = new URL(value, window.location.href);
+        return /^(https?:)$/.test(url.protocol) ? escapeHTML(url.href) : '#';
+      } catch (_) {
+        return '#';
       }
-      return a;
     }
 
-    // Pretty-print YYYY[-MM][-DD] to "Mon D, YYYY" (or "Mon YYYY" if only year-month)
-    function fmtDate(s){
-      if (!s) return '';
-      const parts = String(s).split('-').map(x=>x.padStart(2,'0'));
-      let iso = s;
-      if (parts.length === 2) iso = parts[0] + '-' + parts[1] + '-01';
-      if (parts.length === 1) iso = parts[0] + '-01-01';
-      const d = new Date(iso);
-      if (isNaN(d)) return s;
-      return d.toLocaleDateString(undefined, {
-        year:'numeric',
-        month:'short',
-        day: parts.length>=3 ? 'numeric' : undefined
-      }).replace(',', '');
+    function formatDate(value) {
+      const parts = String(value || '').split('-');
+      if (!parts[0]) return '';
+      const date = new Date(Number(parts[0]), Number(parts[1] || 1) - 1, Number(parts[2] || 1));
+      if (Number.isNaN(date.getTime())) return value;
+      return new Intl.DateTimeFormat(undefined, {
+        year: 'numeric', month: 'short', day: parts.length > 2 ? 'numeric' : undefined
+      }).format(date);
     }
 
-    function escapeHTML(str){
-      var el = document.createElement('span');
-      el.textContent = str;
-      return el.innerHTML;
+    function sanitizeJSON(input) {
+      return input
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/(^|[^:])\/\/.*$/gm, '$1')
+        .replace(/,\s*(\}|\])/g, '$1')
+        .trim();
     }
 
-    // Tolerate comments and trailing commas in publications.json
-    function sanitizeJson(input){
-      var out = input.replace(/\/\*[\s\S]*?\*\//g, '');         // /* block comments */
-      out = out.replace(/(^|[^\:])\/\/.*$/gm, '$1');            // // line comments (not after protocol colon)
-      out = out.replace(/,\s*(\}|\])/g, '$1');                  // trailing commas
-      return out.trim();
-    }
-
-    function renderFeatured(items){
+    function renderFeatured(items) {
       if (!items.length) {
         featuredList.innerHTML = '<li class="muted">No featured publications found.</li>';
         return;
       }
 
-      var slots = shuffle(PHOTO_SLOTS).slice(0, items.length);
+      featuredList.innerHTML = items.map((pub, index) => `
+        <li class="card">
+          <a href="${safeURL(pub.link)}" target="_blank" rel="noopener noreferrer">
+            <div class="card-cover" data-photo-slot="card-${index + 1}" aria-hidden="true"></div>
+            <h3>${escapeHTML(pub.title)}</h3>
+            <p><span class="type-badge" data-type="${escapeHTML(pub.type)}">${escapeHTML(pub.type)}</span>${escapeHTML(formatDate(pub.date))}</p>
+          </a>
+        </li>
+      `).join('');
 
-      featuredList.innerHTML = items.map(function(pub, idx){
-        var slot = slots[idx] || 'card-1';
-        var title = escapeHTML(pub.title || '');
-        var type  = escapeHTML(pub.type || '');
-        var date  = escapeHTML(fmtDate(pub.date || ''));
-        var link  = pub.link || '#';
-        return '<li class="card">' +
-          '<a href="' + link + '" target="_blank" rel="noopener">' +
-            '<div class="card-cover cover-fallback" data-photo-slot="' + slot + '" aria-hidden="true"></div>' +
-            '<h3>' + title + '</h3>' +
-            '<p><span class="type-badge" data-type="' + type + '">' + type + '</span>' + date + '</p>' +
-          '</a>' +
-        '</li>';
-      }).join('');
-
-      // Refresh covers now that elements exist
-      try {
-        if (window.PhotoCovers && typeof window.PhotoCovers.refresh === 'function') {
-          window.PhotoCovers.refresh();
-        } else {
-          document.dispatchEvent(new CustomEvent('photos:refresh'));
-        }
-      } catch (_) { /* ignore; gradient fallback remains */ }
+      document.dispatchEvent(new CustomEvent('photos:refresh'));
     }
 
-    async function loadFeatured(){
+    async function loadPageData() {
       try {
-        var res = await fetch(JSON_PATH, { cache: 'no-cache' });
-        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-        var text = await res.text();
-        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // strip BOM
-        var parsed = JSON.parse(sanitizeJson(text));
-        var pubs = Array.isArray(parsed) ? parsed : (parsed && parsed.publications) || [];
+        const [publicationsResponse, scholarResponse] = await Promise.all([
+          fetch('publications.json', { cache: 'no-cache' }),
+          fetch('scholar-stats.json', { cache: 'no-cache' })
+        ]);
+        if (!publicationsResponse.ok) throw new Error(`${publicationsResponse.status} ${publicationsResponse.statusText}`);
 
-        var latestSix = pubs
-          .filter(function(p){ return p && (p.type === 'Blog' || p.type === 'Paper'); })
-          .sort(function(a,b){ return (b.date || '').localeCompare(a.date || ''); })
+        let text = await publicationsResponse.text();
+        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+        const parsed = JSON.parse(sanitizeJSON(text));
+        const publications = Array.isArray(parsed) ? parsed : parsed.publications || [];
+        const latest = publications
+          .filter(item => item && (item.type === 'Blog' || item.type === 'Paper'))
+          .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
           .slice(0, 6);
 
-        renderFeatured(latestSix);
+        renderFeatured(latest);
 
-        // Populate stats bar
-        try {
-          var allWritten = pubs.filter(function(p){ return p && p.type !== 'Presentation'; });
-          var allTalks = pubs.filter(function(p){ return p && p.type === 'Presentation'; });
-          var years = pubs.map(function(p){ return parseInt((p.date||'').slice(0,4)); }).filter(function(y){ return y > 2000; });
-          var span = years.length ? (Math.max.apply(null, years) - Math.min.apply(null, years) + 1) : 0;
-          var typeSet = {};
-          pubs.forEach(function(p){ if(p && p.type) typeSet[p.type] = true; });
-          document.getElementById('stat-pubs').textContent = allWritten.length;
-          document.getElementById('stat-talks').textContent = allTalks.length;
-          document.getElementById('stat-years').textContent = span ? span + '+' : '—';
-          document.getElementById('stat-types').textContent = Object.keys(typeSet).length;
-        } catch(_){}
-      } catch (err) {
-        featuredList.innerHTML = '<li class="error">Failed to load publications (' + escapeHTML(err.message) + ').</li>';
+        const written = publications.filter(item => item && item.type !== 'Presentation').length;
+        const talks = publications.filter(item => item && item.type === 'Presentation').length;
+        const years = publications.map(item => Number(String(item.date || '').slice(0, 4))).filter(year => year > 2000);
+        const span = years.length ? Math.max(...years) - Math.min(...years) + 1 : 0;
+        document.getElementById('stat-pubs').textContent = written;
+        document.getElementById('stat-talks').textContent = talks;
+        document.getElementById('stat-years').textContent = span ? `${span}+` : '—';
+
+        if (scholarResponse.ok) {
+          const scholar = await scholarResponse.json();
+          document.getElementById('stat-citations').textContent = scholar.citations_all ?? '—';
+        }
+      } catch (error) {
+        featuredList.innerHTML = `<li class="error">Failed to load publications (${escapeHTML(error.message)}).</li>`;
       }
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadFeatured);
-    } else {
-      loadFeatured();
-    }
+    loadPageData();
   })();
   </script>
 </body>

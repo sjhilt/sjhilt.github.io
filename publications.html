@@ -3,231 +3,254 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>~/publications — Stephen J. Hilt</title>
-  <meta name="description" content="Papers, reports, and talks by Stephen J. Hilt." />
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <title>Publications — Stephen J. Hilt</title>
+  <meta name="description" content="Papers, reports, research posts, code, and presentations by Stephen J. Hilt." />
+  <meta name="theme-color" content="#090c11" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <meta name="theme-color" content="#111317" />
-  <style>
-    /* tiny helper styles for the filter bar */
-    .filters { display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; margin:.75rem 0 1rem; }
-    .filters strong { opacity:.9; }
-    .filters label { display:inline-flex; gap:.35rem; align-items:center; }
-    .filters [data-count-for] { opacity:.65; font-variant-numeric: tabular-nums; }
-    .filters .btn-link { background:none; border:none; text-decoration:underline; cursor:pointer; padding:.2rem .3rem; }
-    @media (max-width:640px){ .filters{ gap:.5rem; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header container">
     <a class="brand" href="index.html">Stephen J. Hilt</a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary navigation">
       <a href="index.html#about">about</a>
-      <a href="index.html#featured">featured</a>
-      <a class="active" href="publications.html">publications</a>
-      <a href="resume.html" aria-current="page">résumé</a>
-      <a href="https://github.com/sjhilt" target="_blank" rel="noopener">github</a>
+      <a href="index.html#featured">work</a>
+      <a href="publications.html" aria-current="page">publications</a>
+      <a href="resume.html">résumé</a>
+      <a href="https://github.com/sjhilt" target="_blank" rel="noopener noreferrer">github</a>
     </nav>
   </header>
 
-  <header class="hero-banner" aria-label="publications header image">
+  <header class="hero-banner hero-banner--compact">
     <img class="hero-banner__img" alt="" decoding="async" />
     <div class="hero-banner__overlay"></div>
     <div class="container hero-banner__content">
-      <h1>~/publications</h1>
-      <p class="lede">Selected papers, reports, and talks.</p>
+      <p class="eyebrow">research archive // papers // talks // tools</p>
+      <h1>Publications</h1>
+      <p class="lede">A searchable archive of investigations, technical reports, presentations, and code.</p>
     </div>
   </header>
 
-  <main class="container section">
-    <!-- Scholar card -->
-    <section class="pub-section">
-      <h2>google scholar</h2>
-      <div class="terminal-like">
-        <iframe src="scholar-box.html" width="100%" height="400" class="scholar-frame" frameborder="0" title="Google Scholar publications"></iframe>
+  <main id="main-content" class="container section">
+    <section class="pub-section" aria-labelledby="scholar-heading">
+      <h2 id="scholar-heading">research_impact</h2>
+      <div class="terminal-like scholar-summary" id="scholar-summary">
+        <p class="muted m-0">Loading Google Scholar stats…</p>
       </div>
     </section>
 
-    <!-- Publications table -->
-    <section class="pub-section">
-      <h2>list</h2>
-      <div class="terminal-like">
+    <section class="pub-section" aria-labelledby="archive-heading">
+      <div class="section-head section-head--split">
+        <div>
+          <h2 id="archive-heading">full_archive</h2>
+          <p class="section-note">Filter by format or search across titles, dates, and publication types.</p>
+        </div>
+      </div>
 
-        <!-- Filter controls -->
-        <div class="filters" role="group" aria-label="Filter by type">
-          <strong>Filter by type:</strong>
-          <label><input type="checkbox" value="Blog" checked> Blog <span data-count-for="Blog">(0)</span></label>
-          <label><input type="checkbox" value="Paper" checked> Paper <span data-count-for="Paper">(0)</span></label>
-          <label><input type="checkbox" value="Presentation" checked> Presentation <span data-count-for="Presentation">(0)</span></label>
-          <label><input type="checkbox" value="Book" checked> Book <span data-count-for="Book">(0)</span></label>
-          <label><input type="checkbox" value="Code" checked> Code <span data-count-for="Code">(0)</span></label>
-          <span style="margin-left:auto;display:inline-flex;gap:.75rem;">
-            <button type="button" id="filters-select-all" class="btn-link">select all</button>
-            <button type="button" id="filters-clear" class="btn-link">clear</button>
-          </span>
+      <div class="terminal-like">
+        <div class="publication-tools">
+          <div class="search-row">
+            <div class="search-field">
+              <label for="publication-search">Search publications</label>
+              <input id="publication-search" type="search" placeholder="Search the archive…" autocomplete="off" />
+            </div>
+            <div class="result-count" id="result-count" aria-live="polite">Loading…</div>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filter publications by type">
+            <label class="filter-chip"><input type="checkbox" value="Blog" checked><span>Blog <small data-count-for="Blog">0</small></span></label>
+            <label class="filter-chip"><input type="checkbox" value="Paper" checked><span>Paper <small data-count-for="Paper">0</small></span></label>
+            <label class="filter-chip"><input type="checkbox" value="Presentation" checked><span>Presentation <small data-count-for="Presentation">0</small></span></label>
+            <label class="filter-chip"><input type="checkbox" value="Book" checked><span>Book <small data-count-for="Book">0</small></span></label>
+            <label class="filter-chip"><input type="checkbox" value="Code" checked><span>Code <small data-count-for="Code">0</small></span></label>
+            <span class="filter-actions">
+              <button type="button" id="filters-select-all">select all</button>
+              <button type="button" id="filters-clear">clear</button>
+            </span>
+          </div>
         </div>
 
-        <table class="pub-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Title</th>
-              <th>Type</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-          <tbody id="pub-table-body">
-            <tr><td colspan="4" class="muted">Loading publications…</td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="pub-table">
+            <thead>
+              <tr><th>Date</th><th>Title</th><th>Type</th><th>Source</th></tr>
+            </thead>
+            <tbody id="pub-table-body">
+              <tr><td colspan="4" class="muted">Loading publications…</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer container">
     <small>© <span id="year"></span> Stephen J. Hilt</small>
+    <small><a href="index.html">Home</a> · <a href="resume.html">Résumé</a></small>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/js/photos.js" defer></script>
-
   <script>
-  (function(){
+  (function () {
+    const TYPES = ['Blog', 'Paper', 'Presentation', 'Book', 'Code'];
     const tbody = document.getElementById('pub-table-body');
-
-    // Load from the file right next to this HTML
-    const JSON_PATH = 'publications.json';
-
-    // Filter buckets (keep original `type` for display; use `bucket` for filtering)
-    const TYPES = ['Blog','Paper','Presentation','Book','Code'];
-    let allData = [];
+    const searchInput = document.getElementById('publication-search');
+    const resultCount = document.getElementById('result-count');
+    let publications = [];
     let activeTypes = new Set(TYPES);
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // -------- Rendering --------
-    function renderRows(items){
-      if (!Array.isArray(items) || !items.length) {
-        tbody.innerHTML = '<tr><td colspan="4" class="muted">No publications found.</td></tr>';
-        return;
-      }
-      items.sort((a,b) => (b.date||'').localeCompare(a.date||''));
-      tbody.innerHTML = items.map(pub => `
-        <tr>
-          <td>${pub.date ?? ''}</td>
-          <td>${pub.title ? (pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.title)}</a>` : escapeHTML(pub.title)) : ''}</td>
-          <td>${pub.type ?? ''}</td>
-          <td>${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener">${escapeHTML(pub.display || 'Link')}</a>` : ''}</td>
-        </tr>
-      `).join('');
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[char]));
     }
 
-    function applyFilter(){
-      const filtered = allData.filter(p => activeTypes.has(p.bucket));
-      renderRows(filtered);
-      updateCounts();
-    }
-
-    // -------- Counts --------
-    function updateCounts(){
-      const counts = TYPES.reduce((acc,t)=> (acc[t]=0, acc), {});
-      allData.forEach(p => { if (counts[p.bucket] !== undefined) counts[p.bucket]++; });
-      TYPES.forEach(t => {
-        const el = document.querySelector(`[data-count-for="${t}"]`);
-        if (el) el.textContent = `(${counts[t]})`;
-      });
-    }
-
-    // -------- Filters UI wiring --------
-    document.querySelectorAll('.filters input[type="checkbox"]').forEach(cb=>{
-      cb.addEventListener('change', (e)=>{
-        const t = e.target.value;
-        e.target.checked ? activeTypes.add(t) : activeTypes.delete(t);
-        applyFilter();
-      });
-    });
-    document.getElementById('filters-select-all').addEventListener('click', ()=>{
-      activeTypes = new Set(TYPES);
-      syncCheckboxes();
-      applyFilter();
-    });
-    document.getElementById('filters-clear').addEventListener('click', ()=>{
-      activeTypes.clear();
-      syncCheckboxes();
-      applyFilter();
-    });
-    function syncCheckboxes(){
-      document.querySelectorAll('.filters input[type="checkbox"]').forEach(cb=>{
-        cb.checked = activeTypes.has(cb.value);
-      });
-    }
-
-    // -------- Data loading --------
-    async function load() {
+    function safeURL(value) {
       try {
-        const res = await fetch(JSON_PATH, { cache:'no-cache' });
-        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-        let text = await res.text();
-
-        // Remove BOM if any
-        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
-
-        // Sanitize: strip comments and trailing commas, then parse
-        const cleaned = sanitizeJson(text);
-        const parsed = JSON.parse(cleaned);
-
-        const data = Array.isArray(parsed) ? parsed : (parsed && parsed.publications);
-        if (!Array.isArray(data)) throw new Error('unexpected JSON shape');
-
-        // Build filter bucket but leave original type for display
-        allData = data.map(p => ({ ...p, bucket: detectBucket(p) }))
-                      .filter(p => TYPES.includes(p.bucket));
-
-        updateCounts();
-        applyFilter();
-      } catch (err){
-        tbody.innerHTML = `<tr><td colspan="4" class="error">Failed to load publications (${escapeHTML(err.message)}).</td></tr>`;
+        const url = new URL(value, window.location.href);
+        return /^(https?:)$/.test(url.protocol) ? escapeHTML(url.href) : '';
+      } catch (_) {
+        return '';
       }
     }
 
-    // Strip // line comments, /* block */ comments, and trailing commas
-    function sanitizeJson(input){
-      // remove block comments
-      let out = input.replace(/\/\*[\s\S]*?\*\//g, '');
-      // remove line comments (but not URLs)
-      out = out.replace(/(^|[^\:])\/\/.*$/gm, '$1');
-      // remove trailing commas in objects and arrays
-      out = out.replace(/,\s*(\}|\])/g, '$1');
-      return out.trim();
+    function sanitizeJSON(input) {
+      return input
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/(^|[^:])\/\/.*$/gm, '$1')
+        .replace(/,\s*(\}|\])/g, '$1')
+        .trim();
     }
 
-    // Map arbitrary/messy types into our 5 filter buckets
-    function detectBucket(p){
-      const t = (p.type || '').toString().toLowerCase();
-      if (t.includes('blog')) return 'Blog';
-      if (t.includes('paper') || t.includes('report') || t.includes('white')) return 'Paper';
-      if (t.includes('book')) return 'Book';
-      if (t.includes('code')) return 'Code';
-      if (t.includes('present')) return 'Presentation';
+    function detectBucket(item) {
+      const type = String(item.type || '').toLowerCase();
+      if (type.includes('blog')) return 'Blog';
+      if (type.includes('paper') || type.includes('report') || type.includes('white')) return 'Paper';
+      if (type.includes('book')) return 'Book';
+      if (type.includes('code')) return 'Code';
+      if (type.includes('present')) return 'Presentation';
 
-      // Heuristics for legacy presentation rows where "type" held the talk title
-      const link = (p.link || '').toLowerCase();
-      const title = (p.title || '').toLowerCase();
-      const looksLikeVideo = /(youtube\.com|youtu\.be|vimeo\.com|irongeek\.com)/.test(link);
-      const looksLikeConf  = /(s4x|bsides|defcon|derbycon|rsa|secureworld|hitb|cs3sthlm|black\s*hat|4sics|hack3rcon)/.test(title);
-      if (looksLikeVideo || looksLikeConf) return 'Presentation';
-
-      // Mixed “Blog/Paper” -> treat as Blog for filtering
-      if (t.includes('blog/paper')) return 'Blog';
-
+      const link = String(item.link || '').toLowerCase();
+      const title = String(item.title || '').toLowerCase();
+      if (/(youtube\.com|youtu\.be|vimeo\.com|irongeek\.com)/.test(link)) return 'Presentation';
+      if (/(s4x|bsides|defcon|derbycon|rsa|secureworld|hitb|cs3sthlm|black\s*hat|4sics|hack3rcon)/.test(title)) return 'Presentation';
       return '__OTHER__';
     }
 
-    function escapeHTML(str){
-      return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+    function render(items) {
+      resultCount.textContent = `${items.length} of ${publications.length} items`;
+      if (!items.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="muted">No publications match those filters.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = items.map(item => {
+        const url = safeURL(item.link);
+        const title = escapeHTML(item.title);
+        const linkedTitle = url ? `<a class="publication-link" href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>` : title;
+        const source = url ? `<a class="external-link" href="${url}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.display || 'Open')} <span aria-hidden="true">↗</span></a>` : '';
+        return `<tr>
+          <td>${escapeHTML(item.date)}</td>
+          <td>${linkedTitle}</td>
+          <td><span class="type-badge" data-type="${escapeHTML(item.bucket)}">${escapeHTML(item.type)}</span></td>
+          <td>${source}</td>
+        </tr>`;
+      }).join('');
     }
 
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load);
-    else load();
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = publications.filter(item => {
+        if (!activeTypes.has(item.bucket)) return false;
+        if (!query) return true;
+        return [item.title, item.date, item.type, item.display].some(value => String(value || '').toLowerCase().includes(query));
+      });
+      render(filtered);
+    }
+
+    function updateCounts() {
+      const counts = Object.fromEntries(TYPES.map(type => [type, 0]));
+      publications.forEach(item => { if (item.bucket in counts) counts[item.bucket] += 1; });
+      TYPES.forEach(type => {
+        const element = document.querySelector(`[data-count-for="${type}"]`);
+        if (element) element.textContent = counts[type];
+      });
+    }
+
+    function syncCheckboxes() {
+      document.querySelectorAll('.filters input[type="checkbox"]').forEach(input => {
+        input.checked = activeTypes.has(input.value);
+      });
+    }
+
+    document.querySelectorAll('.filters input[type="checkbox"]').forEach(input => {
+      input.addEventListener('change', () => {
+        input.checked ? activeTypes.add(input.value) : activeTypes.delete(input.value);
+        applyFilters();
+      });
+    });
+    searchInput.addEventListener('input', applyFilters);
+    document.getElementById('filters-select-all').addEventListener('click', () => {
+      activeTypes = new Set(TYPES);
+      syncCheckboxes();
+      applyFilters();
+    });
+    document.getElementById('filters-clear').addEventListener('click', () => {
+      activeTypes.clear();
+      syncCheckboxes();
+      applyFilters();
+    });
+
+    async function loadScholar() {
+      const target = document.getElementById('scholar-summary');
+      try {
+        const response = await fetch('scholar-stats.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        const data = await response.json();
+        target.innerHTML = `
+          <div class="scholar-head">
+            <div><div class="scholar-title">${escapeHTML(data.name)}</div><div class="scholar-sub">${escapeHTML(data.affiliation)}</div></div>
+            <a class="btn-link" href="https://scholar.google.com/citations?user=W0iV6qYAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+          </div>
+          <dl class="stat-grid">
+            <div><dt>Total citations</dt><dd>${escapeHTML(data.citations_all)}</dd></div>
+            <div><dt>Recent citations</dt><dd>${escapeHTML(data.citations_recent)}</dd></div>
+            <div><dt>h-index</dt><dd>${escapeHTML(data.h_index_all)}</dd></div>
+            <div><dt>i10-index</dt><dd>${escapeHTML(data.i10_index_all)}</dd></div>
+          </dl>`;
+      } catch (error) {
+        target.innerHTML = '<p class="error m-0">Google Scholar stats are temporarily unavailable.</p>';
+      }
+    }
+
+    async function loadPublications() {
+      try {
+        const response = await fetch('publications.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        let text = await response.text();
+        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+        const parsed = JSON.parse(sanitizeJSON(text));
+        const data = Array.isArray(parsed) ? parsed : parsed.publications;
+        if (!Array.isArray(data)) throw new Error('Unexpected publication data format');
+        publications = data
+          .map(item => ({ ...item, bucket: detectBucket(item) }))
+          .filter(item => TYPES.includes(item.bucket))
+          .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        updateCounts();
+        applyFilters();
+      } catch (error) {
+        resultCount.textContent = 'Unavailable';
+        tbody.innerHTML = `<tr><td colspan="4" class="error">Failed to load publications (${escapeHTML(error.message)}).</td></tr>`;
+      }
+    }
+
+    loadScholar();
+    loadPublications();
   })();
   </script>
 </body>
