@@ -6,6 +6,7 @@
   <title>Stephen J. Hilt — Threat Research</title>
   <meta name="description" content="Threat research by Stephen J. Hilt across industrial control systems, critical infrastructure, reverse engineering, and cybercrime intelligence." />
   <meta name="theme-color" content="#090c11" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -167,15 +168,12 @@
       document.dispatchEvent(new CustomEvent('photos:refresh'));
     }
 
-    async function loadPageData() {
+    async function loadPublications() {
       try {
-        const [publicationsResponse, scholarResponse] = await Promise.all([
-          fetch('publications.json', { cache: 'no-cache' }),
-          fetch('scholar-stats.json', { cache: 'no-cache' })
-        ]);
-        if (!publicationsResponse.ok) throw new Error(`${publicationsResponse.status} ${publicationsResponse.statusText}`);
+        const response = await fetch('publications.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
-        let text = await publicationsResponse.text();
+        let text = await response.text();
         if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
         const parsed = JSON.parse(sanitizeJSON(text));
         const publications = Array.isArray(parsed) ? parsed : parsed.publications || [];
@@ -193,17 +191,26 @@
         document.getElementById('stat-pubs').textContent = written;
         document.getElementById('stat-talks').textContent = talks;
         document.getElementById('stat-years').textContent = span ? `${span}+` : '—';
-
-        if (scholarResponse.ok) {
-          const scholar = await scholarResponse.json();
-          document.getElementById('stat-citations').textContent = scholar.citations_all ?? '—';
-        }
       } catch (error) {
         featuredList.innerHTML = `<li class="error">Failed to load publications (${escapeHTML(error.message)}).</li>`;
       }
     }
 
-    loadPageData();
+    async function loadScholar() {
+      const citations = document.getElementById('stat-citations');
+      try {
+        const response = await fetch('scholar-stats.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        const scholar = await response.json();
+        citations.textContent = scholar.citations_all ?? '—';
+      } catch (error) {
+        citations.textContent = '—';
+        console.warn('[scholar] Stats are temporarily unavailable:', error);
+      }
+    }
+
+    loadPublications();
+    loadScholar();
   })();
   </script>
 </body>

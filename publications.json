@@ -403,7 +403,7 @@
       "date": "2014-10-01",
       "title": "Threat Intelligence firm mistakes research\n              for nation-state attack",
       "type": "Blog",
-      "link": "Threat Intelligence firm mistakes\n                research for nation-state attack",
+      "link": "https://www.csoonline.com/article/549412/threat-intelligence-firm-mistakes-research-for-nation-state-attack.html",
       "display": "APT Chattanooga"
     },
     {
@@ -414,7 +414,7 @@
       "display": "Redpoint:\n\n\n\n\n\n                Bacnet"
     },
     {
-      "date": "2014-2-03",
+      "date": "2014-02-03",
       "title": "PlcPwn",
       "type": "Blog",
       "link": "https://dale-peterson.com/2014/02/03/why-plcpwn-is-important-for-ics-cyber-weapons/",
@@ -530,7 +530,7 @@
       "date": "2016-09",
       "title": "Derbycon 6.0",
       "type": "Presentation",
-      "link": "http://www.irongeek.com/i.php?page=videos/derbycon6/316-the-90s-called-they-want-their-technology-back-stephen-hilt",
+      "link": "https://www.irongeek.com/i.php?page=videos/derbycon6/316-the-90s-called-they-want-their-technology-back-stephen-hilt",
       "display": "The 90's called, they want their technology back"
     },
     {
@@ -548,17 +548,17 @@
       "display": "The Little Pump Gauge That Could: Attacks Against Gas Pump Monitoring Systems"
     },
     {
-      "date": "2015-??",
+      "date": "2014-11",
       "title": "Hack3rCon 5",
       "type": "Presentation",
-      "link": "http://www.irongeek.com/i.php?page=videos/hack3rcon5/h13-i-am-nation-state-and-so-can-you-tothehilt-synackpwn",
+      "link": "https://www.irongeek.com/i.php?page=videos/hack3rcon5/h13-i-am-nation-state-and-so-can-you-tothehilt-synackpwn",
       "display": "I Am Nation State (And So Can You!)"
     },
     {
       "date": "2014-09",
       "title": "Derbycon 4.0",
       "type": "Presentation",
-      "link": "http://www.irongeek.com/i.php?page=videos/derbycon4/t124-protocol-me-maybe-how-to-date-scada-stephen-hilt",
+      "link": "https://www.irongeek.com/i.php?page=videos/derbycon4/t124-protocol-me-maybe-how-to-date-scada-stephen-hilt",
       "display": "Protocol Me Maybe?: How to Date SCADA"
     },
     {
