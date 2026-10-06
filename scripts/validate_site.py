@@ -94,6 +94,7 @@ class Validation:
 
         record_keys: list[tuple[str, ...]] = []
         links: list[str] = []
+        publication_dates: list[tuple[int, str]] = []
         for index, publication in enumerate(publications, start=1):
             location = f"publications.json publication #{index}"
             if not isinstance(publication, dict):
@@ -109,6 +110,7 @@ class Validation:
                 continue
 
             self.validate_date(publication["date"], f"{location} date")
+            publication_dates.append((index, publication["date"]))
             self.validate_web_url(publication["link"], f"{location} link")
             links.append(publication["link"].strip().casefold())
             record_keys.append(tuple(" ".join(publication[field].split()).casefold() for field in PUBLICATION_FIELDS))
@@ -119,6 +121,20 @@ class Validation:
         for link, count in Counter(links).items():
             if link and count > 1:
                 self.error(f"publications.json: duplicate publication URL ({count} uses): {link}")
+
+        for (previous_index, previous_date), (current_index, current_date) in zip(
+            publication_dates, publication_dates[1:]
+        ):
+            if (
+                DATE_PATTERN.fullmatch(previous_date)
+                and DATE_PATTERN.fullmatch(current_date)
+                and previous_date < current_date
+            ):
+                self.error(
+                    "publications.json: publications must be in descending date order; "
+                    f"publication #{previous_index} ({previous_date}) appears before "
+                    f"publication #{current_index} ({current_date})"
+                )
 
         print(f"Checked {len(publications)} publications.")
 
