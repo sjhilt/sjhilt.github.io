@@ -1,6 +1,13 @@
 {
   "publications": [
     {
+      "date": "2026-10-22",
+      "title": "Ransomware’s Next Chapter: How the Criminal Ecosystem Is Changing",
+      "type": "Paper",
+      "link": "https://www.trendaisecurity.com/en-us/resources-insights/deep-research/ransomware-next-chapter-how-the-criminal-ecosystem-is-changing",
+      "display": "Beyond Encryption"
+    },
+    {
       "date": "2026-09-02",
       "title": "Mapping the Criminal Economy Targeting Critical Infrastructure",
       "type": "Paper",
